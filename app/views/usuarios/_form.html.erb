@@ -10,10 +10,12 @@
 						<%= f.label :email %>
 		        <%= f.text_field :email %>
 		      </td>
-		      <td>
-						<%= f.label :password %>
-		        <%= f.password_field :password  %>
-		      </td>
+					<% if action == :new  %>
+			      <td>
+							<%= f.label :password %>
+			        <%= f.password_field :password  %>
+			      </td>
+					<% end %>
 		      <td>
 						<%= f.label :cpf %>			
 		        <%= f.text_field :cpf %>

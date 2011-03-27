@@ -1,5 +1,5 @@
 <h1>Cadastro de Usuários</h1>
 
-<%= render 'form' %>
+<%= render :partial => 'form', :locals => { :action => :new } %>
 <br/>
 <%= link_to 'Back', usuarios_path %>
