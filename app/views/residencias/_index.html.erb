@@ -1,0 +1,21 @@
+<% unless residencias.blank? %>
+ Residencias
+	<table>
+		<thead>
+	  	<tr>
+		    <th>Cidade</th>
+		    <th>Uf</th>
+		    <th>Endereco</th>
+		    <th>Cep</th>
+		    <th></th>
+		  </tr>
+		</thead>
+	
+		<tbody>
+	  	<%= render :partial => '/residencias/residencia', :collection => residencias %>
+		</tbody>
+	</table>
+
+	<br />
+<% end %>
+<%= link_to 'Nova Residência', new_usuario_residencia_url(usuario) %>

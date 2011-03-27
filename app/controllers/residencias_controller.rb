@@ -11,6 +11,8 @@ class ResidenciasController < ApplicationController
   def new
     @residencia = Residencia.new
     @residencia.usuario = Usuario.find params[:usuario_id]
+    p @residencia
+    p @residencia.usuario
   end
 
   def edit
@@ -19,11 +21,13 @@ class ResidenciasController < ApplicationController
 
   def create
     @residencia = Residencia.new(params[:residencia])
+    @residencia.usuario = Usuario.find params[:usuario_id]
 
     if @residencia.save
-      flash[:notice] = "Usuario criado com sucesso!"
-      redirect_to :action => :index , :usuario_id => params[:usuario_id]
+      flash[:notice] = "Residencia criada com sucesso!"
+      redirect_to :controller => :usuarios, :action => :show , :id => params[:usuario_id]
     else
+      p @residencia.errors
       render :action => "new"
     end
   end
@@ -32,8 +36,8 @@ class ResidenciasController < ApplicationController
     @residencia = Residencia.find(params[:id])
 
     if @residencia.update_attributes(params[:residencia])
-      flash[:notice] = "Usuario atualizado com sucesso!"
-      redirect_to :action => :show , :id => @residencia.id, :usuario_id => params[:usuario_id]
+      flash[:notice] = "Residencia atualizada com sucesso!"
+      redirect_to :controller => :usuarios, :action => :show , :id => params[:usuario_id]
     else
       render :action => "edit"
     end

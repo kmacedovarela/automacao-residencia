@@ -6,5 +6,9 @@ CPF:  <%= @usuario.cpf %> <br/>
 Telefone:  <%= @usuario.telefone %> <br/>
 Tipo de Usuário:  <%= @usuario.tipo %><br/><br/>
 
+<%= render :partial => '/residencias/index', :locals => { 
+																								:residencias => @usuario.residencias, 
+																								:usuario => @usuario  } %>
+
 <%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+<%= link_to 'Back', usuarios_path %> |

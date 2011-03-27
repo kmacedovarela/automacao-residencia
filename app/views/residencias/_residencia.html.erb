@@ -11,8 +11,8 @@
   <td> 
     <%= residencia.cep %> 
   </td>
-  <td><%= link_to 'Show', residencia %></td>
-  <td><%= link_to 'Edit', edit_residencia_path(residencia) %></td>
-  <td><%= link_to 'Destroy', residencia, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  <td><%= link_to 'Show', usuario_residencia_path(residencia.usuario, residencia) %></td>
+  <td><%= link_to 'Edit', edit_usuario_residencia_path(residencia.usuario, residencia) %></td>
+  <td><%= link_to 'Destroy', usuario_residencia_path(residencia.usuario, residencia), :confirm => 'Você tem certeza?', :method => :delete %></td>
 </tr>
 

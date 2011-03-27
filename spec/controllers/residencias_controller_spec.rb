@@ -56,10 +56,10 @@ describe ResidenciasController do
         assigns(:residencia).should be(mock_residencia)
       end
 
-      it "redirects to the created residencia" do
+      it "redireciona para o show de usuario" do
         Residencia.stub(:new) { mock_residencia(:save => true) }
         post :create, :residencia => {}, :usuario_id => @usuario.id
-        response.should redirect_to :controller => :residencias, :action => :index, :usuario_id => @usuario.id
+        response.should redirect_to :controller => :usuarios, :action => :show, :usuario_id => @usuario.id
       end
     end
 
