@@ -1,0 +1,22 @@
+<h1> Usuários </h1>
+
+<table id='listagem_usuarios' class='nice_table'>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Cpf</th>
+      <th>Telefone</th>
+      <th>Tipo</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render :partial => 'usuario', :collection => @usuarios %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Usuario', new_usuario_path %>

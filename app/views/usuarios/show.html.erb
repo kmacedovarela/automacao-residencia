@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+Usuário: <%= @usuario.nome %> <br/>
+Email:  <%= @usuario.email %> <br/>
+CPF:  <%= @usuario.cpf %> <br/>
+Telefone:  <%= @usuario.telefone %> <br/>
+Tipo de Usuário:  <%= @usuario.tipo %><br/><br/>
+
+<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
+<%= link_to 'Back', usuarios_path %>

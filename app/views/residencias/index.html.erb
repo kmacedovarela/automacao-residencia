@@ -1,0 +1,19 @@
+<table id='listagem_residencias' class='nice_table'>
+	<thead>
+  	<tr>
+	    <th>Cidade</th>
+	    <th>Uf</th>
+	    <th>Endereco</th>
+	    <th>Cep</th>
+	    <th></th>
+	  </tr>
+	</thead>
+	
+	<tbody>
+  	<%= render :partial => 'residencia', :collection => @residencias %>
+	</tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nova Residência', new_residencia_path %>

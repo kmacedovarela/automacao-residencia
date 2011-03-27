@@ -1,0 +1,29 @@
+<%= form_for [@residencia.usuario, @residencia] do |f| %>
+  <%= render :partial => 'layouts/errors', :locals => {:entity => @residencia} %>
+  
+  <table>
+    <tr>
+      <td>
+        <%= f.label :cidade %>
+        <%= f.text_field :cidade %>
+      </td>
+      <td>
+        <%= f.label :uf %>
+        <%= f.text_field :uf, :maxlength => 2 %>
+      </td>
+      <td>
+        <%= f.label :endereco %>
+        <%= f.text_field :endereco %>
+      </td>
+      <td>
+        <%= f.label :cep %>
+        <%= f.text_field :cep, :class => :cep %>
+      </td>
+        
+      <td>
+        <%= f.submit %>
+      </td>
+    </tr>
+  </table>
+
+<% end %>

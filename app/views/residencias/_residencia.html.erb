@@ -1,0 +1,18 @@
+<tr>
+  <td>
+    <%= residencia.cidade %> 
+  </td>
+  <td> 
+    <%= residencia.uf %> 
+  </td>
+  <td>
+    <%= residencia.endereco %> 
+  </td>
+  <td> 
+    <%= residencia.cep %> 
+  </td>
+  <td><%= link_to 'Show', residencia %></td>
+  <td><%= link_to 'Edit', edit_residencia_path(residencia) %></td>
+  <td><%= link_to 'Destroy', residencia, :confirm => 'Você tem certeza?', :method => :delete %></td>
+</tr>
+

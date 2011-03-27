@@ -1,0 +1,15 @@
+<% if entity.errors.any? %>
+  <div id="error_explanation">
+		<% if entity.errors.count == 1 %>
+    	<h2><%= t('activerecord.errors.template.header.one', :model => entity.class.human_name)  %> </h2>
+		<% else %>
+			<h2><%= t('activerecord.errors.template.header.other', :model => entity.class.human_name, 
+																														 :count => entity.errors.count)  %> </h2>
+		<% end %>
+    <ul>
+    <% entity.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

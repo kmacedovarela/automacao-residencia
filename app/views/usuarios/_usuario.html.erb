@@ -1,0 +1,20 @@
+<tr>
+  <td> 
+    <%= usuario.nome %> 
+  </td>
+  <td> 
+    <%= usuario.email %> 
+  </td>
+  <td> 
+    <%= usuario.cpf %> 
+  </td>
+  <td> 
+    <%= usuario.telefone %> 
+  </td>
+  <td>
+    <%= usuario.tipo %>
+  </td>
+  <td><%= link_to 'Show', usuario %></td>
+  <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
+  <td><%= link_to 'Destroy', usuario, :confirm => 'Você tem certeza?', :method => :delete %></td>
+</tr>

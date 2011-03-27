@@ -1,0 +1,36 @@
+<%= form_for(@usuario) do |f| %>
+	<%= render :partial => 'layouts/errors', :locals => {:entity => @usuario} %>
+  	<table id='tabela_novo_usuario' class='nice_table'>
+		    <tr>
+		      <td>
+						<%= f.label :nome %>
+		        <%= f.text_field :nome  %>
+		      </td>
+		      <td>
+						<%= f.label :email %>
+		        <%= f.text_field :email %>
+		      </td>
+		      <td>
+						<%= f.label :password %>
+		        <%= f.password_field :password  %>
+		      </td>
+		      <td>
+						<%= f.label :cpf %>			
+		        <%= f.text_field :cpf %>
+		      </td>
+		      <td>
+						<%= f.label :telefone %>			 
+		        <%= f.text_field :telefone %>
+		      </td>
+		      <td>
+						<%= f.label :tipo %>
+		        <%= f.select :tipo, '<option>Administrador</option> <option>Usuário</option>' %>
+		      </td>
+        
+		      <td>
+		        <%= f.submit %>
+		      </td>
+		    </tr>
+  	</table>
+	
+<% end %>
