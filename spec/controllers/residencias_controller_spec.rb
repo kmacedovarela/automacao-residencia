@@ -14,14 +14,6 @@ describe ResidenciasController do
     @mock_residencia ||= mock_model(Residencia, stubs).as_null_object
   end
 
-  describe "GET index" do
-    it "assigns all residencias as @residencias" do
-      Residencia.stub(:all) { [mock_residencia] }
-      get :index, :usuario_id => @usuario.id
-      assigns(:residencias).should eq([mock_residencia])
-    end
-  end
-
   describe "GET show" do
     it "assigns the requested residencia as @residencia" do
       Residencia.stub(:find).with("37") { mock_residencia }
@@ -128,5 +120,4 @@ describe ResidenciasController do
       response.should redirect_to(usuario_residencias_url)
     end
   end
-
 end

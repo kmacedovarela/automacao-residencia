@@ -1,18 +1,13 @@
 class ResidenciasController < ApplicationController
 
-  def index
-    @residencias = Residencia.all
-  end
-
   def show
     @residencia = Residencia.find(params[:id])
+    redirect_to usuario_url(@residencia.usuario)
   end
 
   def new
     @residencia = Residencia.new
     @residencia.usuario = Usuario.find params[:usuario_id]
-    p @residencia
-    p @residencia.usuario
   end
 
   def edit
