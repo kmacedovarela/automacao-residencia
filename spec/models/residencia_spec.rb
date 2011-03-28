@@ -41,6 +41,7 @@ describe Residencia do
   
   context 'quando referente as associacoes' do
     it { should belong_to(:usuario) }
+    it { should have_many(:comodos) }
     
     it 'deveria possuir tomadas'
     

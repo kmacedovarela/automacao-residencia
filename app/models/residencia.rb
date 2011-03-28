@@ -1,6 +1,7 @@
 class Residencia < ActiveRecord::Base
   
   belongs_to :usuario
+  has_many :comodos
   
   validates :cidade, :usuario, :presence => true
   validates :cep, :presence => true, :format => {:with => /\d{5}-\d{3}$/}
