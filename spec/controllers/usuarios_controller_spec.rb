@@ -19,10 +19,26 @@ describe UsuariosController do
   end
 
   describe "GET show" do
-    it "assigns the requested usuario as @usuario" do
-      Usuario.stub(:find).with("37") { mock_usuario }
-      get :show, :id => "37"
-      assigns(:usuario).should be(mock_usuario)
+    context 'quando possuir varias residencias' do
+      it "deveria redirecionar para o show de usuario" do
+        usuario = Factory.create :usuario
+        residencia = Factory.create :residencia, :usuario => usuario
+        Factory.create :residencia, :usuario => usuario
+      
+        residencia.usuario.residencias.size.should > 1
+        get :show, :id => residencia.usuario.id
+        response.should render_template :show
+      end
+    end
+    
+    context 'quando existir apenas uma residencia' do
+      it 'deveria redirecionar para o show de residencia' do
+        residencia = Factory.create :residencia
+        
+        residencia.usuario.residencias.size.should == 1
+        get :show, :id => residencia.usuario.id
+        response.should redirect_to(usuario_residencia_path(residencia.usuario, residencia))
+      end
     end
   end
 

@@ -24,7 +24,7 @@ thead tr th {
 .voltar {
 	width: 32px;
 	height: 32px;	
-	position: absolute;
+	float: right;
 	top: 15px;
 	right: 15px;
 }

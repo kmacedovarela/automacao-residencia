@@ -1,5 +1,5 @@
-<td><%= link_to 'Edit', edit_usuario_residencia_path(@residencia.usuario, @residencia) %></td>
+<span style="float: right;top: 15px;"><%= link_editar edit_usuario_residencia_path(@residencia.usuario, @residencia) %></span>
 
-<%= link_voltar usuario_residencias_path %>
+<%= link_voltar usuario_path(@residencia.usuario) %>
 
 <%= render :partial => '/comodos/index', :locals => { :comodos => @residencia.comodos } %>
