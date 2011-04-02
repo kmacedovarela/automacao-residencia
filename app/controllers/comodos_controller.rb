@@ -6,6 +6,7 @@ class ComodosController < ApplicationController
 
   def new
     @comodo = Comodo.new
+    @comodo.residencia = Residencia.find(params[:residencia_id])
   end
 
   def edit

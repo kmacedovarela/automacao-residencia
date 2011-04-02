@@ -25,9 +25,11 @@ describe ComodosController do
 
   describe "GET new" do
     it "assigns a new comodo as @comodo" do
-      Comodo.stub(:new) { mock_comodo }
       get :new, :usuario_id => @usuario.id, :residencia_id => @residencia.id
-      assigns(:comodo).should be(mock_comodo)
+      
+      assigns(:comodo).should be
+      assigns(:comodo).residencia.should be
+      assigns(:comodo).residencia.usuario.should be
     end
   end
 

@@ -1,5 +1,7 @@
 
 Comodo: <%= @comodo.nome %> <br/>
 <br/>
-<%= link_to 'Edit', edit_comodo_path(@comodo) %> |
-<%= link_to 'Back', comodos_path %>
+
+<%= link_editar edit_usuario_residencia_comodo_path(@comodo.residencia.usuario, @comodo.residencia, @comodo) %>
+<%= link_voltar usuario_residencia_path(@comodo.residencia.usuario, @comodo.residencia) %>
+

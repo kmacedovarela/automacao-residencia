@@ -1,7 +1,7 @@
-<%= form_for(@comodo) do |f| %>
+<%= form_for([@comodo.residencia.usuario, @comodo.residencia, @comodo]) do |f| %>
  	<%= render :partial => 'layouts/errors', :locals => {:entity => @comodo} %>
 	
-	<table id='tabela_novo_comodo' class='nice_table'>
+	<table id='tabela_novo_comodo' >
 	    <tr>
 	      <td>
 					<%= f.label :nome %>

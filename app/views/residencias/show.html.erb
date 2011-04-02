@@ -1,5 +1,10 @@
 <span style="float: right;top: 15px;"><%= link_editar edit_usuario_residencia_path(@residencia.usuario, @residencia) %></span>
 
-<%= link_voltar usuario_path(@residencia.usuario) %>
+<h1> Residência </h1>
+Cidade: <%= @residencia.cidade %> <br/>
+UF: <%= @residencia.uf %> <br/>
+Endereço: <%= @residencia.endereco %> <br/>
+CEP: <%= @residencia.cep %> <br/>
 
 <%= render :partial => '/comodos/index', :locals => { :comodos => @residencia.comodos } %>
+<%= link_voltar usuario_path(@residencia.usuario) %>

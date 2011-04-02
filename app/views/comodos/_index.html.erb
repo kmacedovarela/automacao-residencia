@@ -2,10 +2,10 @@
   <%= javascript_include_tag 'views/comodo' %>
 <% end %>
 
-<h1>Listing comodos</h1>
+<h2>Comodos</h2>
 
 <% unless comodos.blank? %>
-	<table>
+	<table >
 	  <tr>
 	    <th>Comodo</th>
 	    <th></th>
@@ -16,15 +16,16 @@
 	<% comodos.each do |comodo| %>
 	  <tr>
 			<td><%= comodo.nome %></td>
-	    <td><%= link_to 'Show', comodo %></td>
-	    <td><%= link_to 'Edit', edit_comodo_path(comodo) %></td>
-	    <td><%= link_to 'Destroy', comodo, :confirm => 'Are you sure?', :method => :delete %></td>
+			<td><%= link_visualizar usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %></td>
+		  <td><%= link_editar edit_usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %></td>
+		  <td><%= link_excluir usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %></td>
+		
 	  </tr>
 	<% end %>
 	</table>
 	
 <% else %>
-	Não existem periféricos cadastrados.
+	Não existem comodos cadastrados.
 <% end %>
 
 <br /><br/>
