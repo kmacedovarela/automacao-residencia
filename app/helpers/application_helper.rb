@@ -39,6 +39,6 @@ module ApplicationHelper
          :class => "icone"
       )
 
-    link_to 'LUPA', path
+    link_to img, path
   end
 end
