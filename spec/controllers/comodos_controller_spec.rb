@@ -40,82 +40,98 @@ describe ComodosController do
   end
 
   describe "POST create" do
+    before do 
+      @params = { 
+          :residencia_id => @residencia.id,
+          :usuario_id => @usuario.id,
+          :comodo => { :nome => 'cozinha' }
+      }
+    end
+    
     describe "with valid params" do
-      it "assigns a newly created comodo as @comodo" do
-        Comodo.stub(:new).with({'these' => 'params'}) { mock_comodo(:save => true) }
-        post :create, :comodo => {'these' => 'params'}
-        assigns(:comodo).should be(mock_comodo)
-      end
-
-      it "redirects to the created comodo" do
-        Comodo.stub(:new) { mock_comodo(:save => true) }
-        post :create, :comodo => {}
-        response.should redirect_to(comodo_url(mock_comodo))
+      it "cria um comodo" do
+        post :create, @params
+        assigns(:comodo).should be
+        response.should redirect_to(:controller => :residencias, 
+                                                    :action => :show, 
+                                                    :id => @residencia.id, 
+                                                    :usuario_id => @usuario.id)
       end
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved comodo as @comodo" do
-        Comodo.stub(:new).with({'these' => 'params'}) { mock_comodo(:save => false) }
-        post :create, :comodo => {'these' => 'params'}
-        assigns(:comodo).should be(mock_comodo)
-      end
-
-      it "re-renders the 'new' template" do
-        Comodo.stub(:new) { mock_comodo(:save => false) }
-        post :create, :comodo => {}
-        response.should render_template("new")
+        @params[:comodo][:nome] = ""
+        post :create, @params
+        assigns(:comodo).should be
+        
+        response.should render_template :new
       end
     end
   end
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested comodo" do
-        Comodo.stub(:find).with("37") { mock_comodo }
-        mock_comodo.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :comodo => {'these' => 'params'}, :usuario_id => @usuario.id, :residencia_id => @residencia.id
-      end
-
-      it "assigns the requested comodo as @comodo" do
-        Comodo.stub(:find) { mock_comodo(:update_attributes => true) }
-        put :update, :id => "1", :usuario_id => @usuario.id, :residencia_id => @residencia.id
-        assigns(:comodo).should be(mock_comodo)
-      end
-
-      it "redirects to the comodo" do
-        Comodo.stub(:find) { mock_comodo(:update_attributes => true) }
-        put :update, :id => "1", :usuario_id => @usuario.id, :residencia_id => @residencia.id
-        response.should redirect_to(comodo_url(mock_comodo))
+      it "deveria atualizar o comodo" do
+        comodo = Factory.create :comodo
+        
+        params = {
+          :id => comodo.id,
+          :residencia_id => comodo.residencia.id,
+          :usuario_id => comodo.residencia.id,
+          :comodo => {
+            :nome => "Novo Nome"
+          }
+        }
+        
+        put :update, params
+        
+        comodo_atualizado = assigns(:comodo)
+        comodo_atualizado.should_not be_nil
+        comodo_atualizado.nome.should eql("Novo Nome")
+        
+        flash[:notice].should_not be_blank
+        
+        response.should redirect_to :controller => :residencias,
+                                    :action => :show,
+                                    :id => comodo.residencia.id,
+                                    :usuario_id => comodo.residencia.usuario.id
       end
     end
 
     describe "with invalid params" do
-      it "assigns the comodo as @comodo" do
-        Comodo.stub(:find) { mock_comodo(:update_attributes => false) }
-        put :update, :id => "1", :usuario_id => @usuario.id, :residencia_id => @residencia.id
-        assigns(:comodo).should be(mock_comodo)
-      end
-
-      it "re-renders the 'edit' template" do
-        Comodo.stub(:find) { mock_comodo(:update_attributes => false) }
-        put :update, :id => "1", :usuario_id => @usuario.id, :residencia_id => @residencia.id
-        response.should render_template("edit")
+      it "deveria manter @comodo" do
+        comodo = Factory.create :comodo
+        
+        params = {
+          :id => comodo.id,
+          :residencia_id => comodo.residencia.id,
+          :usuario_id => comodo.residencia.id,
+          :comodo => {
+            :nome => ''
+          }
+        }
+        
+        put :update, params
+        
+        comodo_atualizado = assigns(:comodo)
+        comodo_atualizado.new_record?.should be_false
+        comodo.reload.nome.should eql(comodo.nome)
+        
+        response.should render_template :edit
       end
     end
   end
 
   describe "DELETE destroy" do
     it "destroys the requested comodo" do
-      Comodo.stub(:find).with("37") { mock_comodo }
-      mock_comodo.should_receive(:destroy)
-      delete :destroy, :id => "37"
-    end
-
-    it "redirects to the comodos list" do
-      Comodo.stub(:find) { mock_comodo }
-      delete :destroy, :id => "1", :usuario_id => @usuario.id, :residencia_id => @residencia.id
-      response.should redirect_to(comodos_url)
+      comodo = Factory.create :comodo
+      delete :destroy, :id => comodo.id, :usuario_id => comodo.residencia.usuario.id, :residencia_id => comodo.residencia.id
+  
+      response.should redirect_to :controller => :residencias,
+                                  :action => :show,
+                                  :id => comodo.residencia.id,
+                                  :usuario_id => comodo.residencia.usuario.id
     end
   end
 

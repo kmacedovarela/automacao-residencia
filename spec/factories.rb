@@ -16,5 +16,10 @@ FactoryGirl.define do
     sequence(:cep) { |n| ("123456-#{n*333}")[0..9] }
     association :usuario, :factory => :usuario
   end
+  
+  factory :comodo do
+    sequence(:nome) { |n| "Comodo #{n}" }
+    association :residencia, :factory => :residencia
+  end
 end
 

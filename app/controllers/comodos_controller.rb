@@ -13,10 +13,12 @@ class ComodosController < ApplicationController
   end
 
   def create
+    params[:comodo][:residencia_id] = params[:residencia_id]
     @comodo = Comodo.new(params[:comodo])
 
     if @comodo.save
-      redirect_to(@comodo, :notice => 'Comodo criado com sucesso') 
+      flash[:notice] = 'Comodo criado com sucesso'
+      redirect_to_residencia_index
     else
       render :action => "new" 
     end
@@ -24,9 +26,10 @@ class ComodosController < ApplicationController
 
   def update
     @comodo = Comodo.find(params[:id])
-
+  
     if @comodo.update_attributes(params[:comodo])
-      redirect_to(@comodo, :notice => 'Comodo was successfully updated.') 
+      flash[:notice] = 'Comodo atualizado com sucesso'
+      redirect_to_residencia_index
     else
       render :action => "edit" 
     end
@@ -35,7 +38,15 @@ class ComodosController < ApplicationController
   def destroy
     @comodo = Comodo.find(params[:id])
     @comodo.destroy
-
-    redirect_to(comodos_url) 
+    redirect_to_residencia_index
+  end
+  
+  private
+  def redirect_to_residencia_index 
+    redirect_to  :controller => :residencias, 
+                                :action => :show,
+                                :id => @comodo.residencia.id,
+                                :usuario_id => @comodo.residencia.usuario.id
+    
   end
 end

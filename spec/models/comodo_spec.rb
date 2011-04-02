@@ -7,4 +7,7 @@ describe Comodo do
     it { should have_many(:perifericos) }
   end
   
+  context 'quando referente a validação dos campos' do  
+    it { should validate_presence_of(:nome)}
+  end
 end
