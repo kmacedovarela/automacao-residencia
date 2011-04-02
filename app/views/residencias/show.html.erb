@@ -6,5 +6,8 @@ UF: <%= @residencia.uf %> <br/>
 Endereço: <%= @residencia.endereco %> <br/>
 CEP: <%= @residencia.cep %> <br/>
 
+<br/>
+<%= link_to 'Nova Residência', new_usuario_residencia_url(@residencia.usuario) %>
+
 <%= render :partial => '/comodos/index', :locals => { :comodos => @residencia.comodos } %>
 <%= link_voltar usuario_path(@residencia.usuario) %>
