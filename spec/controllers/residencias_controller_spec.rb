@@ -51,7 +51,7 @@ describe ResidenciasController do
       it "redireciona para o show de usuario" do
         Residencia.stub(:new) { mock_residencia(:save => true) }
         post :create, :residencia => {}, :usuario_id => @usuario.id
-        response.should redirect_to :controller => :usuarios, :action => :show, :usuario_id => @usuario.id
+        response.should redirect_to :controller => :usuarios, :action => :show, :id => @usuario.id
       end
     end
 
@@ -88,7 +88,7 @@ describe ResidenciasController do
         residencia = Factory.create :residencia
 
         put :update, :id => residencia.id, :usuario_id => @usuario.id
-        response.should redirect_to( :action => :show, :id => residencia.id, :usuario_id => @usuario.id )
+        response.should redirect_to :controller => :usuarios, :action => :show, :id => @usuario.id
       end
     end
 

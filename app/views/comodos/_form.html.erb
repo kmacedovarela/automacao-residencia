@@ -1,0 +1,17 @@
+<%= form_for(@comodo) do |f| %>
+ 	<%= render :partial => 'layouts/errors', :locals => {:entity => @comodo} %>
+	
+	<table id='tabela_novo_comodo' class='nice_table'>
+	    <tr>
+	      <td>
+					<%= f.label :nome %>
+	        <%= f.text_field :nome  %>
+	      </td>
+	   
+	      <td>
+	        <%= f.submit %>
+	      </td>
+	    </tr>
+	</table>
+	
+<% end %>

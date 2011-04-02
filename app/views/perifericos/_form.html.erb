@@ -1,0 +1,24 @@
+<%= form_for(@periferico) do |f| %>
+ 	<%= render :partial => 'layouts/errors', :locals => {:entity => @periferico} %>
+	
+	<table id='tabela_novo_periferico' class='nice_table'>
+	    <tr>
+	      <td>
+					<%= f.label :nome %>
+	        <%= f.text_field :nome  %>
+	      </td>
+			</tr>
+			<tr>
+	      <td>
+					<%= f.label :pino %>
+	        <%= f.text_field :pino  %>
+	      </td>
+	   	</tr>
+			<tr>
+	      <td>
+	        <%= f.submit %>
+	      </td>
+	    </tr>
+	</table>
+	
+<% end %>

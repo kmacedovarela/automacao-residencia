@@ -48,6 +48,7 @@ describe UsuariosController do
         Usuario.stub(:new).with({'these' => 'params'}) { mock_usuario(:save => true) }
         post :create, :usuario => {'these' => 'params'}
         assigns(:usuario).should be(mock_usuario)
+        assigns(:show_password?).should be_false
       end
 
       it "redirects to the created usuario" do

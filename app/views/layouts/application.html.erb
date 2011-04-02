@@ -11,7 +11,8 @@
     <p class="alert"><%= alert %></p>
 		<%= yield %>
 
-    <%= javascript_include_tag 'jquery.maskedinput-1.2.2.min' %>
+    <%= javascript_include_tag 'jquery-ui.min' %>
+		<%= javascript_include_tag 'jquery.maskedinput-1.2.2.min' %>
 		<%= yield :javascripts %>
 	</body>
 </html>

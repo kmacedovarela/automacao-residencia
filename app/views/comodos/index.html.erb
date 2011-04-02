@@ -1,0 +1,32 @@
+<%= content_for :javascripts do %>
+  <%= javascript_include_tag 'views/comodo' %>
+<% end %>
+
+<h1>Listing comodos</h1>
+
+<% unless @comodos.blank? %>
+	<table>
+	  <tr>
+	    <th>Comodo</th>
+	    <th></th>
+	    <th></th>
+			<th></th>
+	  </tr>
+
+	<% @comodos.each do |comodo| %>
+	  <tr>
+			<td><%= comodo.nome %></td>
+	    <td><%= link_to 'Show', comodo %></td>
+	    <td><%= link_to 'Edit', edit_comodo_path(comodo) %></td>
+	    <td><%= link_to 'Destroy', comodo, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+	
+<% else %>
+	Não existem periféricos cadastrados.
+<% end %>
+
+<br /><br/>
+
+<%= link_to 'New Comodo', new_comodo_path %>

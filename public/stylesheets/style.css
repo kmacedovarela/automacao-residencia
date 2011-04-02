@@ -5,3 +5,8 @@ tbody tr:nth-child(even) td {
 tbody tr:nth-child(odd) td {
 	background: #f5f5dc;
 }
+
+#comodos_container {
+	border: 2px solid;
+}
+.comodo { width: 100px; height: 70px; background: silver; }
