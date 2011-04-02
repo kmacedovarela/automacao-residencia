@@ -14,7 +14,7 @@
   <td>
     <%= usuario.tipo %>
   </td>
-  <td><%= link_to 'Show', usuario %></td>
-  <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-  <td><%= link_to 'Destroy', usuario, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  <td><%= link_visualizar usuario %></td>
+  <td><%= link_editar edit_usuario_path(usuario) %></td>
+  <td><%= link_excluir usuario %></td>
 </tr>

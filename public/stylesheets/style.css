@@ -1,9 +1,37 @@
+/* icones http://www.veryicon.com/icons/system/soft-scraps/ */
+
+body{
+	font-family: helvetica;
+	font-size: 14px;
+}
+
+table {
+	border-bottom: 1px solid #CCCCCC;
+}
 tbody tr:nth-child(even) td {
-	background: #e6e6fa;
+	background: #DDE4ED	;
 }
 
 tbody tr:nth-child(odd) td {
 	background: #f5f5dc;
+/*	background: #f5f5dc;*/
+}
+
+thead tr th {
+	border-bottom: 1px solid #CCCCCC;
+	text-align: left;
+}
+
+.voltar {
+	width: 32px;
+	height: 32px;	
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+
+.icone {
+	margin-left: 10px;
 }
 
 #comodos_container {
