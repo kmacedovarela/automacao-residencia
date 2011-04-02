@@ -7,11 +7,14 @@ AutomacaoResidenciaNoajax::Application.routes.draw do
   end
 
   resources :usuarios do
-    resources :residencias
+    resources :residencias do
+      resources :comodos do
+        resources :perifericos
+      end
+    end
   end
-  
-  resources :comodos
-  resources :perifericos
+
+
   
   root :to => "usuarios#index"
 

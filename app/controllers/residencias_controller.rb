@@ -2,7 +2,7 @@ class ResidenciasController < ApplicationController
 
   def show
     @residencia = Residencia.find(params[:id])
-    redirect_to usuario_url(@residencia.usuario)
+    # redirect_to usuario_url(@residencia.usuario)
   end
 
   def new

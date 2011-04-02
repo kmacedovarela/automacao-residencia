@@ -13,8 +13,7 @@ tbody tr:nth-child(even) td {
 }
 
 tbody tr:nth-child(odd) td {
-	background: #f5f5dc;
-/*	background: #f5f5dc;*/
+/*	background: #f5f5dc; */
 }
 
 thead tr th {
