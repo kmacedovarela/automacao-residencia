@@ -1,10 +1,20 @@
-<h1> Usuário </h1>
+<div id="usuario" style='position:relative; width:50%;'>
 
-Usuário: <%= @usuario.nome %> <br/>
-Email:  <%= @usuario.email %> <br/>
-CPF:  <%= @usuario.cpf %> <br/>
-Telefone:  <%= @usuario.telefone %> <br/>
-Tipo de Usuário:  <%= @usuario.tipo %><br/><br/>
+<table width='100%'>
+	<tr>
+		<td><h3><%= @usuario.nome %></h3></td>
+		<td style="text-align: right"> <%= @usuario.tipo %> </td>
+	</tr>
+
+	<tr>
+			<td colspan>CPF:  <%= @usuario.cpf %></td>							
+			<td>Email:  <%= @usuario.email %></td>				
+			<td>Telefone:  <%= @usuario.telefone %> </td>	
+	</tr>	
+</table>
+
+</div>
+
 
 <%= render :partial => '/residencias/index', :locals => { 
 																								:residencias => @usuario.residencias, 
@@ -12,3 +22,7 @@ Tipo de Usuário:  <%= @usuario.tipo %><br/><br/>
 
 
 <%= link_voltar usuarios_path %>
+
+
+
+rf
