@@ -1,3 +1,7 @@
+<%= content_for :javascripts do %>
+	<%= javascript_include_tag "views/usuario" %>
+<% end %>
+
 <h1> Usuários </h1>
 
 <table width="100%">
@@ -21,4 +25,7 @@
 
 <br />
 
-<%= link_to 'Novo Usuário', new_usuario_path %>
+<%= link_to 'Novo Usuário', new_usuario_path, :id => 'novo_usuario' %>
+
+<div id="conteudo_ajax">
+</div>

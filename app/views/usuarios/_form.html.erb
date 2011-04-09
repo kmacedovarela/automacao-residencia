@@ -1,4 +1,4 @@
-<%= form_for(@usuario) do |f| %>
+<%= form_for(@usuario, :remote => true) do |f| %>
 	<%= render :partial => 'layouts/errors', :locals => {:entity => @usuario} %>
   	<table id='tabela_novo_usuario' class='nice_table'>
 		    <tr>
@@ -18,11 +18,11 @@
 					<% end %>
 		      <td>
 						<%= f.label :cpf %>			
-		        <%= f.text_field :cpf %>
+		        <%= f.text_field :cpf, :class => "cpf" %>
 		      </td>
 		      <td>
 						<%= f.label :telefone %>			 
-		        <%= f.text_field :telefone %>
+		        <%= f.text_field :telefone, :class => "telefone" %>
 		      </td>
 		      <td>
 						<%= f.label :tipo %>
