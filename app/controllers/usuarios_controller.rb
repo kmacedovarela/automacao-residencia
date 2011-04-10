@@ -1,5 +1,6 @@
 class UsuariosController < ApplicationController
-
+  respond_to :js
+  
   def index
     @usuarios = Usuario.all
   end
@@ -22,12 +23,7 @@ class UsuariosController < ApplicationController
 
   def create
     @usuario = Usuario.new(params[:usuario])
-
-      if @usuario.save
-        redirect_to usuarios_url
-      else
-        render :action => "new"
-      end
+    @usuario.save
   end
 
   def update
@@ -46,4 +42,5 @@ class UsuariosController < ApplicationController
 
     redirect_to usuarios_url
   end
+  
 end

@@ -5,18 +5,19 @@ body{
 	font-size: 14px;
 }
 
-table {
+table .lista {
 	border-bottom: 1px solid #CCCCCC;
 }
-tbody tr:nth-child(even) td {
+
+tbody tr:nth-child(even) td .lista{
 	background: #DDE4ED	;
 }
 
-tbody tr:nth-child(odd) td {
+tbody tr:nth-child(odd) td .lista {
 /*	background: #f5f5dc; */
 }
 
-thead tr th {
+thead tr th .lista{
 	border-bottom: 1px solid #CCCCCC;
 	text-align: left;
 }

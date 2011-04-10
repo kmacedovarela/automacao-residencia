@@ -1,0 +1,53 @@
+<div id="form">
+	<%= form_tag( url_for( :controller => :cadastros, :action => :create_usuario), :remote => true) do  %>
+		<%= render :partial => 'layouts/errors', :locals => {:entity => @usuario} %>
+		
+	  	<table id='tabela_novo_usuario' class='nice_table'>
+			    <tr>
+			      <td>
+							<%= label_tag :nome %>
+			        <%= text_field_tag "usuario[nome]"  %>
+			      </td>
+					</tr>
+					<tr>
+			      <td>
+							<%= label_tag :email %>
+			        <%= text_field_tag "usuario[email]" %>
+			      </td>
+					</tr>
+					<tr>
+			      <td>
+							<%= label_tag :password %>
+			        <%= password_field_tag "usuario[password]" %>
+			      </td>
+					</tr>
+					<tr>
+			      <td>
+							<%= label_tag :cpf %>			
+			        <%= text_field_tag "usuario[cpf]", ''  ,:class => "cpf" %>
+			      </td>
+					</tr>
+					<tr>
+			      <td>
+							<%= label_tag :telefone %>			 
+			        <%= text_field_tag "usuario[telefone]", '', :class => "telefone" %>
+			      </td>
+					</tr>
+					<tr>
+			      <td>
+							<%= label_tag :tipo %>
+			        <select name="usuario[tipo]">
+			        	<option>Administrador</option> 
+								<option>Usuário</option>
+							</select>
+			      </td>
+					</tr>
+					<tr>
+	        
+			      <td>
+			        <%= submit_tag 'Avançar' %>
+			      </td>
+			    </tr>
+	  	</table>
+	<% end %>
+</div>

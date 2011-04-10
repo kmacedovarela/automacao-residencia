@@ -45,7 +45,7 @@ describe UsuariosController do
   describe "GET new" do
     it "assigns a new usuario as @usuario" do
       Usuario.stub(:new) { mock_usuario }
-      get :new
+      xhr :get, :new
       assigns(:usuario).should be(mock_usuario)
     end
   end
@@ -62,30 +62,22 @@ describe UsuariosController do
     describe "with valid params" do
       it "assigns a newly created usuario as @usuario" do
         Usuario.stub(:new).with({'these' => 'params'}) { mock_usuario(:save => true) }
-        post :create, :usuario => {'these' => 'params'}
+        xhr :post, :create, :usuario => {'these' => 'params'}
         assigns(:usuario).should be(mock_usuario)
         assigns(:show_password?).should be_false
       end
 
-      it "redirects to the created usuario" do
-        Usuario.stub(:new) { mock_usuario(:save => true) }
-        post :create, :usuario => {}
-        response.should redirect_to(usuarios_url)
-      end
+      it "deveria redirecionar para ? depois que o usuario for criado"
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved usuario as @usuario" do
         Usuario.stub(:new).with({'these' => 'params'}) { mock_usuario(:save => false) }
-        post :create, :usuario => {'these' => 'params'}
+        xhr :post, :create, :usuario => {'these' => 'params'}
         assigns(:usuario).should be(mock_usuario)
       end
 
-      it "re-renders the 'new' template" do
-        Usuario.stub(:new) { mock_usuario(:save => false) }
-        post :create, :usuario => {}
-        response.should render_template("new")
-      end
+      it "deveria redirecionar para ? depois que o usuario for criado"
     end
   end
 

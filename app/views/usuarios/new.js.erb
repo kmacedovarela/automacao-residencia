@@ -1,0 +1,6 @@
+$('#form_novo_usuario').html(
+	"<%= escape_javascript(render(:partial => "new"))%>"
+);
+
+$('.cpf').mask('999.999.999-99');
+$('.telefone').mask('(99) 9999-9999');

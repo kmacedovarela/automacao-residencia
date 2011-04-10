@@ -1,0 +1,38 @@
+<%= form_tag (url_for(:controller => :cadastros, :action => :create_residencia ), :remote => true ) do %>
+  <%= render :partial => 'layouts/errors', :locals => {:entity => @residencia} %>
+  
+	<%= hidden_field_tag "residencia[usuario_id]", @residencia.usuario.id %>
+	
+  <table>
+    <tr>
+      <td>
+        <%= label_tag :cidade %>
+        <%= text_field_tag "residencia[cidade]" %>
+      </td>
+		</tr>
+		<tr>
+      <td>
+        <%= label_tag :uf %>
+        <%= text_field_tag "residencia[uf]", '', :maxlength => 2 %>
+      </td>
+		</tr>
+		<tr>
+      <td>
+        <%= label_tag :endereco %>
+        <%= text_field_tag "residencia[endereco]" %>
+      </td>
+		</tr>
+		<tr>
+      <td>
+        <%= label_tag :cep %>
+        <%= text_field_tag "residencia[cep]", '', :class => :cep %>
+      </td>
+		</tr>
+		<tr>        
+      <td>
+        <%= submit_tag "Avançar" %>
+      </td>
+    </tr>
+  </table>
+
+<% end %>

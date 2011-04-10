@@ -14,7 +14,11 @@ AutomacaoResidenciaNoajax::Application.routes.draw do
     end
   end
 
-
+  match 'cadastros' => 'cadastros#index'
+  match 'cadastros/create_usuario' => 'cadastros#create_usuario'
+  match 'cadastros/create_residencia' => 'cadastros#create_residencia'
+  match 'cadastros/create_comodo' => 'cadastros#create_comodo'
+  match 'cadastros/create_periferico' => 'cadastros#create_periferico'
   
   root :to => "usuarios#index"
 
