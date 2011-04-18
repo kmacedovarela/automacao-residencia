@@ -14,7 +14,7 @@ body {
 
 .corpo {
     background: url(/images/corpo.png) repeat-y;
-    margin-top: -1px;
+    margin-top: -2px;
     margin-left: 150px;
     height: 212px;
 }
