@@ -1,0 +1,4 @@
+config/database.yml
+.idea
+.project
+.settings
