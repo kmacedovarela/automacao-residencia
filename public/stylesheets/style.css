@@ -1,8 +1,29 @@
 /* icones http://www.veryicon.com/icons/system/soft-scraps/ */
 
-body{
+body {
 	font-family: helvetica;
 	font-size: 14px;
+	background: url(/images/fundo.png) repeat-x;
+}
+
+.topo {
+    background: url(/images/telhado.png) no-repeat;
+    margin-left: 100px;
+    height: 212px;
+}
+
+.corpo {
+    background: url(/images/corpo.png) repeat-y;
+    margin-top: -1px;
+    margin-left: 150px;
+    height: 212px;
+}
+
+.rodape {
+    background: url(/images/grama.png) repeat-x;
+    height: 100px;
+    margin-top: -5px;
+    width: 1296px;
 }
 
 table .lista {
@@ -24,7 +45,7 @@ thead tr th .lista{
 
 .voltar {
 	width: 32px;
-	height: 32px;	
+	height: 32px;
 	position: absolute;
 	top: 15px;
 	right: 15px;
@@ -38,3 +59,4 @@ thead tr th .lista{
 	border: 2px solid;
 }
 .comodo { width: 100px; height: 70px; background: silver; }
+

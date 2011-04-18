@@ -19,8 +19,8 @@ AutomacaoResidenciaNoajax::Application.routes.draw do
   match 'cadastros/create_residencia' => 'cadastros#create_residencia'
   match 'cadastros/create_comodo' => 'cadastros#create_comodo'
   match 'cadastros/create_periferico' => 'cadastros#create_periferico'
-  
-  root :to => "usuarios#index"
+
+  root :to => "home#index"
 
 
   # The priority is based upon order of creation:
@@ -80,3 +80,4 @@ AutomacaoResidenciaNoajax::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+
