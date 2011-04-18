@@ -1,19 +1,21 @@
 <%= form_tag (url_for(:controller => :cadastros, :action => :create_comodo ), :remote => true ) do %>
  	<%= render :partial => 'layouts/errors', :locals => {:entity => @comodo} %>
-	
+
 	<%= hidden_field_tag :residencia_id, @comodo.residencia.id %>
-	
+
 	<table>
 	    <tr>
-	      <td>
+	      <td class="label">
 					<%= label_tag :nome %>
+	      </td>
+	      <td>
 	        <%= text_field_tag "comodo[nome]"  %>
 	      </td>
-	   
 	      <td>
 	        <%= submit_tag 'Avançar' %>
 	      </td>
 	    </tr>
 	</table>
-	
+
 <% end %>
+

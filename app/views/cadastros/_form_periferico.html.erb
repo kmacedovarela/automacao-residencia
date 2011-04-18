@@ -1,18 +1,22 @@
 <%= form_tag (url_for(:controller => :cadastros, :action => :create_periferico ), :remote => true ) do  %>
  	<%= render :partial => 'layouts/errors', :locals => {:entity => @periferico} %>
-	
+
 	<%= hidden_field_tag :comodo_id, @periferico.comodo.id %>
-	
+
 	<table id='tabela_novo_periferico' class='nice_table'>
 	    <tr>
-	      <td>
+        <td class="label">
 					<%= label_tag :nome %>
+	      </td>
+	      <td>
 	        <%= text_field_tag "periferico[nome]" %>
 	      </td>
 			</tr>
 			<tr>
-	      <td>
+        <td class="label">
 					<%= label_tag :pino %>
+        </td>
+	      <td>
 	        <%= text_field_tag "periferico[pino]" %>
 	      </td>
 	   	</tr>
@@ -22,5 +26,6 @@
 	      </td>
 	    </tr>
 	</table>
-	
+
 <% end %>
+

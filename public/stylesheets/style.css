@@ -6,10 +6,6 @@ body {
 	background: url(/images/fundo.png) repeat-x;
 }
 
-pre {
-    background-color: #FFFFFF;
-}
-
 .topo {
     background: url(/images/telhado.png) no-repeat;
     margin-left: 100px;
@@ -44,6 +40,26 @@ pre {
     height: 100px;
     margin-top: -5px;
     width: 1296px;
+}
+
+.label {
+    text-align: right;
+}
+
+.menu_cadastro_geral {
+    border: 2px solid;
+    font-size: 16px;
+    color: gray;
+}
+
+.menu_cadastro_geral .menu_cadastro_usuario {
+    color: #000000;
+    font-weight: bolder;
+}
+
+.cadastro_geral {
+    border: 2px solid;
+    padding: 10px;
 }
 
 table .lista {

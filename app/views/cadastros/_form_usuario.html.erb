@@ -1,53 +1,65 @@
 <div id="form">
 	<%= form_tag( url_for( :controller => :cadastros, :action => :create_usuario), :remote => true) do  %>
 		<%= render :partial => 'layouts/errors', :locals => {:entity => @usuario} %>
-		
-	  	<table id='tabela_novo_usuario' class='nice_table'>
+
+	  	<table id='tabela_novo_usuario' class='formulario'>
 			    <tr>
-			      <td>
+			      <td class="label">
 							<%= label_tag :nome %>
+						</td>
+						<td>
 			        <%= text_field_tag "usuario[nome]"  %>
 			      </td>
 					</tr>
 					<tr>
-			      <td>
-							<%= label_tag :email %>
+			       <td class="label">
+						  <%= label_tag :email %>
+						 </td>
+						 <td>
 			        <%= text_field_tag "usuario[email]" %>
 			      </td>
 					</tr>
 					<tr>
-			      <td>
+					  <td class="label">
 							<%= label_tag :password %>
+					  </td>
+			      <td>
 			        <%= password_field_tag "usuario[password]" %>
 			      </td>
 					</tr>
 					<tr>
+					  <td class="label">
+							<%= label_tag :cpf %>
+			      </td>
 			      <td>
-							<%= label_tag :cpf %>			
 			        <%= text_field_tag "usuario[cpf]", ''  ,:class => "cpf" %>
 			      </td>
 					</tr>
 					<tr>
+					  <td class="label">
+							<%= label_tag :telefone %>
+            </td>
 			      <td>
-							<%= label_tag :telefone %>			 
 			        <%= text_field_tag "usuario[telefone]", '', :class => "telefone" %>
 			      </td>
 					</tr>
 					<tr>
-			      <td>
+			      <td class="label">
 							<%= label_tag :tipo %>
+			      </td>
+			      <td>
 			        <select name="usuario[tipo]">
-			        	<option>Administrador</option> 
+			        	<option>Administrador</option>
 								<option>Usuário</option>
 							</select>
 			      </td>
 					</tr>
 					<tr>
-	        
-			      <td>
-			        <%= submit_tag 'Avançar' %>
-			      </td>
+		      <td>
+		        <%= submit_tag 'Avançar' %>
+		      </td>
 			    </tr>
 	  	</table>
 	<% end %>
 </div>
+
