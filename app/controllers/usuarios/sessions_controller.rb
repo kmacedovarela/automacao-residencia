@@ -19,7 +19,7 @@ class Usuarios::SessionsController < Devise::SessionsController
         redirect_to :residencias_proprietario
       end
     else
-      super  
+      redirect_to root_path
     end
   end
 

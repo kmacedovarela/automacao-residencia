@@ -14,9 +14,9 @@ body {
 
 .corpo {
     background: url(/images/corpo.png) repeat-y;
-    margin-top: -2px;
+    margin-top: -15px;
     margin-left: 150px;
-    height: 212px;
+    min-height: 460px;
 }
 
 .titulo_texto{

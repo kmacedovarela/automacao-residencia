@@ -7,10 +7,18 @@
 	  <%= csrf_meta_tag %>
 	</head>
 	<body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-		<%= yield %>
-
+		<div class="topo">
+		</div>
+		
+		<div class="corpo">
+			<p class="notice"><%= notice %></p>
+	    <p class="alert"><%= alert %></p>
+			<%= yield %>
+		</div>
+		
+		<div class="rodape">
+		</div>
+		
 		<%= javascript_include_tag 'jquery.maskedinput-1.2.2.min' %>
 		<%= yield :javascripts %>
 	</body>
