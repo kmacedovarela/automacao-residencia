@@ -12,4 +12,10 @@
     garantindo mais eficiência e controle na gerência de sua residência.
 </div>
 
-<%= render :partial => '/usuarios/sessions/new' %>
+<div id="login">
+	<% if usuario_signed_in? %>
+		Bem vindo <%= current_usuario.nome %>
+	<% else %>
+		<%= render :partial => '/usuarios/sessions/new' %>
+	<% end %>
+</div>
