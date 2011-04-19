@@ -1,7 +1,7 @@
 <%= form_tag (url_for(:controller => :cadastros, :action => :create_comodo ), :remote => true ) do %>
  	<%= render :partial => 'layouts/errors', :locals => {:entity => @comodo} %>
 
-	<%= hidden_field_tag :residencia_id, @comodo.residencia.id %>
+	<%= hidden_field_tag "comodo[residencia_id]", @comodo.residencia.id %>
 
 	<table>
 	    <tr>
