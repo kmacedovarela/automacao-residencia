@@ -6,17 +6,35 @@ body {
 	background: url(/images/fundo.png) repeat-x;
 }
 
+p {
+	margin: 0px;
+}
+
 .topo {
-    background: url(/images/telhado.png) no-repeat;
-    margin-left: 100px;
-    height: 212px;
+	position: relative;
+  background: url(/images/telhado.png) no-repeat;
+  margin-left: 100px;
+  height: 212px;
 }
 
 .corpo {
-    background: url(/images/corpo.png) repeat-y;
-    margin-top: -15px;
-    margin-left: 150px;
-    min-height: 460px;
+  background: url(/images/corpo.png) repeat-y;
+  margin-top: -15px;
+  margin-left: 150px;
+	margin-bottom: 0px;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	padding: 1em;
+}
+
+.rodape {
+	background: url(/images/grama.png) repeat-x;
+	height: 50px;
+	bottom: 0px;
+	width: 100%;
+	margin-left: -10px;
+	margin-top: -2px;
 }
 
 .titulo_texto{
@@ -35,12 +53,7 @@ body {
     padding: 2px;
 }
 
-.rodape {
-    background: url(/images/grama.png) repeat-x;
-    height: 100px;
-    margin-top: -5px;
-    width: 1296px;
-}
+
 
 .label {
     text-align: right;
