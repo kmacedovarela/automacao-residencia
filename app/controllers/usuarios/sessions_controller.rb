@@ -4,10 +4,12 @@ class Usuarios::SessionsController < Devise::SessionsController
   include Devise::Controllers::InternalHelpers
 
   # GET /login
-  # def new
+  def new
   #   puts 'oi'
   #   super
-  # end
+    flash[:notice] = 'Você não possui privilégios para acessar está página, efetue login.'
+    redirect_to root_path
+  end
 
   # POST /login
   def create
