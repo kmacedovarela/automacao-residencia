@@ -1,7 +1,13 @@
-<%= form_for(@periferico) do |f| %>
+<%= form_for([
+							@periferico.comodo.residencia.usuario, 
+							@periferico.comodo.residencia, 
+							@periferico.comodo, 
+							@periferico
+							]) do |f| %>
+							
  	<%= render :partial => 'layouts/errors', :locals => {:entity => @periferico} %>
 	
-	<table id='tabela_novo_periferico' class='nice_table'>
+	<table id='tabela_novo_periferico'>
 	    <tr>
 	      <td>
 					<%= f.label :nome %>

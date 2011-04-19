@@ -1,6 +1,6 @@
 <h1>Listing perifericos</h1>
 
-<% unless @perifericos.blank? %>
+<% unless perifericos.blank? %>
 	<table>
 	  <tr>
 	    <th>Nome</th>
@@ -10,13 +10,31 @@
 			<th></th>
 	  </tr>
 
-	<% @perifericos.each do |periferico| %>
+	<% perifericos.each do |periferico| %>
 	  <tr>
 			<td><%= periferico.nome %></td>
 			<td><%= periferico.pino %></td>
-	    <td><%= link_to 'Show', periferico %></td>
-	    <td><%= link_to 'Edit', edit_periferico_path(periferico) %></td>
-	    <td><%= link_to 'Destroy', periferico, :confirm => 'Are you sure?', :method => :delete %></td>
+			<td>
+				<%= link_visualizar usuario_residencia_comodo_periferico_path(
+								periferico.comodo.residencia.usuario,
+								periferico.comodo.residencia, 
+								periferico.comodo, 
+								periferico) %>
+			</td>
+		  <td>
+				<%= link_editar edit_usuario_residencia_comodo_periferico_path(
+								periferico.comodo.residencia.usuario, 
+								periferico.comodo.residencia, 
+								periferico.comodo, 
+								periferico) %>
+			</td>
+		  <td>
+				<%= link_excluir usuario_residencia_comodo_periferico_path(
+								periferico.comodo.residencia.usuario,
+								periferico.comodo.residencia, 
+								periferico.comodo, 
+								periferico) %>
+			</td>
 	  </tr>
 	<% end %>
 	</table>
@@ -26,4 +44,8 @@
 <% end %>
 
 <br /><br />
-<%= link_to 'New Periferico', new_periferico_path %>
+<%= link_to '', "" %>
+<%= link_to 'New Periferico', new_usuario_residencia_comodo_periferico_url(
+						@comodo.residencia.usuario,
+						@comodo.residencia, 
+						@comodo) %>
