@@ -7,21 +7,22 @@
 	  <%= csrf_meta_tag %>
 	</head>
 	<body>
-		<div class="topo">
-		</div>
-		
-		<div class="corpo">
-			<p class="notice"><%= notice %></p>
-	    <p class="alert"><%= alert %></p>
-			<%= yield %>
+			<div id="topo"></div>
+			<div id="corpo">
+				<div id="container">
 			
-			<div class="push"></div>			
-		</div>
-		
-		<div class="rodape">
-		</div>
+					<p class="notice"><%= notice %></p>
+			  	<p class="alert"><%= alert %></p>
+
+					<%= yield %>
+				</div>
+
+				<div class="break"> </div>
+			</div>
+		<div id="rodape"></div>
 		
 		<%= javascript_include_tag 'jquery.maskedinput-1.2.2.min' %>
 		<%= yield :javascripts %>
 	</body>
 </html>
+

@@ -1,111 +1,70 @@
-/* icones http://www.veryicon.com/icons/system/soft-scraps/ */
-
-body {
-	font-family: helvetica;
-	font-size: 14px;
+html,body {
 	background: url(/images/fundo.png) repeat-x;
+	margin:0; 
+	padding:0; 
+	min-height:100%; 
 }
 
-p {
-	margin: 0px;
+h1, p {
+	margin: 0;
+	padding: 0.3em 0;
 }
 
-.topo {
-	position: relative;
+#topo {
   background: url(/images/telhado.png) no-repeat;
-  margin-left: 100px;
   height: 212px;
+	position: absolute;
+	left: 50px;
+	width: 90%;
+	z-index:999;
 }
 
-.corpo {
+#corpo {
   background: url(/images/corpo.png) repeat-y;
-  margin-top: -15px;
-  margin-left: 150px;
-	margin-bottom: 0px;
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	padding: 1em;
+  margin-bottom: -36px;
+	margin-left: 100px;
+	position: relative;
+	min-height:100%; 
+	width: auto;
+	overflow:auto;
 }
 
-.rodape {
+#container {
+	top: 200px;
+	padding: 10px;
+	width: 75%;
+	position: relative;
+	min-height:100%; 
+
+}
+
+#rodape {
 	background: url(/images/grama.png) repeat-x;
-	height: 50px;
-	bottom: 0px;
-	width: 100%;
-	margin-left: -10px;
-	margin-top: -2px;
+	height: 36px;
+	position: relative;
+}
+
+.break {
+ 	clear:both;
+	display: block;
+	height: 36px;
 }
 
 .titulo_texto{
-    background-color: #FFFFFF;
-    width: 30%;
-    margin-left: 40px;
-    padding: 2px;
-    margin-bottom: 3px;
-    font-weight: bolder;
+	width: 30%;
+	margin-left: 40px;
+	padding: 2px;
+	margin-bottom: 3px;
+	font-weight: bolder;
 }
 
 .texto {
-    background-color: #FFFFFF;
-    width: 30%;
-    margin-left: 40px;
-    padding: 2px;
+  width: 30%;
+  margin-left: 40px;
+  padding: 2px;
 }
 
-
-
-.label {
-    text-align: right;
+div#login{
+	position: relative;
+	right: 10px;
 }
-
-.menu_cadastro_geral {
-    border: 2px solid;
-    font-size: 16px;
-    color: gray;
-}
-
-.menu_cadastro_geral .menu_cadastro_usuario {
-    color: #000000;
-    font-weight: bolder;
-}
-
-.cadastro_geral {
-    border: 2px solid;
-    padding: 10px;
-}
-
-table .lista {
-	border-bottom: 1px solid #CCCCCC;
-}
-
-tbody tr:nth-child(even) td .lista{
-	background: #DDE4ED	;
-}
-
-tbody tr:nth-child(odd) td .lista {
-/*	background: #f5f5dc; */
-}
-
-thead tr th .lista{
-	border-bottom: 1px solid #CCCCCC;
-	text-align: left;
-}
-
-.voltar {
-	width: 32px;
-	height: 32px;
-	position: absolute;
-	top: 15px;
-	right: 15px;
-}
-
-.icone {
-	margin-left: 10px;
-}
-
-#comodos_container {
-	border: 2px solid;
-}
-.comodo { width: 100px; height: 70px; background: silver; }
-
