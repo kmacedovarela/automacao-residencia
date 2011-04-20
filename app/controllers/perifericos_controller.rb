@@ -1,17 +1,5 @@
 class PerifericosController < ApplicationController
-  # GET /perifericos
-  # GET /perifericos.xml
-  def index
-    @perifericos = Periferico.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @perifericos }
-    end
-  end
-
-  # GET /perifericos/1
-  # GET /perifericos/1.xml
   def show
     @periferico = Periferico.find(params[:id])
 
@@ -21,63 +9,53 @@ class PerifericosController < ApplicationController
     end
   end
 
-  # GET /perifericos/new
-  # GET /perifericos/new.xml
   def new
     @periferico = Periferico.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @periferico }
-    end
+    @periferico.comodo = Comodo.find(params[:comodo_id])
   end
 
-  # GET /perifericos/1/edit
   def edit
     @periferico = Periferico.find(params[:id])
   end
 
-  # POST /perifericos
-  # POST /perifericos.xml
   def create
+    params[:periferico][:comodo_id] = params[:comodo_id]
     @periferico = Periferico.new(params[:periferico])
 
-    respond_to do |format|
-      if @periferico.save
-        format.html { redirect_to(@periferico, :notice => 'Periferico was successfully created.') }
-        format.xml  { render :xml => @periferico, :status => :created, :location => @periferico }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @periferico.errors, :status => :unprocessable_entity }
-      end
+    if @periferico.save
+      flash[:notice] = 'Periferico criado com sucesso'
+      redirect_to_comodo_index
+    else
+      render :action => "new"
     end
   end
 
-  # PUT /perifericos/1
-  # PUT /perifericos/1.xml
   def update
     @periferico = Periferico.find(params[:id])
 
-    respond_to do |format|
       if @periferico.update_attributes(params[:periferico])
-        format.html { redirect_to(@periferico, :notice => 'Periferico was successfully updated.') }
-        format.xml  { head :ok }
+        flash[:notice] = 'Comodo atualizado com sucesso'
+        redirect_to_comodo_index
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @periferico.errors, :status => :unprocessable_entity }
+        render :action => "edit"
       end
-    end
   end
 
-  # DELETE /perifericos/1
-  # DELETE /perifericos/1.xml
   def destroy
     @periferico = Periferico.find(params[:id])
     @periferico.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(perifericos_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to_comodo_index
+  end
+
+  private
+  def redirect_to_comodo_index
+    redirect_to  :controller => :comodos,
+                                :action => :show,
+                                :id => @periferico.comodo.id,
+                                :residencia_id => @periferico.comodo.residencia.id,
+                                :usuario_id => @periferico.comodo.residencia.usuario.id
+
   end
 end
+
