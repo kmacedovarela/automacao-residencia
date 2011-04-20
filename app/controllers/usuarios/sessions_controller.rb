@@ -21,6 +21,7 @@ class Usuarios::SessionsController < Devise::SessionsController
         redirect_to :residencias_proprietario
       end
     else
+      flash[:error] = 'Usuário ou senha inválidos.'
       redirect_to root_path
     end
   end
@@ -31,3 +32,4 @@ class Usuarios::SessionsController < Devise::SessionsController
   #   super
   # end
 end
+

@@ -6,20 +6,25 @@
 	  <%= javascript_include_tag :defaults %>
 	  <%= csrf_meta_tag %>
 	</head>
+
 	<body>
 		<div class="topo">
 		</div>
-		
+
 		<div class="corpo">
 			<p class="notice"><%= notice %></p>
 	    <p class="alert"><%= alert %></p>
+	    <p class="error"><%= flash[:error] %></p>
+
 			<%= yield %>
 		</div>
-		
+
 		<div class="rodape">
 		</div>
-		
+
 		<%= javascript_include_tag 'jquery.maskedinput-1.2.2.min' %>
 		<%= yield :javascripts %>
 	</body>
+
 </html>
+
