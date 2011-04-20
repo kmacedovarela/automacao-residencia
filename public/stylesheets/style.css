@@ -14,7 +14,7 @@ h1, p {
   background: url(/images/telhado.png) no-repeat;
   height: 212px;
 	position: absolute;
-	left: 50px;
+	left: 50px; 
 	width: 90%;
 	z-index:999;
 }
