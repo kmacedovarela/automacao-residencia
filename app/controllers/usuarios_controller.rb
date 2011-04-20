@@ -1,5 +1,9 @@
 class UsuariosController < ApplicationController
+  
+  before_filter :authenticate_usuario!
+  
   respond_to :js
+  respond_to :html, :only => :index
   
   def index
     @usuarios = Usuario.all

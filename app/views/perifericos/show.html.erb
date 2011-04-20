@@ -1,6 +1,13 @@
-
 Nome: <%= @periferico.nome %> <br/>
 Pino: <%= @periferico.pino %> <br/>
 
-<%= link_to 'Edit', edit_periferico_path(@periferico) %> |
-<%= link_to 'Back', perifericos_path %>
+<%= link_editar edit_usuario_residencia_comodo_periferico_path(
+				@periferico.comodo.residencia.usuario, 
+				@periferico.comodo.residencia, 
+				@periferico.comodo, 
+				@periferico) %>
+				
+<%= link_voltar usuario_residencia_comodo_path(
+				@periferico.comodo.residencia.usuario, 
+				@periferico.comodo.residencia, 
+				@periferico.comodo) %>
