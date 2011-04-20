@@ -12,6 +12,7 @@ group :development, :test do
   gem 'factory_girl', '~> 2.0.beta'
   gem 'factory_girl_rails', '~> 1.1.beta1'
 	gem 'shoulda'
+	gem 'rcov'
 end
 
 
@@ -20,3 +21,4 @@ gem 'jquery-rails', '>= 0.2.6'
 gem 'devise'
 
 gem 'serialport'
+
