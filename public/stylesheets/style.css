@@ -5,22 +5,22 @@
 }
 
 html,body {
-	background: url(/images/fundo.png) repeat-x, url(/images/fundo_bottom.png) repeat;
-	padding:0;
-	min-height:100%;
-	font-family: "Trebuchet MS", sans-serif;
-	color: #2B1D06;
-	
-	margin: 0; 
-  text-align: center;
+    background: url(/images/fundo.png) repeat-x, url(/images/fundo_bottom.png) repeat;
+    padding:0;
+    min-height:100%;
+    font-family: "Trebuchet MS", sans-serif;
+    color: #2B1D06;
+
+    margin: 0;
+    text-align: center;
 }
 
 #topo {
-  background: url(/images/telhado.png) no-repeat;
-  height: 212px;
+    background: url(/images/telhado.png) no-repeat;
+    height: 212px;
 
-	margin: 0 auto; 
-	width: 1080px;
+    margin: 0 auto;
+    width: 1080px;
 }
 
 #corpo {
@@ -178,7 +178,7 @@ form *:focus {
 }
 
 #alert {
-    background: #DFF4FF url(/images/info.png) no-repeat 6px 50%;
+    background: #DFF4FF url(/images/alert.png) no-repeat 6px 50%;
     border: 1px solid #A7CEDF;
     color: #34404F;
     display: block;
