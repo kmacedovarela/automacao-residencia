@@ -1,8 +1,8 @@
 class Usuario < ActiveRecord::Base
 
   ROLE = {
-    :administrador => 'Administrador',
-    :proprietario => 'Proprietário'
+    :proprietario => 'Proprietário',
+    :administrador => 'Administrador'    
   }
 
   has_many :residencias
@@ -34,4 +34,3 @@ class Usuario < ActiveRecord::Base
   end
 
 end
-

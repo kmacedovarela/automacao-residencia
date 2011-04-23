@@ -29,10 +29,14 @@
 		        <%= f.password_field :password,:size => 13  %>
 		      </td>	
 		      <td>
-						<%= f.label :tipo %>
-		        <%= f.select :tipo, '<option>Proprietário</option><option>Administrador</option>' %>
+						<%= f.label :tipo %> 
+						<%= select_tag( 
+									'usuario[tipo]', 
+									options_for_select(Usuario::ROLE.keys.collect { |key| key.to_s.capitalize }), 
+									:id => 'tipo',
+									:style => 'width: 14em'
+						) %>
 		      </td>	
-		
 		
 		    </tr>
   	</table>
