@@ -2,11 +2,14 @@
   <%= javascript_include_tag "views/usuario" %>
 <% end %>
 
-<h1> 
-	Usuários <%= image_tag( "/images/add.png", :id => 'adicionar_usuario', :alt => "Adicionar usuário" ) %>
+<h1>
+	Usuários
+	<span class="toolbar-button" id='adicionar_usuario' >
+	  Adicionar
+	</span>
 </h1>
 
-<div id="form_usuario" class="hidea" >
+<div id="form_usuario" class="hide" >
   <%= render :partial => 'form' %>
 </div>
 
