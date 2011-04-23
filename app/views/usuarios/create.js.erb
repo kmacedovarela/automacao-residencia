@@ -1,6 +1,7 @@
 <% if @usuario.errors.any? %>
   $("#notice").hide();
 
+  $("#error").html("");
   $("#error").append("<ul>");
   <% @usuario.errors.full_messages.each do |msg| %>
     $("#error").append("<li> <%= escape_javascript(msg) %> </li>");
