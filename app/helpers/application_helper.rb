@@ -5,10 +5,10 @@ module ApplicationHelper
         :title => "Voltar",
         :class => "voltar"
      )
-     
+
    link_to img, path
   end
-  
+
   def link_editar path
      img = image_tag(
          "/images/caneta.png",
@@ -17,9 +17,9 @@ module ApplicationHelper
          :class => "icone"
       )
 
-    link_to img, path
+    link_to img, path, :remote => true
   end
-  
+
   def link_excluir path
      img = image_tag(
          "/images/menos.png",
@@ -28,9 +28,9 @@ module ApplicationHelper
          :class => "icone"
       )
 
-    link_to img, path, :confirm => 'Você tem certeza?', :method => :delete 
+    link_to img, path, :remote => true, :confirm => 'Você tem certeza?', :method => :delete
   end
-  
+
   def link_visualizar path
      img = image_tag(
          "/images/lupa.png",
@@ -42,3 +42,4 @@ module ApplicationHelper
     link_to img, path
   end
 end
+

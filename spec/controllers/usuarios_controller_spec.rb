@@ -69,8 +69,8 @@ describe UsuariosController do
       it "assigns a newly created usuario as @usuario" do
         Usuario.stub(:new).with({'these' => 'params'}) { mock_usuario(:save => true) }
         xhr :post, :create, :usuario => {'these' => 'params'}
-        assigns(:usuario).should be(mock_usuario)
         assigns(:show_password?).should be_false
+        assigns(:usuarios).should_not be_nil
         flash[:notice].should_not be_nil
       end
 
@@ -95,19 +95,8 @@ describe UsuariosController do
         usuario.nome = 'Rodrigatao :D'
         put :update, :id => usuario.id, :usuario => {:nome => usuario.nome}
         assigns(:usuario).nome.should == usuario.nome
+        assigns(:usuarios).should_not be_nil
         flash[:notice].should_not be_nil
-      end
-
-      it "assigns the requested usuario as @usuario" do
-        Usuario.stub(:find) { mock_usuario(:update_attributes => true) }
-        put :update, :id => "1"
-        assigns(:usuario).should be(mock_usuario)
-      end
-
-      it "redirects to the usuario" do
-        Usuario.stub(:find) { mock_usuario(:update_attributes => true) }
-        put :update, :id => "1"
-        response.should redirect_to(usuario_url(mock_usuario))
       end
     end
 
@@ -118,11 +107,6 @@ describe UsuariosController do
         assigns(:usuario).should be(mock_usuario)
       end
 
-      it "re-renders the 'edit' template" do
-        Usuario.stub(:find) { mock_usuario(:update_attributes => false) }
-        put :update, :id => "1"
-        response.should render_template("edit")
-      end
     end
   end
 
@@ -131,6 +115,7 @@ describe UsuariosController do
       usuario = Factory.create :usuario
       delete :destroy, :id => usuario.id
       flash[:notice].should_not be_nil
+      assigns(:usuarios).should_not be_nil
 
       lambda{Usuario.find usuario.id}.should raise_error
     end

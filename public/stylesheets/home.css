@@ -45,8 +45,8 @@ div#conteudo_home label{
 div#conteudo_home .input {
 	font-size: 16px;
 	background-color: #DED0B6;
-	color: #EDB779;	
-	font-style: italic;
+
+	text-shadow: orange 0.1em 0.1em 0.2em;
 	
 	-webkit-border-radius: 1px; -moz-border-radius: 10px; border-radius: 10px; 	/* bordas arredondadas */	
 	

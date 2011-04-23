@@ -11,9 +11,12 @@
 			<div id="topo"></div>
 			<div id="corpo">
 				<div class='container'>
+				    <!-- Usados pelo devise -->
 						<p class="notice"><%= notice %></p>
 				  	<p class="alert"><%= alert %></p>
-	  			  <p class="error"><%= flash[:error] %></p>
+
+				  	<div id="notice" class="hide" ></div>
+	  			  <div id="error" class="hide" ></div>
 
 						<%= yield %>
 				</div>

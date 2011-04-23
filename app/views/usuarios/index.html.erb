@@ -1,6 +1,16 @@
-<h1> Usuários </h1>
+<%= content_for :javascripts do %>
+  <%= javascript_include_tag "views/usuario" %>
+<% end %>
 
-<table width="100%">
+<h1> 
+	Usuários <%= image_tag( "/images/add.png", :id => 'adicionar_usuario', :alt => "Adicionar usuário" ) %>
+</h1>
+
+<div id="form_usuario" class="hidea" >
+  <%= render :partial => 'form' %>
+</div>
+
+<table width="100%" class="lista">
   <thead>
     <tr>
       <th>Nome</th>
@@ -14,14 +24,10 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="listagem_usuario">
     <%= render :partial => 'usuario', :collection => @usuarios %>
   </tbody>
 </table>
 
 <br />
 
-<%= link_to 'Novo Usuário', new_usuario_path, :remote => true, :id => :link_new_usuario %>
-
-<div id="form_novo_usuario">
-</div>

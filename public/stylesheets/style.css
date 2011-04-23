@@ -27,14 +27,14 @@ html,body {
 
 	clear: both;
 	margin-left: 100px;
-
-/*	GAMBIArra */
-	min-height: 470px;
+	width: 78%;
+	
+	min-height: 470px; /*	GAMBIArra pro rodapé ficar onde deve */
 }
 
 .container{
 	position: relative;
-	width: 80%;
+	width: 100%;
 	height:100%;
 
 	clear: both;
@@ -107,31 +107,56 @@ h1{
   top: 10px;
 }
 
+.hide {
+  display: none;
+}
+
+
 /* TABELAS */
 
+table.lista {
+	border-bottom: 1px solid #CCCCCC;
+}
 
-table {
- border-spacing: 0px;
- border-collapse: collapse;
- border-top: 4px solid #EA9A1C;
- border-bottom: 1px solid #EA9A1C;
+table.lista tbody tr:nth-child(even) td {
+	background: #F7EDD0	;
 }
-table th {
- text-align: left;
- font-weight: normal;
- padding: 0.2em 0.5em;
- border-top: 1px dotted #EA9A1C;
+
+table.lista tbody tr:nth-child(odd) td  {
+	background: #f5f5dc; 
 }
-table td {
- text-align: right;
- border-top: 1px dotted #EA9A1C;
- padding: 0.2em 0.5em;
-}
-table thead th {
- text-align: center;
- border-bottom: 1px solid #EA9A1C;
-}
-table th {
+
+table.lista thead tr th {
+	border-bottom: 1px solid #CCCCCC;
 	text-align: left;
 }
 
+
+/* FOrM */
+
+form input {
+  font-size: 14px;
+}
+
+form input:focus { 
+	border: 1px solid white;
+	box-shadow: 0 0 5px orange;
+}
+
+form table {
+	width: 100%;
+	margin: 10px;
+}
+
+form table tr {
+	border-bottom: 1px solid #CCCCCC;
+	text-align: left;
+}
+
+/* removendo borda que o chrome coloca nos fields*/
+form *:focus { 
+	outline: none; 
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;	
+}

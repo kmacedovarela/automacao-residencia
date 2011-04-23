@@ -7,6 +7,7 @@ class UsuariosController < ApplicationController
 
   def index
     @usuarios = Usuario.all
+    @usuario = Usuario.new
   end
 
   def show
@@ -17,10 +18,6 @@ class UsuariosController < ApplicationController
     end
   end
 
-  def new
-    @usuario = Usuario.new
-  end
-
   def edit
     @usuario = Usuario.find(params[:id])
   end
@@ -29,17 +26,17 @@ class UsuariosController < ApplicationController
     @usuario = Usuario.new(params[:usuario])
     if @usuario.save
       flash[:notice] = 'Usuário criado com sucesso.'
+      @usuarios = Usuario.all
     end
   end
 
   def update
     @usuario = Usuario.find(params[:id])
 
-      if @usuario.update_attributes(params[:usuario])
-        redirect_to @usuario, :notice => 'Usuário atualizado com sucesso.'
-      else
-        render :action => "edit"
-      end
+    if @usuario.update_attributes(params[:usuario])
+      flash[:notice] = 'Usuário atualizado com sucesso.'
+      @usuarios = Usuario.all
+    end
   end
 
   def destroy
@@ -47,9 +44,8 @@ class UsuariosController < ApplicationController
 
     if @usuario.destroy
       flash[:notice] = 'Usuário deletado com sucesso.'
+      @usuarios = Usuario.all
     end
-
-    redirect_to usuarios_url
   end
 
 end
