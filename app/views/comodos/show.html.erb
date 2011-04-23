@@ -7,6 +7,9 @@
 <br/>
 
 <%= link_to 'Novo Cômodo', new_usuario_residencia_comodo_url(@comodo.residencia.usuario, @comodo.residencia) %>
+<br/><br/>
+
 
 <%= render :partial => '/perifericos/index', :locals => { :perifericos => @comodo.perifericos } %>
 <%= link_voltar usuario_residencia_path(@comodo.residencia.usuario, @comodo.residencia) %>
+

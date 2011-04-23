@@ -8,6 +8,7 @@ CEP: <%= @residencia.cep %> <br/>
 
 <br/>
 <%= link_to 'Nova Residência', new_usuario_residencia_url(@residencia.usuario) %>
-
+<br/><br/>
 <%= render :partial => '/comodos/index', :locals => { :comodos => @residencia.comodos } %>
-<%= link_voltar usuario_path(@residencia.usuario) %>
+<%= link_voltar usuarios_path %>
+

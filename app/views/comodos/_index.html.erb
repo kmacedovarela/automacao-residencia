@@ -2,10 +2,10 @@
   <%= javascript_include_tag 'views/comodo' %>
 <% end %>
 
-<h2>Comodos</h2>
+<h3> Cômodos </h3>
 
 <% unless comodos.blank? %>
-	<table >
+	<table>
 	  <tr>
 	    <th>Comodo</th>
 	    <th></th>
@@ -19,15 +19,17 @@
 			<td><%= link_visualizar usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %></td>
 		  <td><%= link_editar edit_usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %></td>
 		  <td><%= link_excluir usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %></td>
-		
+
 	  </tr>
 	<% end %>
 	</table>
-	
+
 <% else %>
-	Não existem comodos cadastrados.
+<br/><br/>
+	Não existem cômodos cadastrados.
 <% end %>
 
-<br /><br/>
+<br/><br/>
 
 <%= link_to 'Novo Cômodo', new_usuario_residencia_comodo_url(@residencia.usuario, @residencia) %>
+
