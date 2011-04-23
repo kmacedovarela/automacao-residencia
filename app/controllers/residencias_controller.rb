@@ -1,13 +1,9 @@
 class ResidenciasController < ApplicationController
 
+  respond_to :js
+
   def show
     @residencia = Residencia.find(params[:id])
-    # redirect_to usuario_url(@residencia.usuario)
-  end
-
-  def new
-    @residencia = Residencia.new
-    @residencia.usuario = Usuario.find params[:usuario_id]
   end
 
   def edit
@@ -19,11 +15,8 @@ class ResidenciasController < ApplicationController
     @residencia.usuario = Usuario.find params[:usuario_id]
 
     if @residencia.save
-      flash[:notice] = "Residencia criada com sucesso!"
-      redirect_to :controller => :usuarios, :action => :show , :id => params[:usuario_id]
-    else
-      p @residencia.errors
-      render :action => "new"
+      flash[:notice] = "Residência criada com sucesso!"
+      @residencias = Residencia.find_by_usuario_id(params[:usuario_id])
     end
   end
 
@@ -31,17 +24,17 @@ class ResidenciasController < ApplicationController
     @residencia = Residencia.find(params[:id])
 
     if @residencia.update_attributes(params[:residencia])
-      flash[:notice] = "Residencia atualizada com sucesso!"
-      redirect_to :controller => :usuarios, :action => :show , :id => params[:usuario_id]
-    else
-      render :action => "edit"
+      flash[:notice] = "Residência atualizada com sucesso!"
+      @residencias = Residencia.find_by_usuario_id(params[:usuario_id])
     end
   end
 
   def destroy
     @residencia = Residencia.find(params[:id])
-    @residencia.destroy
-
-    redirect_to usuario_residencias_url
+    if @residencia.destroy
+      flash[:notice] = 'Residência excluída com sucesso.'
+      @residencias = Residencia.find_by_usuario_id(params[:usuario_id])
+    end
   end
 end
+

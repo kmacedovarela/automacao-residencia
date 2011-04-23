@@ -18,7 +18,8 @@
   $("#form_usuario").slideUp();
 
   $("#notice").show();
+  $("#password_field").show();
   $("#listagem_usuario").html("<%=escape_javascript( render :partial => 'usuario', :collection => @usuarios ) %>");
-
+  $("#form_usuario").html("<%= escape_javascript(render(:partial => "form"))%>");
 <% end %>
 

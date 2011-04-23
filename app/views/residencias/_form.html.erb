@@ -1,6 +1,6 @@
-<%= form_for [@residencia.usuario, @residencia] do |f| %>
+<%= form_for [@usuario, @residencia] do |f| %>
   <%= render :partial => 'layouts/errors', :locals => {:entity => @residencia} %>
-  
+
   <table>
     <tr>
       <td>
@@ -19,7 +19,7 @@
         <%= f.label :cep %>
         <%= f.text_field :cep, :class => :cep %>
       </td>
-        
+
       <td>
         <%= f.submit %>
       </td>
@@ -27,3 +27,4 @@
   </table>
 
 <% end %>
+
