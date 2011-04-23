@@ -1,0 +1,18 @@
+<% if @usuario.errors.any? %>
+  $("#notice").hide();
+
+  <% @usuario.errors.full_messages.each do |msg| %>
+    $("#error").append("<%= escape_javascript(msg) %>");
+  <% end %>
+
+  $("#error").show();
+<% else %>
+  $("#error").hide();
+  $(".notice").html("<%= escape_javascript(flash[:notice])%>");
+
+  // Limpa o formulário
+  $(":input:not(input[type=submit])").val("");
+
+  $("#notice").show();
+<% end %>
+

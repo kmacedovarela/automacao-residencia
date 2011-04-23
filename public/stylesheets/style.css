@@ -107,7 +107,9 @@ h1{
   top: 10px;
 }
 
-
+.hide {
+  display: none;
+}
 
 /* TABELAS */
 /*

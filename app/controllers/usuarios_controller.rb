@@ -30,6 +30,8 @@ class UsuariosController < ApplicationController
     if @usuario.save
       flash[:notice] = 'Usuário criado com sucesso.'
     end
+
+    puts @usuario.errors.full_messages.size
   end
 
   def update
