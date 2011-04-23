@@ -1,11 +1,19 @@
-<h2>Login</h2>
+<%= javascript_include_tag 'views/login' %>
 
 <%= form_for(@usuario, :url => session_path(@usuario)) do |f| %>
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
-
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
-
-  <p><%= f.submit "Entrar" %></p>
+	<table>
+		<tr>
+		  <td colspan='2'> 
+				<%= f.label :email %>
+			 	<%= f.text_field :email, :class => 'input', :size => '35' %>
+			</td>
+		</tr>
+		<tr>
+	  	<td>
+				<%= f.label :senha %>
+				<%= f.password_field :password, :id => 'senha', :class => 'input', :size => '20' %>
+			</td>
+	  	<td align='right'><%= f.submit "Entrar", :class => 'botao' %></td>
+		</tr>
+	</table>
 <% end %>

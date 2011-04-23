@@ -1,21 +1,28 @@
-<div class="titulo_texto">
-  Automação de Residência?
+
+<div id='conteudo_home'>
+	<div id='id_sistema'> Nome do sistema '-'  ou logo.. </div>
+	
+	<div id="login">
+		<% if usuario_signed_in? %>
+			Bem vindo <%= current_usuario.nome %>
+		<% else %>
+			<%= render :partial => '/usuarios/sessions/new' %>
+		<% end %>
+	</div>
+		
+	<div class="titulo_texto">
+	  Automação de Residência?
+	</div>	
+	<div class="texto">
+	    Levantar para acender a luz?
+	    Andar por toda a casa para apagar todas as luzes?
+	    Desativar aquele interruptor que você deseja que não continue funcionando para segurança
+	    das crianças na sua casa?
+	    Temos a solução para estes problemas, com a automatização das lâmpadas e interruptores da sua residência
+	    você poderá cotrolar todos os componentes elétricos da sua casa com apenas alguns cliques,
+	    garantindo mais eficiência e controle na gerência de sua residência.
+	</div>
+
+
 </div>
 
-<div class="texto">
-    Levantar para acender a luz?
-    Andar por toda a casa para apagar todas as luzes?
-    Desativar aquele interruptor que você deseja que não continue funcionando para segurança
-    das crianças na sua casa?
-    Temos a solução para estes problemas, com a automatização das lâmpadas e interruptores da sua residência
-    você poderá cotrolar todos os componentes elétricos da sua casa com apenas alguns cliques,
-    garantindo mais eficiência e controle na gerência de sua residência.
-</div>
-
-<div id="login">
-	<% if usuario_signed_in? %>
-		Bem vindo <%= current_usuario.nome %>
-	<% else %>
-		<%= render :partial => '/usuarios/sessions/new' %>
-	<% end %>
-</div>

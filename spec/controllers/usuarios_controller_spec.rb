@@ -1,3 +1,4 @@
+
 require 'spec_helper'
 include Devise::TestHelpers
 
@@ -8,9 +9,9 @@ include Devise::TestHelpers
 describe UsuariosController do
 
   before do
-    @usuario = Factory :usuario, :nome => 'Rodrigo e Karina'    
-    
-    sign_in @usuario 
+    @usuario = Factory :usuario, :nome => 'Rodrigo e Karina'
+
+    sign_in @usuario
   end
 
   def mock_usuario(stubs={})
@@ -30,17 +31,17 @@ describe UsuariosController do
         usuario = Factory.create :usuario
         residencia = Factory.create :residencia, :usuario => usuario
         Factory.create :residencia, :usuario => usuario
-      
+
         residencia.usuario.residencias.size.should > 1
         get :show, :id => residencia.usuario.id
         response.should render_template :show
       end
     end
-    
+
     context 'quando existir apenas uma residencia' do
       it 'deveria redirecionar para o show de residencia' do
         residencia = Factory.create :residencia
-        
+
         residencia.usuario.residencias.size.should == 1
         get :show, :id => residencia.usuario.id
         response.should redirect_to(usuario_residencia_path(residencia.usuario, residencia))
@@ -50,9 +51,8 @@ describe UsuariosController do
 
   describe "GET new" do
     it "assigns a new usuario as @usuario" do
-      Usuario.stub(:new) { mock_usuario }
       xhr :get, :new
-      assigns(:usuario).should be(mock_usuario)
+      assigns(:usuario).should be
     end
   end
 
@@ -71,6 +71,7 @@ describe UsuariosController do
         xhr :post, :create, :usuario => {'these' => 'params'}
         assigns(:usuario).should be(mock_usuario)
         assigns(:show_password?).should be_false
+        flash[:notice].should_not be_nil
       end
 
       it "deveria redirecionar para ? depois que o usuario for criado"
@@ -90,9 +91,11 @@ describe UsuariosController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested usuario" do
-        Usuario.stub(:find).with("37") { mock_usuario }
-        mock_usuario.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :usuario => {'these' => 'params'}
+        usuario = Usuario.last
+        usuario.nome = 'Rodrigatao :D'
+        put :update, :id => usuario.id, :usuario => {:nome => usuario.nome}
+        assigns(:usuario).nome.should == usuario.nome
+        flash[:notice].should_not be_nil
       end
 
       it "assigns the requested usuario as @usuario" do
@@ -125,9 +128,11 @@ describe UsuariosController do
 
   describe "DELETE destroy" do
     it "destroys the requested usuario" do
-      Usuario.stub(:find).with("37") { mock_usuario }
-      mock_usuario.should_receive(:destroy)
-      delete :destroy, :id => "37"
+      usuario = Factory.create :usuario
+      delete :destroy, :id => usuario.id
+      flash[:notice].should_not be_nil
+
+      lambda{Usuario.find usuario.id}.should raise_error
     end
 
     it "redirects to the usuarios list" do
@@ -138,3 +143,4 @@ describe UsuariosController do
   end
 
 end
+

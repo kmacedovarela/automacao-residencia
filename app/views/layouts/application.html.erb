@@ -8,22 +8,24 @@
 	</head>
 
 	<body>
-		<div class="topo">
-		</div>
+			<div id="topo"></div>
+			<div id="corpo">
+				<div class='container'>
+						<p class="notice"><%= notice %></p>
+				  	<p class="alert"><%= alert %></p>
+	  			  <p class="error"><%= flash[:error] %></p>
 
-		<div class="corpo">
-			<p class="notice"><%= notice %></p>
-	    <p class="alert"><%= alert %></p>
-	    <p class="error"><%= flash[:error] %></p>
+						<%= yield %>
+				</div>
+				<div class="push"> </div>
+			</div>
 
-			<%= yield %>
-		</div>
+		  <div id="rodape"></div>
 
-		<div class="rodape">
-		</div>
+      <%= javascript_include_tag 'jquery.maskedinput-1.2.2.min' %>
+	  	<%= javascript_include_tag 'text_to_pass' %>
 
-		<%= javascript_include_tag 'jquery.maskedinput-1.2.2.min' %>
-		<%= yield :javascripts %>
+		  <%= yield :javascripts %>
 	</body>
 
 </html>
