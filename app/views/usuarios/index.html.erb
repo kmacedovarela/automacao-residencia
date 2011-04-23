@@ -1,5 +1,8 @@
-<div id="post_errors"></div>
-<h1> Usuários </h1>
+<%= content_for :javascripts do %>
+  <%= javascript_include_tag "views/usuario" %>
+<% end %>
+
+<h1> Usuários <img src="/images/add.png" id="adicionar_usuario" alt="Adicionar usuário" /> </h1>
 
 <table width="100%">
   <thead>
@@ -15,15 +18,14 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="listagem_usuario">
     <%= render :partial => 'usuario', :collection => @usuarios %>
   </tbody>
 </table>
 
 <br />
 
-<%= link_to 'Novo Usuário', new_usuario_path, :remote => true, :id => :link_new_usuario %>
-
-<div id="form_novo_usuario">
+<div id="form_usuario" class="hide" >
+  <%= render :partial => 'form' %>
 </div>
 

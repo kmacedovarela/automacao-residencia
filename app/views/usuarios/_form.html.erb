@@ -10,29 +10,28 @@
 						<%= f.label :email %>
 		        <%= f.text_field :email %>
 		      </td>
-					<% if action == :new %>
-			      <td>
-							<%= f.label :password %>
-			        <%= f.password_field :password  %>
-			      </td>
-					<% end %>
 		      <td>
-						<%= f.label :cpf %>			
+						<%= f.label :password %>
+		        <%= f.password_field :password  %>
+		      </td>
+		      <td>
+						<%= f.label :cpf %>
 		        <%= f.text_field :cpf, :class => "cpf" %>
 		      </td>
 		      <td>
-						<%= f.label :telefone %>			 
+						<%= f.label :telefone %>
 		        <%= f.text_field :telefone, :class => "telefone" %>
 		      </td>
 		      <td>
 						<%= f.label :tipo %>
-		        <%= f.select :tipo, '<option>Administrador</option> <option>Usuário</option>' %>
+		        <%= f.select :tipo, '<option>Administrador</option> <option>Proprietário</option>' %>
 		      </td>
-        
+
 		      <td>
 		        <%= f.submit %>
 		      </td>
 		    </tr>
   	</table>
-	
+
 <% end %>
+
