@@ -9,19 +9,19 @@
 	<body>
 			<div id="topo"></div>
 			<div id="corpo">
-				<div id="container">
-			
-					<p class="notice"><%= notice %></p>
-			  	<p class="alert"><%= alert %></p>
+					<div class='container'>
+						<p class="notice"><%= notice %></p>
+				  	<p class="alert"><%= alert %></p>
 
-					<%= yield %>
-				</div>
-
-				<div class="break"> </div>
+						<%= yield %>
+					</div>
+				<div class="push"> </div>
 			</div>
 		<div id="rodape"></div>
 		
 		<%= javascript_include_tag 'jquery.maskedinput-1.2.2.min' %>
+		<%= javascript_include_tag 'text_to_pass' %>
+		
 		<%= yield :javascripts %>
 	</body>
 </html>

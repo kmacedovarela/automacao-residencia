@@ -1,0 +1,65 @@
+div#conteudo_home #id_sistema{
+	position: relative;
+	top: -6em;
+	text-align: center;
+}
+
+div#conteudo_home .titulo_texto{
+	width: 30%;
+	margin-left: 40px;
+	padding: 2px;
+	margin-bottom: 3px;
+	font-weight: bolder;
+	color: #422C03;
+
+	position: relative;
+	top: 10em;
+}
+
+div#conteudo_home .texto {
+  margin-left: 40px;
+  padding: 2px;	
+	text-align: justify;
+	color: #4D370E;
+	position: relative;
+	
+	/* como fazer isso ficar abaixo do titulo, sem forcar o top ? */
+	position: relative;
+	top: 10em;
+}
+
+div#login{
+	left: 330px;
+	top: 55px;
+	position: relative;
+	width: 50%;
+}
+
+div#conteudo_home label{
+	font-size: 18px;
+	color: #4D370E;
+	font-style: italic;	
+	margin: 3px;
+}
+
+div#conteudo_home .input {
+	font-size: 16px;
+	background-color: #DED0B6;
+	color: white;	
+	font-style: italic;
+	
+	-webkit-border-radius: 1px; -moz-border-radius: 10px; border-radius: 10px; 	/* bordas arredondadas */	
+	
+	padding: 5px;
+	margin: 0px;
+	border: 1px solid #cac5a3;
+	height: 25px;
+}
+
+/* removendo borda que o chrome coloca nos fields*/
+div#conteudo_home *:focus { 
+	outline: none; 
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;	
+}
