@@ -1,44 +1,44 @@
 <%= form_for(@usuario, :remote => true) do |f| %>
 	<%= render :partial => 'layouts/errors', :locals => {:entity => @usuario} %>
   	<table id='tabela_novo_usuario'>
-		    <tr>
-		      <td width='40%'>
-						<%= f.label :nome %>
-		        <%= f.text_field :nome, :size => 40  %>
-		      </td>
-		      <td width='25%'>
-						<%= f.label :cpf %>
-		        <%= f.text_field :cpf, :class => "cpf", :size => 16 %>
-		      </td>
-		      <td>
-						<%= f.label :telefone %>
-		        <%= f.text_field :telefone, :class => "telefone", :size => 15 %>
-		      </td>		
-					<td rowspan='2' valign="middle">
-						<%= f.submit 'Salvar' %>			
-					</td>
-
+	      <tr>
+	        <td width='40%'>
+					  <%= f.label :nome %>
+	          <%= f.text_field :nome, :size => 40  %>
+	        </td>
+	        <td width='25%'>
+					  <%= f.label :cpf %>
+	          <%= f.text_field :cpf, :class => "cpf", :size => 16 %>
+	        </td>
+	        <td>
+					  <%= f.label :telefone %>
+	          <%= f.text_field :telefone, :class => "telefone", :size => 15 %>
+	        </td>
+				  <td rowspan='2' valign="middle">
+					  <%= f.submit 'Salvar' %>
+				  </td>
 		    </tr>
 		    <tr>
 		      <td>
 						<%= f.label :email %>
 		        <%= f.text_field :email, :size => 40 %>
 		      </td>
-		      <td>
+		      <td id="password_field">
 						<%= f.label :senha %>
 		        <%= f.password_field :password,:size => 13  %>
-		      </td>	
+		      </td>
 		      <td>
-						<%= f.label :tipo %> 
-						<%= select_tag( 
-									'usuario[tipo]', 
-									options_for_select(Usuario::ROLE.keys.collect { |key| key.to_s.capitalize }), 
+						<%= f.label :tipo %>
+						<%= select_tag(
+									'usuario[tipo]',
+									options_for_select(Usuario::ROLE.keys.collect { |key| key.to_s.capitalize }),
 									:id => 'tipo',
 									:style => 'width: 14em'
 						) %>
-		      </td>	
-		
+		      </td>
+
 		    </tr>
   	</table>
 
 <% end %>
+

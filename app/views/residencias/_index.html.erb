@@ -1,4 +1,13 @@
-<h2>Residências</h2>
+<h1>
+	Residências
+	<span class="toolbar-button" id='adicionar_residencia' >
+	  Adicionar
+	</span>
+</h1>
+
+<div id="form_residencia" class="hide" >
+  <%= render :partial => 'residencias/form' %>
+</div>
 
 <% unless residencias.blank? %>
 	<table width="100%">
@@ -10,10 +19,10 @@
 		    <th>Cep</th>
 		    <th></th>
 		    <th></th>
-		    <th></th>				
+		    <th></th>
 		  </tr>
 		</thead>
-	
+
 		<tbody>
 	  	<%= render :partial => '/residencias/residencia', :collection => residencias %>
 		</tbody>
@@ -22,4 +31,3 @@
 	<br />
 <% end %>
 
-<%= link_to 'Nova Residência', new_usuario_residencia_url(usuario) %>

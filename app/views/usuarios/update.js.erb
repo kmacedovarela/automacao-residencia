@@ -1,1 +1,8 @@
 <%= renderizar_resultado_js @usuario, @usuarios ,'usuario', '#listagem_usuario'%>
+
+<% unless @usuario.errors.any? %>
+	// hãaa?
+  $("#password_field").show();
+  $("#form_usuario").html("<%= escape_javascript(render(:partial => "form"))%>");
+<% end %>
+

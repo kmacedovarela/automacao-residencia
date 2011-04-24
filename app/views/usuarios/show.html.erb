@@ -1,3 +1,7 @@
+<%= content_for :javascripts do %>
+  <%= javascript_include_tag "views/residencia" %>
+<% end %>
+
 <div id="usuario" style='position:relative; width:50%;'>
 
 <table width='100%'>
@@ -7,18 +11,16 @@
 	</tr>
 
 	<tr>
-			<td colspan>CPF:  <%= @usuario.cpf %></td>							
-			<td>Email:  <%= @usuario.email %></td>				
-			<td>Telefone:  <%= @usuario.telefone %> </td>	
-	</tr>	
+			<td>CPF:  <%= @usuario.cpf %></td>
+			<td>Email:  <%= @usuario.email %></td>
+			<td>Telefone:  <%= @usuario.telefone %> </td>
+	</tr>
 </table>
 
 </div>
 
 
-<%= render :partial => '/residencias/index', :locals => { 
-																								:residencias => @usuario.residencias, 
+<%= render :partial => '/residencias/index', :locals => {
+																								:residencias => @usuario.residencias,
 																								:usuario => @usuario  } %>
-
-
 <%= link_voltar usuarios_path %>

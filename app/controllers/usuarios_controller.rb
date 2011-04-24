@@ -12,6 +12,7 @@ class UsuariosController < ApplicationController
 
   def show
     @usuario = Usuario.find(params[:id])
+    @residencia = Residencia.new
 
     if @usuario.residencias.size == 1
       redirect_to usuario_residencia_path(@usuario, @usuario.residencias.first)
@@ -43,7 +44,7 @@ class UsuariosController < ApplicationController
     @usuario = Usuario.find(params[:id])
 
     if @usuario.destroy
-      flash[:notice] = 'Usuário deletado com sucesso.'
+      flash[:notice] = 'Usuário excluído com sucesso.'
       @usuarios = Usuario.all
     end
   end
