@@ -1,8 +1,8 @@
 jQuery(function(){
 
-    $("#adicionar_usuario").click(function(){
-        $("#form_usuario").toggle("slow");
-    });
+	$("#adicionar_usuario").click(function(){
+		$("#form_usuario").toggle("slow");
+	});
 
 });
 
