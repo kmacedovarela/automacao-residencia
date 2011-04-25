@@ -82,6 +82,7 @@ module ApplicationHelper
 
         $('#notice').show();
         $('#{lista_destino}').html('#{escape_javascript( render :partial => partial, :collection => colecao )}');
+        $('#{lista_destino}').parent().show();
       }      
     end
     
