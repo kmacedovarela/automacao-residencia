@@ -8,122 +8,143 @@ include Devise::TestHelpers
 
 describe UsuariosController do
 
+  valid_params = {
+    :usuario => {
+      :nome => 'Coracao',
+      :email => 'garutobisensei@gmail.com',
+      :password => '123',
+      :cpf => '732.123.321-43',
+      :telefone => '(61) 3035-2312',
+      :tipo => Usuario::ROLE[:administrador]
+    }
+  }
+
+  invalid_params = {
+    :usuario => {
+      :nome => 'Coracao',
+      :password => '123',
+      :telefone => '(61) 3035-2312',
+      :tipo => Usuario::ROLE[:administrador]
+    }
+  }
+
   before do
     @usuario = Factory :usuario, :nome => 'Rodrigo e Karina'
 
     sign_in @usuario
   end
 
-  def mock_usuario(stubs={})
-    @mock_usuario ||= mock_model(Usuario, stubs).as_null_object
-  end
-
   describe "GET index" do
+
     it "assigns all usuarios as @usuarios" do
       get :index
-      assigns(:usuarios).member?(@usuario).should be_true
+      assigns(:usuarios).should_not be_nil
+      assigns(:usuario).should_not be_nil
     end
+
   end
 
   describe "GET show" do
     context 'quando possuir varias residencias' do
+
       it "deveria redirecionar para o show de usuario" do
         usuario = Factory.create :usuario
         residencia = Factory.create :residencia, :usuario => usuario
         Factory.create :residencia, :usuario => usuario
 
         residencia.usuario.residencias.size.should > 1
-        get :show, :id => residencia.usuario.id
+        xhr :get, :show, :id => residencia.usuario.id
         response.should render_template :show
       end
+
     end
 
-    context 'quando existir apenas uma residencia' do
+    context 'quando possuir apenas uma residencia' do
       it 'deveria redirecionar para o show de residencia' do
         residencia = Factory.create :residencia
 
         residencia.usuario.residencias.size.should == 1
-        get :show, :id => residencia.usuario.id
+        xhr :get, :show, :id => residencia.usuario.id
         response.should redirect_to(usuario_residencia_path(residencia.usuario, residencia))
       end
     end
   end
 
-  describe "GET new" do
-    it "assigns a new usuario as @usuario" do
-      xhr :get, :new
-      assigns(:usuario).should be
-    end
-  end
-
   describe "GET edit" do
-    it "assigns the requested usuario as @usuario" do
-      Usuario.stub(:find).with("37") { mock_usuario }
-      get :edit, :id => "37"
-      assigns(:usuario).should be(mock_usuario)
+    it "deve atribuir o usuario a @usuario" do
+      xhr :get, :edit, :id => @usuario.id
+      assigns(:usuario).should == @usuario
     end
   end
 
   describe "POST create" do
-    describe "with valid params" do
-      it "assigns a newly created usuario as @usuario" do
-        Usuario.stub(:new).with({'these' => 'params'}) { mock_usuario(:save => true) }
-        xhr :post, :create, :usuario => {'these' => 'params'}
-        assigns(:show_password?).should be_false
+
+    context "com parametros validos" do
+
+      it "deveria criar usuario e atribuir o novo usuario a @usuario" do
+        xhr :post, :create, valid_params
+
+        assigns(:usuario).errors.should be_empty
+        assigns(:usuario).new_record?.should be_false
         assigns(:usuarios).should_not be_nil
+
         flash[:notice].should_not be_nil
       end
 
-      it "deveria redirecionar para ? depois que o usuario for criado"
     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved usuario as @usuario" do
-        Usuario.stub(:new).with({'these' => 'params'}) { mock_usuario(:save => false) }
-        xhr :post, :create, :usuario => {'these' => 'params'}
-        assigns(:usuario).should be(mock_usuario)
+    context "com parametros invalidos" do
+
+      it "nao deveria criar o usuario e atribuir usuario a @usuario" do
+        xhr :post, :create, invalid_params
+
+        assigns(:usuario).errors.should_not be_empty
+        assigns(:usuario).new_record?.should be_true
+        assigns(:usuarios).should be_nil
+
+        flash[:notice].should be_nil
       end
 
-      it "deveria redirecionar para ? depois que o usuario for criado"
     end
   end
 
   describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested usuario" do
-        usuario = Usuario.last
-        usuario.nome = 'Rodrigatao :D'
-        put :update, :id => usuario.id, :usuario => {:nome => usuario.nome}
-        assigns(:usuario).nome.should == usuario.nome
+
+    describe "com parametros validos" do
+      it "atualizado o usuario requerido" do
+        @usuario.nome = 'Rodrigatao :D'
+        xhr :put, :update, :id => @usuario.id, :usuario => {:nome => @usuario.nome}
+
+        assigns(:usuario).errors.should be_empty
+        assigns(:usuario).nome.should == @usuario.nome
         assigns(:usuarios).should_not be_nil
+
         flash[:notice].should_not be_nil
       end
+
     end
 
-    describe "with invalid params" do
-      it "assigns the usuario as @usuario" do
-        Usuario.stub(:find) { mock_usuario(:update_attributes => false) }
-        put :update, :id => "1"
-        assigns(:usuario).should be(mock_usuario)
-      end
+    describe "com parametros invalidos" do
+      it "atribui o usuario a @usuario" do
+        @usuario.nome = nil
+        xhr :put, :update, :id => @usuario.id, :usuario => {:nome => @usuario.nome}
 
+        assigns(:usuario).errors.should_not be_empty
+        assigns(:usuario).nome.should == @usuario.nome
+        assigns(:usuarios).should be_nil
+
+        flash[:notice].should be_nil
+      end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested usuario" do
-      usuario = Factory.create :usuario
-      delete :destroy, :id => usuario.id
+    it "exclui o usuario requerido" do
+      xhr :delete, :destroy, :id => @usuario.id
       flash[:notice].should_not be_nil
       assigns(:usuarios).should_not be_nil
 
       lambda{Usuario.find usuario.id}.should raise_error
-    end
-
-    it "redirects to the usuarios list" do
-      Usuario.stub(:find) { mock_usuario }
-      delete :destroy, :id => "1"
-      response.should redirect_to(usuarios_url)
     end
   end
 

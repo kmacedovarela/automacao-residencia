@@ -2,20 +2,20 @@
   <%= javascript_include_tag "views/residencia" %>
 <% end %>
 
-<div id="usuario" style='position:relative; width:50%;'>
+<div id="usuario">
 
-<table width='100%'>
-	<tr>
-		<td><h3><%= @usuario.nome %></h3></td>
-		<td style="text-align: right"> <%= @usuario.tipo %> </td>
-	</tr>
+  <table width='100%'>
+	  <tr>
+		  <td><h3><%= @usuario.nome %></h3></td>
+		  <td> <%= @usuario.tipo %> </td>
+	  </tr>
 
-	<tr>
-			<td>CPF:  <%= @usuario.cpf %></td>
-			<td>Email:  <%= @usuario.email %></td>
-			<td>Telefone:  <%= @usuario.telefone %> </td>
-	</tr>
-</table>
+	  <tr>
+			  <td>CPF:  <%= @usuario.cpf %></td>
+			  <td>Email:  <%= @usuario.email %></td>
+			  <td>Telefone:  <%= @usuario.telefone %> </td>
+	  </tr>
+  </table>
 
 </div>
 
@@ -24,3 +24,4 @@
 																								:residencias => @usuario.residencias,
 																								:usuario => @usuario  } %>
 <%= link_voltar usuarios_path %>
+

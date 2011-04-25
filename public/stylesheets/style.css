@@ -241,3 +241,7 @@ form *:focus {
     cursor: pointer;
 }
 
+#usuario{
+    margin-bottom: 20px;
+}
+
