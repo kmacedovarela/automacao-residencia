@@ -8,7 +8,6 @@ var mascaras_applied = false;
 var app = {
 
     aplicar_mascaras: function(){
-        alert('s');
         if (!mascaras_applied){
             $(".telefone").live('focus', function(){
                 $(this).mask('(99) 9999-9999');
