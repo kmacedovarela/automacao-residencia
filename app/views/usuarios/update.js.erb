@@ -1,25 +1,10 @@
-<% if @usuario.errors.any? %>
-  $("#notice").hide();
+<%= renderizar_resultado_js @usuario, @usuarios ,'usuario', '#listagem_usuario'%>
 
-  $("#error").html("");
-  $("#error").append("<ul>");
-  <% @usuario.errors.full_messages.each do |msg| %>
-    $("#error").append("<li> <%= escape_javascript(msg) %> </li>");
-  <% end %>
-  $("#error").append("</ul>");
-
-  $("#error").show();
-<% else %>
-  $("#error").hide();
-  $("#notice").html("<%= escape_javascript(flash[:notice])%>");
-
-  // Limpa o formulário
-  $(":input:not(input[type=submit])").val("");
-  $("#form_usuario").slideUp();
-
-  $("#notice").show();
+<% unless @usuario.errors.any? %>
+	// hãaa? rlx o password não é atualizado :)
   $("#password_field").show();
-  $("#listagem_usuario").html("<%=escape_javascript( render :partial => 'usuario', :collection => @usuarios ) %>");
   $("#form_usuario").html("<%= escape_javascript(render(:partial => "form"))%>");
 <% end %>
+
+usuario.aplicar_mascara();
 
