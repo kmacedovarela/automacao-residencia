@@ -1,4 +1,4 @@
-<%= form_for [@usuario, @residencia], :remote => true do |f| %>
+<%= form_for [@residencia.usuario, @residencia], :remote => true do |f| %>
   <%= render :partial => 'layouts/errors', :locals => {:entity => @residencia} %>
 
   <table id='tabela_nova_residencia'>
