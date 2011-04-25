@@ -1,7 +1,7 @@
-<%= form_for [@usuario, @residencia] do |f| %>
+<%= form_for [@usuario, @residencia], :remote => true do |f| %>
   <%= render :partial => 'layouts/errors', :locals => {:entity => @residencia} %>
 
-  <table>
+  <table id='tabela_nova_residencia'>
     <tr>
       <td>
         <%= f.label :cidade %>

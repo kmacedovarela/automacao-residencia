@@ -3,19 +3,19 @@ development:
   database: automacao_residencia_development
   pool: 5
   username: root
-  password: root
+  password:
 
 test:
   adapter: mysql2
   database: automacao_residencia_test
   pool: 5
   username: root
-  password: root
+  password: 
 
 production:
   adapter: mysql2
   database: automacao_residencia_production
   pool: 5
   username: root
-  password: root
+  password: 
 

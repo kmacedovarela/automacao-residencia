@@ -1,6 +1,7 @@
 <h1>
+	<br/>
 	Residências
-	<span class="toolbar-button" id='adicionar_residencia' >
+	<span class="toolbar-button" id='adicionar_residencia'>
 	  Adicionar
 	</span>
 </h1>
@@ -10,7 +11,7 @@
 </div>
 
 <% unless residencias.blank? %>
-	<table width="100%">
+	<table width="100%" class="lista">
 		<thead>
 	  	<tr>
 		    <th>Cidade</th>
@@ -23,7 +24,7 @@
 		  </tr>
 		</thead>
 
-		<tbody>
+		<tbody id="listagem_residencia">
 	  	<%= render :partial => '/residencias/residencia', :collection => residencias %>
 		</tbody>
 	</table>
