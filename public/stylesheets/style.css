@@ -202,7 +202,7 @@ form *:focus {
 }
 
 .alert {
-    background: #DFF4FF url(/images/info.png) no-repeat 6px 50%;
+    background: #DFF4FF url(/images/alert.png) no-repeat 6px 50%;
     border: 1px solid #A7CEDF;
     color: #34404F;
     display: block;
