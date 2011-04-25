@@ -47,13 +47,15 @@ describe UsuariosController do
   describe "GET show" do
     context 'quando possuir varias residencias' do
 
-      it "deveria redirecionar para o show de usuario" do
+      it "deveria redirecionar para o show de usuario carregando residencia" do
         usuario = Factory.create :usuario
         residencia = Factory.create :residencia, :usuario => usuario
         Factory.create :residencia, :usuario => usuario
 
         residencia.usuario.residencias.size.should > 1
         xhr :get, :show, :id => residencia.usuario.id
+        assigns(:residencia).should_not be_nil
+        assigns(:residencia).usuario.should == residencia.usuario
         response.should render_template :show
       end
 
