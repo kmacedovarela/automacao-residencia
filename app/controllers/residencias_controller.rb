@@ -16,7 +16,7 @@ class ResidenciasController < ApplicationController
 
     if @residencia.save
       flash[:notice] = "Residência criada com sucesso!"
-      @residencias = Residencia.find_by_usuario_id(params[:usuario_id])
+      @residencias = Residencia.find_all_by_usuario_id(params[:usuario_id])
     end
   end
 
@@ -25,7 +25,7 @@ class ResidenciasController < ApplicationController
 
     if @residencia.update_attributes(params[:residencia])
       flash[:notice] = "Residência atualizada com sucesso!"
-      @residencias = Residencia.find_by_usuario_id(params[:usuario_id])
+      @residencias = Residencia.find_all_by_usuario_id(params[:usuario_id])
     end
   end
 
@@ -33,7 +33,7 @@ class ResidenciasController < ApplicationController
     @residencia = Residencia.find(params[:id])
     if @residencia.destroy
       flash[:notice] = 'Residência excluída com sucesso.'
-      @residencias = Residencia.find_by_usuario_id(params[:usuario_id])
+      @residencias = Residencia.find_all_by_usuario_id(params[:usuario_id])
     end
   end
 end
