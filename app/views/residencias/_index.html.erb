@@ -10,25 +10,22 @@
   <%= render :partial => 'residencias/form' %>
 </div>
 
-<% unless residencias.blank? %>
-	<table width="100%" class="lista">
-		<thead>
-	  	<tr>
-		    <th>Cidade</th>
-		    <th>Uf</th>
-		    <th>Endereco</th>
-		    <th>Cep</th>
-		    <th></th>
-		    <th></th>
-		    <th></th>
-		  </tr>
-		</thead>
+<table width="100%" class="lista <%= 'hide' if residencias.blank? %>">
+	<thead>
+  	<tr>
+	    <th>Cidade</th>
+	    <th>Uf</th>
+	    <th>Endereco</th>
+	    <th>Cep</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+	</thead>
 
-		<tbody id="listagem_residencia">
-	  	<%= render :partial => '/residencias/residencia', :collection => residencias %>
-		</tbody>
-	</table>
+	<tbody id="listagem_residencia">
+  	<%= render :partial => '/residencias/residencia', :collection => residencias %>
+	</tbody>
+</table>
 
-	<br />
-<% end %>
-
+<br />

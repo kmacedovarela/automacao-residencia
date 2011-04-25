@@ -13,6 +13,7 @@ class UsuariosController < ApplicationController
   def show
     @usuario = Usuario.find(params[:id])
     @residencia = Residencia.new
+    @residencia.usuario = @usuario
 
     if @usuario.residencias.size == 1
      redirect_to usuario_residencia_path(@usuario, @usuario.residencias.first)
