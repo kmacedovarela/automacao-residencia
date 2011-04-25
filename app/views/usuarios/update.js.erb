@@ -4,7 +4,6 @@
 	// hãaa? rlx o password não é atualizado :)
   $("#password_field").show();
   $("#form_usuario").html("<%= escape_javascript(render(:partial => "form"))%>");
+  usuario.aplicar_mascara();
 <% end %>
-
-usuario.aplicar_mascara();
 
