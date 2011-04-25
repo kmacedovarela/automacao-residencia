@@ -1,0 +1,6 @@
+<%= renderizar_create_update_js @residencia, @residencias %>
+
+<% unless @residencia.errors.any? %>
+  residencia.aplicar_mascara();
+<% end %>
+
