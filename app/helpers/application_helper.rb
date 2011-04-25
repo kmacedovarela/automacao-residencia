@@ -55,7 +55,7 @@ module ApplicationHelper
   # => lista_destino = '#listagem_classe_entidade' 
   # 
   # ##################
-  def renderizar_resultado_js entidade, colecao , partial = '', lista_destino = ''
+  def renderizar_create_update_js entidade, colecao , partial = '', lista_destino = ''
     partial = entidade.class.name.downcase if partial.blank?
     lista_destino = "#listagem_#{entidade.class.name.downcase}" if lista_destino.blank?
     
@@ -82,18 +82,33 @@ module ApplicationHelper
 
         $('#notice').show();
         $('#{lista_destino}').html('#{escape_javascript( render :partial => partial, :collection => colecao )}');
-
-
-
-
-
-
-
-
-
-
       }      
     end
+    
+    js.html_safe
+  end
+ 
+  # ################## 
+  #  parametros:
+  # => a coleção que será utilizada para renderizar a listagem; ex: @usuarios,
+  # => partial que será adicionada a listagem; ex: 'usuario'
+  # => listagem que será atualizada; ex: '#listagem_usuario' 
+  # 
+  # As variaveis partial e lista_destino recebem como valor default, nomes semelhantes ao da entidade. 
+  # => partial = 'classe_entidade'  
+  # => lista_destino = '#listagem_classe_entidade' 
+  # 
+  # ##################  
+  def renderizar_destroy_js colecao , partial = '', lista_destino = ''
+    partial = colecao.first.class.name.downcase if partial.blank?
+    lista_destino = "#listagem_#{colecao.first.class.name.downcase}" if lista_destino.blank?
+
+    js = %Q{  
+      $('#error').hide();
+      $('#notice').html('#{escape_javascript(flash[:notice])}');
+      $('#notice').show();
+      $('#{lista_destino}').html('#{ escape_javascript( render :partial => partial, :collection => colecao) }');
+    }
     
     js.html_safe
   end

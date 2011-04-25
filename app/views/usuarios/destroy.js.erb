@@ -1,5 +1,1 @@
-  $("#error").hide();
-  $("#notice").html("<%= escape_javascript(flash[:notice])%>");
-  $("#notice").show();
-  $("#listagem_usuario").html("<%=escape_javascript( render :partial => 'usuario', :collection => @usuarios ) %>");
-
+<%= renderizar_destroy_js  @usuarios %>
