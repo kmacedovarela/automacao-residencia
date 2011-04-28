@@ -8,7 +8,6 @@ class ResidenciasController < ApplicationController
 
   def edit
     @residencia = Residencia.find(params[:id])
-    puts 'xegay'
   end
 
   def create
