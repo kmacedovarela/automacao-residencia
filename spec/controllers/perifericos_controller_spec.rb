@@ -11,85 +11,129 @@ describe PerifericosController do
     @comodo = @periferico.comodo
     @residencia = @periferico.comodo.residencia
     @usuario = @periferico.comodo.residencia.usuario
-
-    @valid_params = {
-      :usuario_id => @usuario.id,
-      :residencia_id => @residencia.id,
-      :comodo_id => @comodo.id,
-      :periferico => {
-        :nome => 'teste de periferico',
-        :pino => '1'
-      }
-    }
   end
 
-  it 'deveria criar um periferico' do
-    xhr :post, :create, @valid_params
-    assigns(:periferico).should be
-  end
+  describe "GET edit" do
+    it "deveria preparar o periferico para edicao" do
+      xhr :get, :edit,  :id => @periferico.id,
+                        :comodo_id => @comodo.id,
+                        :residencia_id => @residencia.id,
+                        :usuario_id => @usuario.id
 
-  describe "with valid params" do
-    it "cria um periferico" do
-      post :create, @valid_params
-      assigns(:periferico).should be
-      flash[:notice].should_not be_blank
+      assigns(:periferico).should_not be_nil
+      assigns(:periferico).should == @periferico
     end
   end
 
-  describe "GET new" do
-    it "assigns a new comodo as @periferico" do
-      get :new, :usuario_id => @usuario.id, :residencia_id => @residencia.id, :comodo_id => @comodo.id
+  describe "POST create" do
+    before do
+      @valid_params = {
+                        :usuario_id => @usuario.id,
+                        :residencia_id =>@residencia.id,
+                        :comodo_id => @comodo.id,
+                        :periferico => {
+                          :nome => "Lampada",
+                          :pino => "1"
+                        }
+                      }
 
-      assigns(:periferico).should be
-      assigns(:periferico).comodo.should be
-      assigns(:periferico).comodo.residencia.should be
-      assigns(:periferico).comodo.residencia.usuario.should be
-
+      @invalid_params = {
+                    :usuario_id => @usuario.id,
+                    :residencia_id =>@residencia.id,
+                    :comodo_id => @comodo.id,
+                    :periferico => {
+                      :nome => nil, #INVALID
+                      :pino => "1"
+                    }
+                  }
     end
-  end
 
-  describe "DELETE destroy" do
-    it "destroys the requested comodo" do
-      delete :destroy, :id => @periferico.id,
-                       :comodo_id => @comodo.id,
-                       :usuario_id => @usuario.id,
-                       :residencia_id => @residencia.id
+    describe "with valid params" do
+      it "deveria criar um novo periferico" do
+        xhr :post, :create, @valid_params
+        assigns(:periferico).errors.should be_empty
+        assigns(:periferico).new_record?.should be_false
+        assigns(:perifericos).should_not be_nil
 
-      response.should redirect_to :controller => :comodos,
-                                  :action => :show,
-                                  :id => @periferico.comodo.id,
-                                  :residencia_id => @residencia.id,
-                                  :usuario_id => @usuario.id
+        flash[:notice].should_not be_nil
+      end
+    end
+
+    describe "with invalid params" do
+      it "nao deveria criar um novo periferico e deveria atribuir os erros a @periferico" do
+        xhr :post, :create, @invalid_params
+
+        assigns(:periferico).errors.should_not be_empty
+        assigns(:periferico).new_record?.should be_true
+        assigns(:perifericos).should be_nil
+
+        flash[:notice].should be_nil
+      end
     end
   end
 
   describe "PUT update" do
-      it "deveria atualizar o periferico" do
-        params = {
-          :id => @periferico.id,
-          :comodo_id => @comodo.id,
-          :residencia_id => @residencia.id,
-          :usuario_id => @usuario.id,
-          :periferico => {
-            :nome => "Novo Nome",
-            :pino => "1"
-          }
-        }
+    before do
+      @valid_params = {
+                        :id => @periferico.id,
+                        :usuario_id => @usuario.id,
+                        :residencia_id =>@residencia.id,
+                        :comodo_id => @comodo.id,
+                        :periferico => {
+                          :nome => "Lampada",
+                          :pino => "1"
+                        }
+                      }
 
-        put :update, params
+      @invalid_params = {
+                    :id => @periferico.id,
+                    :usuario_id => @usuario.id,
+                    :residencia_id =>@residencia.id,
+                    :comodo_id => @comodo.id,
+                    :periferico => {
+                      :nome => nil, #INVALIDO
+                      :pino => nil #INVALIDO
+                    }
+                  }
+    end
 
-        periferico_atualizado = assigns(:periferico)
-        periferico_atualizado.should_not be_nil
-        periferico_atualizado.nome.should eql("Novo Nome")
+    describe "with valid params" do
+      it "deveria atualizar o comodo" do
+        xhr :put, :update, @valid_params
 
-        flash[:notice].should_not be_blank
+        assigns(:periferico).errors.should be_empty
+        assigns(:periferico).nome.should == @valid_params[:periferico][:nome]
+        assigns(:periferico).comodo.should_not be_nil
+        assigns(:perifericos).should_not be_nil
 
-        response.should redirect_to :controller => :comodos,
-                                    :action => :show,
-                                    :id => @periferico.comodo.id,
-                                    :residencia_id => @residencia.id,
-                                    :usuario_id => @usuario.id
+        flash[:notice].should_not be_nil
       end
+    end
+
+    describe "with invalid params" do
+      it "nao deveria atualizar o periferico e deveria atribuir os erros a @periferico" do
+        xhr :put, :update, @invalid_params
+
+        assigns(:periferico).errors.should_not be_empty
+        assigns(:perifericos).should be_nil
+
+        flash[:notice].should be_nil
+      end
+    end
+  end
+
+  describe "DELETE destroy" do
+    it 'deveria deletar o comodo ' do
+      xhr :delete, :destroy, :id => @periferico.id,
+                             :comodo_id => @comodo.id,
+                             :residencia_id => @residencia.id,
+                             :usuario_id => @usuario.id
+
+      flash[:notice].should_not be_nil
+      assigns(:perifericos).should_not be_nil
+
+      lambda{Periferico.find @periferico.id}.should raise_error
+    end
   end
 end
 

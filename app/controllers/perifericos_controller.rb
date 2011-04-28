@@ -1,18 +1,6 @@
 class PerifericosController < ApplicationController
 
-  def show
-    @periferico = Periferico.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @periferico }
-    end
-  end
-
-  def new
-    @periferico = Periferico.new
-    @periferico.comodo = Comodo.find(params[:comodo_id])
-  end
+  respond_to :js
 
   def edit
     @periferico = Periferico.find(params[:id])
@@ -23,39 +11,27 @@ class PerifericosController < ApplicationController
     @periferico = Periferico.new(params[:periferico])
 
     if @periferico.save
-      flash[:notice] = 'Periferico criado com sucesso'
-      redirect_to_comodo_index
-    else
-      render :action => "new"
+      flash[:notice] = 'Periférico criado com sucesso.'
+      @perifericos = Periferico.find_all_by_comodo_id @periferico.comodo.id
     end
   end
 
   def update
     @periferico = Periferico.find(params[:id])
 
-      if @periferico.update_attributes(params[:periferico])
-        flash[:notice] = 'Comodo atualizado com sucesso'
-        redirect_to_comodo_index
-      else
-        render :action => "edit"
-      end
+    if @periferico.update_attributes(params[:periferico])
+      flash[:notice] = 'Periférico atualizado com sucesso.'
+      @perifericos = Periferico.find_all_by_comodo_id @periferico.comodo.id
+    end
   end
 
   def destroy
     @periferico = Periferico.find(params[:id])
-    @periferico.destroy
-
-    redirect_to_comodo_index
+    if @periferico.destroy
+      flash[:notice] = 'Periférico excluída com sucesso.'
+      @perifericos = Periferico.find_all_by_comodo_id @periferico.comodo.id
+    end
   end
 
-  private
-  def redirect_to_comodo_index
-    redirect_to  :controller => :comodos,
-                                :action => :show,
-                                :id => @periferico.comodo.id,
-                                :residencia_id => @periferico.comodo.residencia.id,
-                                :usuario_id => @periferico.comodo.residencia.usuario.id
-
-  end
 end
 
