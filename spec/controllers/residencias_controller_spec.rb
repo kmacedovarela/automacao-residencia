@@ -28,7 +28,7 @@ describe ResidenciasController do
   end
 
   describe "GET edit" do
-    it "deveria preparar a residecia para edição" do
+    it "deveria preparar a residecia para edicao" do
       xhr :get, :edit, :id => @residencia.id, :usuario_id => @residencia.usuario.id
       assigns(:residencia).should_not be_nil
       assigns(:residencia).should == @residencia

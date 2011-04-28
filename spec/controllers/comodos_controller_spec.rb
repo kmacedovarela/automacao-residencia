@@ -7,133 +7,131 @@ require 'spec_helper'
 describe ComodosController do
 
   before do
-    @residencia = Factory.create :residencia
-    @usuario = @residencia.usuario
-  end
-
-  def mock_comodo(stubs={})
-    @mock_comodo ||= mock_model(Comodo, stubs).as_null_object
+    @comodo = Factory.create :comodo
+    @residencia = @comodo.residencia
+    @usuario = @comodo.residencia.usuario
   end
 
   describe "GET show" do
-    it "assigns the requested comodo as @comodo" do
-      Comodo.stub(:find).with("37") { mock_comodo }
-      get :show, :id => "37", :usuario_id => @usuario.id, :residencia_id => @residencia.id
-      assigns(:comodo).should be(mock_comodo)
+
+    before do
+      Factory.create :periferico, :comodo => @comodo
+      Factory.create :periferico, :comodo => @comodo
     end
-  end
 
-  describe "GET new" do
-    it "assigns a new comodo as @comodo" do
-      get :new, :usuario_id => @usuario.id, :residencia_id => @residencia.id
+    it "deveria detalhar o comodo e carregar a lista de perifericos" do
+      get :show, :id => @comodo.id, :residencia_id => @residencia.id, :usuario_id => @usuario.id
 
-      assigns(:comodo).should be
-      assigns(:comodo).residencia.should be
-      assigns(:comodo).residencia.usuario.should be
+      assigns(:comodo).residencia.should_not be_nil
+      assigns(:comodo).id.should == @comodo.id
+      assigns(:comodo).perifericos.size.should == 2
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested comodo as @comodo" do
-      Comodo.stub(:find).with("37") { mock_comodo }
-      get :edit, :id => "37", :usuario_id => @usuario.id, :residencia_id => @residencia.id
-      assigns(:comodo).should be(mock_comodo)
+    it "deveria preparar o comodo para edicao" do
+      xhr :get, :edit, :id => @comodo.id, :residencia_id => @residencia.id, :usuario_id => @usuario.id
+      assigns(:comodo).should_not be_nil
+      assigns(:comodo).should == @comodo
     end
   end
 
   describe "POST create" do
     before do
-      @params = {
-          :residencia_id => @residencia.id,
-          :usuario_id => @usuario.id,
-          :comodo => { :nome => 'cozinha' }
-      }
+      @valid_params = {
+                        :usuario_id => @usuario.id,
+                        :residencia_id =>@residencia.id,
+                        :comodo => {
+                          :nome => "Sala"
+                        }
+                      }
+
+      @invalid_params = {
+                    :usuario_id => @usuario.id,
+                    :residencia_id =>@residencia.id,
+                    :comodo => {
+                      :nome => nil #INVALID
+                    }
+                  }
     end
 
     describe "with valid params" do
-      it "cria um comodo" do
-        post :create, @params
-        assigns(:comodo).should be
-        response.should redirect_to(:controller => :residencias,
-                                                    :action => :show,
-                                                    :id => @residencia.id,
-                                                    :usuario_id => @usuario.id)
+      it "deveria criar um novo comodo" do
+        xhr :post, :create, @valid_params
+        assigns(:comodo).errors.should be_empty
+        assigns(:comodo).new_record?.should be_false
+        assigns(:comodo).should_not be_nil
+
+        flash[:notice].should_not be_nil
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved comodo as @comodo" do
-        @params[:comodo][:nome] = ""
-        post :create, @params
-        assigns(:comodo).should be
+      it "nao deveria criar um novo comodo e deveria atribuir os erros a @comodo" do
+        xhr :post, :create, @invalid_params
 
-        response.should render_template :new
+        assigns(:comodo).errors.should_not be_empty
+        assigns(:comodo).new_record?.should be_true
+        assigns(:comodos).should be_nil
+
+        flash[:notice].should be_nil
       end
     end
   end
 
   describe "PUT update" do
+    before do
+      @valid_params = {
+                        :id => @comodo.id,
+                        :usuario_id => @usuario.id,
+                        :residencia_id =>@residencia.id,
+                        :comodo => {
+                          :nome => "Sala"
+                        }
+                      }
+
+      @invalid_params = {
+                    :id => @comodo.id,
+                    :usuario_id => @usuario.id,
+                    :residencia_id =>@residencia.id,
+                    :comodo => {
+                      :nome => nil #INVALID
+                    }
+                  }
+    end
+
     describe "with valid params" do
       it "deveria atualizar o comodo" do
-        comodo = Factory.create :comodo
+        xhr :put, :update, @valid_params
 
-        params = {
-          :id => comodo.id,
-          :residencia_id => comodo.residencia.id,
-          :usuario_id => comodo.residencia.id,
-          :comodo => {
-            :nome => "Novo Nome"
-          }
-        }
+        assigns(:comodo).errors.should be_empty
+        assigns(:comodo).nome.should == @valid_params[:comodo][:nome]
+        assigns(:comodo).residencia.should_not be_nil
+        assigns(:comodos).should_not be_nil
 
-        put :update, params
-
-        comodo_atualizado = assigns(:comodo)
-        comodo_atualizado.should_not be_nil
-        comodo_atualizado.nome.should eql("Novo Nome")
-
-        flash[:notice].should_not be_blank
-
-        response.should redirect_to :controller => :residencias,
-                                    :action => :show,
-                                    :id => comodo.residencia.id,
-                                    :usuario_id => comodo.residencia.usuario.id
+        flash[:notice].should_not be_nil
       end
     end
 
     describe "with invalid params" do
-      it "deveria manter @comodo" do
-        comodo = Factory.create :comodo
+      it "nao deveria atualizar o comodo e deveria atribuir os erros a @comodo" do
+        xhr :put, :update, @invalid_params
 
-        params = {
-          :id => comodo.id,
-          :residencia_id => comodo.residencia.id,
-          :usuario_id => comodo.residencia.id,
-          :comodo => {
-            :nome => ''
-          }
-        }
+        assigns(:comodo).errors.should_not be_empty
+        assigns(:comodos).should be_nil
 
-        put :update, params
-
-        comodo_atualizado = assigns(:comodo)
-        comodo_atualizado.new_record?.should be_false
-        comodo.reload.nome.should eql(comodo.nome)
-
-        response.should render_template :edit
+        flash[:notice].should be_nil
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested comodo" do
-      comodo = Factory.create :comodo
-      delete :destroy, :id => comodo.id, :usuario_id => comodo.residencia.usuario.id, :residencia_id => comodo.residencia.id
+    it 'deveria deletar o comodo ' do
+      xhr :delete, :destroy, :id => @comodo.id, :residencia_id => @residencia.id, :usuario_id => @usuario.id
+      flash[:notice].should_not be_nil
+      assigns(:comodos).should_not be_nil
 
-      response.should redirect_to :controller => :residencias,
-                                  :action => :show,
-                                  :id => comodo.residencia.id,
-                                  :usuario_id => comodo.residencia.usuario.id
+      lambda{Comodo.find @comodo.id}.should raise_error
     end
   end
 
