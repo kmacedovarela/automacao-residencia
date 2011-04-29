@@ -28,6 +28,12 @@ describe ResidenciasController do
     end
   end
 
+  describe "GET new" do
+    it "deveria carregar o new" do
+      xhr :get, :new, :usuario_id => @residencia.usuario.id
+      assigns(:residencia).should be_new_record
+    end
+  end
   describe "GET edit" do
     it "deveria preparar a residecia para edicao" do
       xhr :get, :edit, :id => @residencia.id, :usuario_id => @residencia.usuario.id

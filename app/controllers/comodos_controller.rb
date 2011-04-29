@@ -11,6 +11,10 @@ class ComodosController < ApplicationController
     @periferico = Periferico.new
     @periferico.comodo = @comodo
   end
+  
+  def new
+    @comodo = Comodo.new
+  end
 
   def edit
     @comodo = Comodo.find(params[:id])

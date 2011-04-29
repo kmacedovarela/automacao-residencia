@@ -1,13 +1,10 @@
 <h1>
-	<br/>
 	Residências
-	<span class="toolbar-button" id='adicionar_residencia'>
-	  Adicionar
-	</span>
+	<%= link_novo new_usuario_residencia_path(@residencia.usuario) %>	
 </h1>
 
+
 <div id="form_residencia" class="hide" >
-  <%= render :partial => 'residencias/form' %>
 </div>
 
 <table width="100%" class="lista <%= 'hide' if residencias.blank? %>">

@@ -10,6 +10,11 @@ class ResidenciasController < ApplicationController
     @comodo.residencia = @residencia
   end
 
+  def new    
+    @residencia = Residencia.new  
+    @residencia.usuario = Usuario.find params[:usuario_id]
+  end
+
   def edit
     @residencia = Residencia.find(params[:id])
   end

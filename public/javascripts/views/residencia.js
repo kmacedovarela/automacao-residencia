@@ -1,5 +1,4 @@
 var residencia = {
-
     aplicar_mascara: function(){
         $(".cep").mask('99999-999');
     }
@@ -7,12 +6,7 @@ var residencia = {
 }
 
 jQuery(function(){
-
-    $("#adicionar_residencia").click(function(){
-        $("#form_residencia").toggle("slow");
-    });
-
+		acao_botao_hide_form('', '#form_residencia');
     residencia.aplicar_mascara();
-
 });
 

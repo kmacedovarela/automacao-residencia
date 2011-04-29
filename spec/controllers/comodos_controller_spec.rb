@@ -38,6 +38,14 @@ describe ComodosController do
     end
   end
 
+  describe "GET new" do
+    it "deveria carregar o new" do
+      xhr :get, :new, :residencia_id => @residencia.id, :usuario_id => @usuario.id
+      assigns(:comodo).should be_new_record
+    end
+  end
+
+
   describe "POST create" do
     before do
       @valid_params = {

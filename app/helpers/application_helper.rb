@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def link_novo path, texto = ''
-    texto = %{	<span class="toolbar-button" id='adicionar_usuario' > Adicionar </span> }.html_safe if texto.blank?
+    texto = %{	<span class="toolbar-button" id='adicionar' > Adicionar </span> }.html_safe if texto.blank?
     link_to texto, path, :remote => true
   end
 
@@ -117,6 +117,15 @@ module ApplicationHelper
     }
     
     js.html_safe
+  end
+  
+  def show_form form_id, form_partial = "form"
+    js = %Q{  
+      $('#{form_id}').html('#{ escape_javascript( render :partial => form_partial ) }');
+      $('#{form_id}').slideDown();
+    }
+    
+    js.html_safe    
   end
   
   private

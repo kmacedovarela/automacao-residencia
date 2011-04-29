@@ -8,14 +8,7 @@ var usuario = {
 }
 
 jQuery(function(){
-	$("#adicionar").click(function(){
-	    $("#form_usuario").toggle("slow");
-
-	    // Limpa o formulário
-	    $(":input:not(input[type=submit])").val("");
-	    $("#password_field").show();
-	});
-
+	acao_botao_hide_form('', '#form_usuario');
 	usuario.aplicar_mascara();
 });
 
