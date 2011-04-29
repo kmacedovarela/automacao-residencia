@@ -1,17 +1,18 @@
-<%= form_for([@comodo.residencia.usuario, @comodo.residencia, @comodo]) do |f| %>
+<%= form_for([@comodo.residencia.usuario, @comodo.residencia, @comodo], :remote => true) do |f| %>
  	<%= render :partial => 'layouts/errors', :locals => {:entity => @comodo} %>
-	
+
 	<table id='tabela_novo_comodo' >
 	    <tr>
 	      <td>
 					<%= f.label :nome %>
 	        <%= f.text_field :nome  %>
 	      </td>
-	   
+
 	      <td>
 	        <%= f.submit %>
 	      </td>
 	    </tr>
 	</table>
-	
+
 <% end %>
+

@@ -4,6 +4,8 @@ class ResidenciasController < ApplicationController
 
   def show
     @residencia = Residencia.find(params[:id])
+    @comodo = Comodo.new
+    @comodo.residencia = @residencia
   end
 
   def edit

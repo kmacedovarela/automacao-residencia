@@ -1,15 +1,22 @@
-<span style="float: right;top: 15px;"><%= link_editar edit_usuario_residencia_path(@residencia.usuario, @residencia) %></span>
+<%= content_for :javascripts do %>
+  <%= javascript_include_tag "views/comodo" %>
+<% end %>
 
-<h3> Residência </h3>
-Cidade: <%= @residencia.cidade %> <br/>
-UF: <%= @residencia.uf %> <br/>
-Endereço: <%= @residencia.endereco %> <br/>
-CEP: <%= @residencia.cep %> <br/>
+<div id="comodo">
 
-<br/>
+  <table width='50%'>
+	  <tr>
+		  <td><h3><%= @residencia.usuario.nome %> > <%= @residencia.endereco %></h3></td>
+	  </tr>
 
-<%= link_to 'Nova Residência', new_usuario_residencia_url(@residencia.usuario) %>
-<br/><br/>
+	  <tr>
+			  <td><%= @residencia.cidade %> - <%= @residencia.uf %> / <%= @residencia.cep %> </td>
+	  </tr>
+  </table>
+
+</div>
+
 <%= render :partial => '/comodos/index', :locals => { :comodos => @residencia.comodos } %>
+
 <%= link_voltar usuarios_path %>
 

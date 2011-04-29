@@ -1,35 +1,29 @@
-<%= content_for :javascripts do %>
-  <%= javascript_include_tag 'views/comodo' %>
-<% end %>
+<h1>
+	<br/>
+	Cômodos
+	<span class="toolbar-button" id='adicionar_comodo'>
+	  Adicionar
+	</span>
+</h1>
 
-<h3> Cômodos </h3>
+<div id="form_comodo" class="hide" >
+  <%= render :partial => 'comodos/form' %>
+</div>
 
-<% unless comodos.blank? %>
-	<table>
-	  <tr>
-	    <th>Comodo</th>
+<table width="100%" class="lista <%= 'hide' if comodos.blank? %>">
+	<thead>
+  	<tr>
+	    <th>Nome</th>
 	    <th></th>
 	    <th></th>
-			<th></th>
+	    <th></th>
 	  </tr>
+	</thead>
 
-	<% comodos.each do |comodo| %>
-	  <tr>
-			<td><%= comodo.nome %></td>
-			<td><%= link_visualizar usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %></td>
-		  <td><%= link_editar edit_usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %></td>
-		  <td><%= link_excluir usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %></td>
+	<tbody id="listagem_comodo">
+  	<%= render :partial => '/comodos/comodo', :collection => comodos %>
+	</tbody>
+</table>
 
-	  </tr>
-	<% end %>
-	</table>
-
-<% else %>
-<br/><br/>
-	Não existem cômodos cadastrados.
-<% end %>
-
-<br/><br/>
-
-<%= link_to 'Novo Cômodo', new_usuario_residencia_comodo_url(@residencia.usuario, @residencia) %>
+<br/>
 

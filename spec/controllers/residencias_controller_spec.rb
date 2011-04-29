@@ -24,6 +24,8 @@ describe ResidenciasController do
       assigns(:residencia).id.should == @residencia.id
       assigns(:residencia).comodos.size.should == 2
 
+      assigns(:comodo).should_not be_nil
+      assigns(:comodo).residencia.should == @residencia
     end
   end
 

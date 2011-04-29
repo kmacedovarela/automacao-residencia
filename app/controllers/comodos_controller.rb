@@ -33,7 +33,7 @@ class ComodosController < ApplicationController
   def destroy
     @comodo = Comodo.find(params[:id])
     if @comodo.destroy
-      flash[:notice] = 'Cômodo excluída com sucesso.'
+      flash[:notice] = 'Cômodo excluído com sucesso.'
       @comodos = Comodo.find_all_by_residencia_id @comodo.residencia.id
     end
   end
