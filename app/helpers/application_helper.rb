@@ -10,7 +10,8 @@ module ApplicationHelper
   end
 
   def link_novo path, texto = ''
-    texto = %{	<span class="toolbar-button" id='adicionar' > Adicionar </span> }.html_safe if texto.blank?
+    #texto = %{	<span class="toolbar-button" id='adicionar' > Adicionar </span> }.html_safe if texto.blank?
+    texto = %{	<img src="/images/add.png" id='adicionar' > </img> }.html_safe if texto.blank?
     link_to texto, path, :remote => true
   end
 
@@ -46,26 +47,26 @@ module ApplicationHelper
 
     link_to img, path
   end
-  
-  
-  # ################## 
+
+
+  # ##################
   #  parametros:
-  # => entidade processada; ex: @usuario, 
+  # => entidade processada; ex: @usuario,
   # => a coleção que será utilizada para renderizar a listagem; ex: @usuarios,
   # => partial que será adicionada a listagem; ex: 'usuario'
-  # => listagem que será atualizada; ex: '#listagem_usuario' 
-  # 
-  # As variaveis partial e lista_destino recebem como valor default, nomes semelhantes ao da entidade. 
-  # => partial = 'classe_entidade'  
-  # => lista_destino = '#listagem_classe_entidade' 
-  # 
+  # => listagem que será atualizada; ex: '#listagem_usuario'
+  #
+  # As variaveis partial e lista_destino recebem como valor default, nomes semelhantes ao da entidade.
+  # => partial = 'classe_entidade'
+  # => lista_destino = '#listagem_classe_entidade'
+  #
   # ##################
   def renderizar_create_update_js entidade, colecao , partial = '', lista_destino = ''
     partial = entidade.class.name.downcase if partial.blank?
     lista_destino = "#listagem_#{entidade.class.name.downcase}" if lista_destino.blank?
-    
+
     js = ""
-    
+
     if entidade.errors.any?
       js << %Q{
                 $('#notice').hide();
@@ -73,61 +74,61 @@ module ApplicationHelper
                 $('#error').append('<ul>');
             }
       entidade.errors.full_messages.each { |msg| adicionar_erro(js,msg) }
-      js << %Q{        
+      js << %Q{
                 $('#error').append('</ul>');
                 $('#error').show();
-            }      
+            }
     else
       js << %Q{
         $('#error').hide();
-        $('#notice').html('#{escape_javascript(flash[:notice])}');  
+        $('#notice').html('#{escape_javascript(flash[:notice])}');
 
         $(':input:not(input[type=submit])').val('');
         $('form').parent().slideUp();
 
         $('#notice').show();
         $('#{lista_destino}').html('#{escape_javascript( render :partial => partial, :collection => colecao )}');
-        $('#{lista_destino}').parent().show(); 
-      }      
+        $('#{lista_destino}').parent().show();
+      }
     end
-    
+
     js.html_safe
   end
- 
-  # ################## 
+
+  # ##################
   #  parametros:
   # => a coleção que será utilizada para renderizar a listagem; ex: @usuarios,
   # => partial que será adicionada a listagem; ex: 'usuario'
-  # => listagem que será atualizada; ex: '#listagem_usuario' 
-  # 
-  # As variaveis partial e lista_destino recebem como valor default, nomes semelhantes ao da entidade. 
-  # => partial = 'classe_entidade'  
-  # => lista_destino = '#listagem_classe_entidade' 
-  # 
-  # ##################  
+  # => listagem que será atualizada; ex: '#listagem_usuario'
+  #
+  # As variaveis partial e lista_destino recebem como valor default, nomes semelhantes ao da entidade.
+  # => partial = 'classe_entidade'
+  # => lista_destino = '#listagem_classe_entidade'
+  #
+  # ##################
   def renderizar_destroy_js colecao , partial = '', lista_destino = ''
     partial = colecao.first.class.name.downcase if partial.blank?
     lista_destino = "#listagem_#{colecao.first.class.name.downcase}" if lista_destino.blank?
 
-    js = %Q{  
+    js = %Q{
       $('#error').hide();
       $('#notice').html('#{escape_javascript(flash[:notice])}');
       $('#notice').show();
       $('#{lista_destino}').html('#{ escape_javascript( render :partial => partial, :collection => colecao) }');
     }
-    
+
     js.html_safe
   end
-  
+
   def show_form form_id, form_partial = "form"
-    js = %Q{  
+    js = %Q{
       $('#{form_id}').html('#{ escape_javascript( render :partial => form_partial ) }');
       $('#{form_id}').slideDown();
     }
-    
-    js.html_safe    
+
+    js.html_safe
   end
-  
+
   private
   def adicionar_erro js, msg
     js << "$('#error').append('<li> #{escape_javascript(msg)} </li>'); "

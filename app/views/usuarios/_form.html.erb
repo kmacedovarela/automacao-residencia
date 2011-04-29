@@ -14,7 +14,7 @@
 					  <%= f.label :telefone %>
 	          <%= f.text_field :telefone, :class => "telefone", :size => 15 %>
 	        </td>
-				  <td rowspan='2' valign="middle">
+	        <td id='usuario_submit'>
 					  <%= f.submit 'Salvar' %>
 				  </td>
 		    </tr>
@@ -23,11 +23,11 @@
 						<%= f.label :email %>
 		        <%= f.text_field :email, :size => 40 %>
 		      </td>
-				<% unless controller.action_name == 'edit' %>
-		      <td id="password_field">
-						<%= f.label :senha %>
-		        <%= f.password_field :password,:size => 13  %>
-		      </td>
+				  <% unless controller.action_name == 'edit' %>
+		        <td id="password_field">
+						  <%= f.label :senha %>
+		          <%= f.password_field :password,:size => 13  %>
+		        </td>
 					<% end %>
 		      <td>
 						<%= f.label :tipo %>
@@ -38,7 +38,9 @@
 									:style => 'width: 14em'
 						) %>
 		      </td>
-
+				  <td align="center">
+				    <img src="/images/cancel.png" class="cancelar_form" alt="cancelar" />
+				  </td>
 		    </tr>
   	</table>
 

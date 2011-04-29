@@ -2,11 +2,10 @@
   <%= javascript_include_tag "views/usuario" %>
 <% end %>
 
-<h1>
-	Usuários
-		<%= link_novo new_usuario_path %>
-	</span>
-</h1>
+<h3 class="title">
+	 Usuários
+   <%= link_novo new_usuario_path %>
+</h3>
 
 <div id="form_usuario" class="hide" >
 </div>
@@ -16,7 +15,7 @@
     <tr>
       <th>Nome</th>
       <th>Email</th>
-      <th>Cpf</th>
+      <th>CPF</th>
       <th>Telefone</th>
       <th>Tipo</th>
       <th></th>

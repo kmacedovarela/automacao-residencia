@@ -227,10 +227,7 @@ form *:focus {
 
 .toolbar-button {
     background: url(/images/add.png) no-repeat 5px 50%;
-    border: 1px solid #F6F8FB;
     color: #9EA8AD;
-    display: block;
-    float: left;
     font-size: 12px;
     font-weight: bold;
     padding: 4px 14px 4px 29px;
@@ -243,5 +240,13 @@ form *:focus {
 
 #usuario{
     margin-bottom: 20px;
+}
+
+#usuario_submit{
+    vertical-align: middle;
+}
+
+.cancelar_form:hover{
+    cursor: pointer;
 }
 
