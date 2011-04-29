@@ -1,8 +1,4 @@
 jQuery(function(){
-
-    $("#adicionar_comodo").click(function(){
-        $("#form_comodo").toggle("slow");
-    });
-
+		acao_botao_hide_form('', '#form_comodo');
 });
 

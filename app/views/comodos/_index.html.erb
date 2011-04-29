@@ -1,19 +1,16 @@
 <h1>
 	<br/>
 	Cômodos
-	<span class="toolbar-button" id='adicionar_comodo'>
-	  Adicionar
-	</span>
+	<%= link_novo new_usuario_residencia_comodo_path(@comodo.residencia.usuario, @comodo.residencia) %>	
 </h1>
 
 <div id="form_comodo" class="hide" >
-  <%= render :partial => 'comodos/form' %>
 </div>
 
 <table width="100%" class="lista <%= 'hide' if comodos.blank? %>">
 	<thead>
   	<tr>
-	    <th>Nome</th>
+	    <th width="80%">Nome</th>
 	    <th></th>
 	    <th></th>
 	    <th></th>
