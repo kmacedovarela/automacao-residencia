@@ -29,7 +29,7 @@
 		          <%= f.password_field :password,:size => 13  %>
 		        </td>
 					<% end %>
-		      <td>
+		      <td  colspan=<%= controller.action_name == 'edit' ? "2" : "1" %> >
 						<%= f.label :tipo %>
 						<%= select_tag(
 									'usuario[tipo]',
@@ -38,8 +38,8 @@
 									:style => 'width: 14em'
 						) %>
 		      </td>
-				  <td align="center">
-				    <img src="/images/cancel.png" class="cancelar_form" alt="cancelar" />
+				  <td>
+				    <button class="cancelar_form" alt="cancelar"> Cancelar </button>
 				  </td>
 		    </tr>
   	</table>

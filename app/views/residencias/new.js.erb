@@ -1,3 +1,10 @@
 <%= show_form "#form_residencia" %>
 
 residencia.aplicar_mascara();
+
+$(".cancelar_form").click(function(){
+  $("#form_residencia").html("");
+});
+
+<%= cancelar_form "#form_residencia" %>
+

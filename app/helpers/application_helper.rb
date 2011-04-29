@@ -129,6 +129,17 @@ module ApplicationHelper
     js.html_safe
   end
 
+  def cancelar_form form_id
+    js = %Q{
+      $(".cancelar_form").click(function(e){
+        e.preventDefault();
+        $("#{form_id}").html("");
+      });
+    }
+
+    js.html_safe
+  end
+
   private
   def adicionar_erro js, msg
     js << "$('#error').append('<li> #{escape_javascript(msg)} </li>'); "

@@ -24,6 +24,13 @@ describe PerifericosController do
     end
   end
 
+  describe "GET new" do
+    it "deveria carregar o new" do
+      xhr :get, :new, :usuario_id => @usuario.id, :residencia_id => @residencia.id, :comodo_id => @comodo.id
+      assigns(:periferico).should be_new_record
+    end
+  end
+
   describe "POST create" do
     before do
       @valid_params = {

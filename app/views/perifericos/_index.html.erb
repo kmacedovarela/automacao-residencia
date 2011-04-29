@@ -1,9 +1,10 @@
 <h1>
 	<br/>
 	Periféricos
-	<span class="toolbar-button" id='adicionar_periferico'>
-	  Adicionar
-	</span>
+	<%= link_novo new_usuario_residencia_comodo_periferico_path(
+	          @periferico.comodo.residencia.usuario,
+						@periferico.comodo.residencia,
+						@periferico.comodo) %>
 </h1>
 
 <div id="form_periferico" class="hide" >

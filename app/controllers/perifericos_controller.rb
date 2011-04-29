@@ -8,6 +8,11 @@ class PerifericosController < ApplicationController
     @periferico = Periferico.find(params[:id])
   end
 
+  def new
+    @periferico = Periferico.new
+    @periferico.comodo = Comodo.find params[:comodo_id]
+  end
+
   def create
     params[:periferico][:comodo_id] = params[:comodo_id]
     @periferico = Periferico.new(params[:periferico])
