@@ -1,10 +1,15 @@
 class ComodosController < ApplicationController
 
+  before_filter :authenticate_usuario!
+
   respond_to :js
   respond_to :html, :only => :show
 
   def show
     @comodo = Comodo.find(params[:id])
+
+    @periferico = Periferico.new
+    @periferico.comodo = @comodo
   end
 
   def edit

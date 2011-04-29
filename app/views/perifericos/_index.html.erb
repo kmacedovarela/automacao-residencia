@@ -1,52 +1,28 @@
-<h1>Periféricos</h1>
+<h1>
+	<br/>
+	Periféricos
+	<span class="toolbar-button" id='adicionar_periferico'>
+	  Adicionar
+	</span>
+</h1>
 
-<% unless perifericos.blank? %>
-	<table>
-	  <tr>
+<div id="form_periferico" class="hide" >
+  <%= render :partial => '/perifericos/form' %>
+</div>
+
+<table width="100%" class="lista <%= 'hide' if perifericos.blank? %>">
+	<thead>
+  	<tr>
 	    <th>Nome</th>
 	    <th>Pino</th>
 	    <th></th>
-			<th></th>
-			<th></th>
+	    <th></th>
+	    <th></th>
 	  </tr>
+	</thead>
 
-	<% perifericos.each do |periferico| %>
-	  <tr>
-			<td><%= periferico.nome %></td>
-			<td><%= periferico.pino %></td>
-			<td>
-				<%= link_visualizar usuario_residencia_comodo_periferico_path(
-								periferico.comodo.residencia.usuario,
-								periferico.comodo.residencia,
-								periferico.comodo,
-								periferico) %>
-			</td>
-		  <td>
-				<%= link_editar edit_usuario_residencia_comodo_periferico_path(
-								periferico.comodo.residencia.usuario,
-								periferico.comodo.residencia,
-								periferico.comodo,
-								periferico) %>
-			</td>
-		  <td>
-				<%= link_excluir usuario_residencia_comodo_periferico_path(
-								periferico.comodo.residencia.usuario,
-								periferico.comodo.residencia,
-								periferico.comodo,
-								periferico) %>
-			</td>
-	  </tr>
-	<% end %>
-	</table>
-
-<% else %>
-	Não existem periféricos cadastrados.
-<% end %>
-
-<br /><br />
-<%= link_to '', "" %>
-<%= link_to 'New Periferico', new_usuario_residencia_comodo_periferico_url(
-						@comodo.residencia.usuario,
-						@comodo.residencia,
-						@comodo) %>
+	<tbody id="listagem_periferico">
+  	<%= render :partial => '/perifericos/periferico', :collection => perifericos %>
+	</tbody>
+</table>
 

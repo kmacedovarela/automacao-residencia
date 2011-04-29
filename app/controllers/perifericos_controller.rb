@@ -1,5 +1,7 @@
 class PerifericosController < ApplicationController
 
+  before_filter :authenticate_usuario!
+
   respond_to :js
 
   def edit

@@ -25,6 +25,9 @@ describe ComodosController do
       assigns(:comodo).residencia.should_not be_nil
       assigns(:comodo).id.should == @comodo.id
       assigns(:comodo).perifericos.size.should == 2
+
+      assigns(:periferico).should_not be_nil
+      assigns(:periferico).comodo.should == @comodo
     end
   end
 
