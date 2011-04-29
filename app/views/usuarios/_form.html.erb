@@ -23,10 +23,12 @@
 						<%= f.label :email %>
 		        <%= f.text_field :email, :size => 40 %>
 		      </td>
+				<% unless controller.action_name == 'edit' %>
 		      <td id="password_field">
 						<%= f.label :senha %>
 		        <%= f.password_field :password,:size => 13  %>
 		      </td>
+					<% end %>
 		      <td>
 						<%= f.label :tipo %>
 						<%= select_tag(

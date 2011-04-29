@@ -9,6 +9,11 @@ module ApplicationHelper
    link_to img, path
   end
 
+  def link_novo path, texto = ''
+    texto = %{	<span class="toolbar-button" id='adicionar_usuario' > Adicionar </span> }.html_safe if texto.blank?
+    link_to texto, path, :remote => true
+  end
+
   def link_editar path
      img = image_tag(
          "/images/caneta.png",
@@ -82,7 +87,7 @@ module ApplicationHelper
 
         $('#notice').show();
         $('#{lista_destino}').html('#{escape_javascript( render :partial => partial, :collection => colecao )}');
-        $('#{lista_destino}').parent().show();
+        $('#{lista_destino}').parent().show(); 
       }      
     end
     

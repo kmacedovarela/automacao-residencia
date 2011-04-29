@@ -4,13 +4,11 @@
 
 <h1>
 	Usuários
-	<span class="toolbar-button" id='adicionar_usuario' >
-	  Adicionar
+		<%= link_novo new_usuario_path %>
 	</span>
 </h1>
 
 <div id="form_usuario" class="hide" >
-  <%= render :partial => 'form' %>
 </div>
 
 <table class="lista">

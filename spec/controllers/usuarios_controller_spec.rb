@@ -74,6 +74,13 @@ describe UsuariosController do
     end
   end
 
+  describe "GET new" do
+    it "deve atribuir criar um novo usuário" do
+      xhr :get, :new
+      assigns(:usuario).should be_new_record
+    end
+  end
+
   describe "POST create" do
 
     context "com parametros validos" do

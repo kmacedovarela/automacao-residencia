@@ -19,6 +19,10 @@ class UsuariosController < ApplicationController
      redirect_to usuario_residencia_path(@usuario, @usuario.residencias.first)
     end
   end
+  
+  def new
+    @usuario = Usuario.new
+  end
 
   def edit
     @usuario = Usuario.find(params[:id])
