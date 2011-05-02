@@ -1,18 +1,10 @@
-
-
-	  <div id="loginbox">
-	    <div id="login-inner">
-		      <% if usuario_signed_in? %>
-			      <%= redirect_to :usuarios %>
-		      <% else %>
-			      <%= render :partial => '/usuarios/sessions/new' %>
-		      <% end %>
-		  </div>
-    </div>
-   	<!--  end login-inner -->
-    <div class="clear"></div>
-    <a href="" class="forgot-pwd">Forgot Password?</a>
-
+<div id="loginbox">
+  <div id="login-inner">
+      <% if usuario_signed_in? %>
+	      <%= redirect_to :usuarios %>
+      <% else %>
+	      <%= render :partial => '/usuarios/sessions/new' %>
+      <% end %>
   </div>
-</body>
+</div>
 
