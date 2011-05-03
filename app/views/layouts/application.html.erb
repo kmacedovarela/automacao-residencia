@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
   <%= render :partial => '/layouts/head' %>
 
 	<body>
@@ -8,11 +7,12 @@
     <div id="page-top-outer">
       <div id="page-top">
         <div id="logo">
-          <a href=""><img src="/images/shared/logo.png" width="156" height="40" alt="" /></a>
+					<%= link_to image_tag("/images/shared/logo.png", :size => "156x40"), "usuarios#index" %>
         </div>
 
         <%= render :partial => '/layouts/busca' %>
       </div> <!-- end page top-->
+
       <div class="clear">&nbsp;</div>
 
       <%= render :partial => '/layouts/menu' %>
@@ -20,39 +20,39 @@
       <div id="content-outer">
         <div id="content">
 
-        <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
-          <tr>
-	          <th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
-	          <th class="topleft"></th>
-	          <td id="tbl-border-top">&nbsp;</td>
-	          <th class="topright"></th>
-	          <th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
-          </tr>
-          <tr>
-	          <td id="tbl-border-left"></td>
-	          <td>
-	            <div id="content-table-inner">
-		            <div id="table-content">
+	        <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
+	          <tr>
+		          <th rowspan="3" class="sized"><%= image_tag("shared/side_shadowleft.jpg", :size => "20x300") %></th>
+		          <th class="topleft"></th>
+		          <td id="tbl-border-top">&nbsp;</td>
+		          <th class="topright"></th>
+		          <th rowspan="3" class="sized"><%= image_tag("shared/side_shadowright.jpg", :size => "20x300") %></th>
+	          </tr>
+	          <tr>
+		          <td id="tbl-border-left"></td>
+		          <td>
+		            <div id="content-table-inner">
+			            <div id="table-content">
 
-                  <%= render :partial => "/layouts/mensagens" %>
+	                  <%= render :partial => "/layouts/mensagens" %>
 
-                  <%= yield %>
-                </div>
+	                  <%= yield %>
+	                </div>
 
-                <%= yield :paginacao %>
-                <div class="clear"></div>
+	                <%= yield :paginacao %>
+	                <div class="clear"></div>
 
-		          </div>
-            </td>
-		        <td id="tbl-border-right"></td>
-	        </tr>
-	        <tr>
-		        <th class="sized bottomleft"></th>
-		        <td id="tbl-border-bottom">&nbsp;</td>
-		        <th class="sized bottomright"></th>
-	        </tr>
-        </table>
-        <div class="clear">&nbsp;</div>
+			          </div>
+	            </td>
+			        <td id="tbl-border-right"></td>
+		        </tr>
+		        <tr>
+			        <th class="sized bottomleft"></th>
+			        <td id="tbl-border-bottom">&nbsp;</td>
+			        <th class="sized bottomright"></th>
+		        </tr>
+	        </table>
+	        <div class="clear">&nbsp;</div>
       </div>
       <div class="clear">&nbsp;</div>
     </div>
@@ -61,7 +61,6 @@
 
     <%= javascript_include_tag 'jquery.maskedinput-1.2.2.min' %>
   	<%= javascript_include_tag 'jquery/ui.core.js' %>
-  	<%= javascript_include_tag 'text_to_pass' %>
   	<%= javascript_include_tag 'jquery/jquery.pngFix.pack.js' %>
 
 	  <%= yield :javascripts %>
