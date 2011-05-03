@@ -18,7 +18,8 @@ class Usuarios::SessionsController < Devise::SessionsController
       if current_usuario.role_administrador?
         redirect_to :usuarios
       elsif current_usuario.role_proprietario?
-        redirect_to :residencias_proprietario
+        redirect_to :usuarios
+        # redirect_to :residencias_proprietario
       end
     else
       flash[:error] = 'Usuário ou senha inválidos.'

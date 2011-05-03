@@ -6,15 +6,16 @@
 
     <div id="login-holder">
 	    <div id="logo-login">
-		    <a href="index.html"><img src="images/shared/logo.png" width="156" height="40" alt="" /></a>
+				<%= link_to image_tag("/images/shared/logo.png", :size => "156x40"), "usuarios#index" %>
 	    </div>
 
 	    <div class="clear"></div>
-
       <%= yield %>
       <div class="clear"></div>
-      <a href="" class="forgot-pwd">Forgot Password?</a>
 
+			<%=  link_to 'Esqueceu sua senha?', '', 
+		                  :class => 'forgot-pwd',
+		                  :title => 'Excluir' %>
     </div>
 
   </body>
