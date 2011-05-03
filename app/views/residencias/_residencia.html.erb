@@ -11,8 +11,10 @@
   <td> 
     <%= residencia.cep %> 
   </td>
-  <td><%= link_visualizar usuario_residencia_path(residencia.usuario, residencia) %></td>
-  <td><%= link_editar edit_usuario_residencia_path(residencia.usuario, residencia) %></td>
-  <td><%= link_excluir usuario_residencia_path(residencia.usuario, residencia) %></td>
+  <td class="options-width">
+		<%= link_visualizar usuario_residencia_path(residencia.usuario, residencia) %>
+		<%= link_editar edit_usuario_residencia_path(residencia.usuario, residencia) %>
+		<%= link_excluir usuario_residencia_path(residencia.usuario, residencia) %>
+	</td>
 </tr>
 

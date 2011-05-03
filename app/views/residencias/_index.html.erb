@@ -1,28 +1,56 @@
-<h1>
+<br/>
+<h3 class="title">
 	Residências
 	<%= link_novo new_usuario_residencia_path(@residencia.usuario) %>	
-</h1>
-
+</h3>
 
 <div id="form_residencia" class="hide" >
 </div>
 
-<table width="100%" class="lista <%= 'hide' if residencias.blank? %>">
+<table border="0" width="100%" cellpadding="0" cellspacing="0" 
+	class="tabela_listagem <%= 'hide' if residencias.blank? %>">
+
 	<thead>
-  	<tr>
-	    <th>Cidade</th>
-	    <th>Uf</th>
-	    <th>Endereco</th>
-	    <th>Cep</th>
-	    <th></th>
-	    <th></th>
-	    <th></th>
+	 	<tr>
+	    <th class="table-header-repeat line-left"><a href="">Cidade</a></th>
+	    <th class="table-header-repeat line-left"><a href="">Uf</a></th>
+	    <th class="table-header-repeat line-left"><a href="">Endereco</a></th>
+	    <th class="table-header-repeat line-left"><a href="">Cep</a></th>
+	    <th class="table-header-repeat line-left"></th>
+
 	  </tr>
 	</thead>
 
 	<tbody id="listagem_residencia">
-  	<%= render :partial => '/residencias/residencia', :collection => residencias %>
+	 	<%= render :partial => '/residencias/residencia', :collection => residencias %>
 	</tbody>
+
+	<!-- paginaçao vai aki  -->
+  <!-- <%= content_for :paginacao do %>
+    <table border="0" cellpadding="0" cellspacing="0" id="paging-table">
+      <tr>
+        <td>
+	        <a href="" class="page-far-left"></a>
+	        <a href="" class="page-left"></a>
+	        <div id="page-info">Page <strong>1</strong> / 15</div>
+	        <a href="" class="page-right"></a>
+	        <a href="" class="page-far-right"></a>
+        </td>
+        <td>
+          <select  class="styledselect_pages">
+	          <option value="">Number of rows</option>
+	          <option value="">1</option>
+	          <option value="">2</option>
+	          <option value="">3</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+  <% end %> -->
 </table>
 
-<br />
+
+
+
+
+

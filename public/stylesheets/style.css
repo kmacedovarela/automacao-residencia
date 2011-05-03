@@ -333,27 +333,27 @@ a:hover.icon-5	{
 	line-height: 20px;
 	margin: 0;
 	}
-#product-table	{
+.tabela_listagem	{
 	margin-bottom: 20px;
 	}
-#product-table	td a	{
+.tabela_listagem	td a	{
 	color: #393939;
 	}
-#product-table	td a:hover	{
+.tabela_listagem	td a:hover	{
 	text-decoration: underline;
 	}
-#product-table	th	{
+.tabela_listagem	th	{
 	height: 50px;
 	text-align: left;
 	}
-#product-table	.minwidth-1	{
+.tabela_listagem	.minwidth-1	{
 	min-width: 110px;
 	}
-#product-table td	{
+.tabela_listagem td	{
 	border: 1px solid #d2d2d2;
 	padding: 10px 0 10px 10px;
 	}
-#product-table tr.alternate-row	{
+.tabela_listagem tr.alternate-row	{
 	background: #ececec;
 	}
 td.options-width	{
@@ -404,7 +404,7 @@ td.checkbox-width	{
 th.line-left	{
 	border-left: 1px solid #373737;
 	}
-#product-table	tr.activity-blue	{
+.tabela_listagem	tr.activity-blue	{
 	background: #e3eceb;
 	}
 
@@ -1554,3 +1554,6 @@ a:hover.back-login	{
 	background: url(../images/login/submit_login.gif) no-repeat 0 -29px;
 	}
 
+.hide{
+	display:none;
+}
