@@ -12,18 +12,19 @@
 
 <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
 
-  <tr>
-    <th class="table-header-repeat line-left minwidth-1"><a href="">Nome</a>	</th>
-    <th class="table-header-repeat line-left minwidth-1"><a href="">Email</a></th>
-    <th class="table-header-repeat line-left"><a href="">CPF</a></th>
-    <th class="table-header-repeat line-left"><a href="">Telefone</a></th>
-    <th class="table-header-repeat line-left"><a href="">Tipo</a></th>
-    <th class="table-header-options line-left"><a href="">Options</a></th>
-  </tr>
-
-  <%= render :partial => 'usuario', :collection => @usuarios %>
-
-  <%= content_for :paginacao do %>
+  <thead>
+    <th class="table-header-repeat line-left"><a href="">Nome</th>
+    <th class="table-header-repeat line-left"><a href="">Email</th>
+    <th class="table-header-repeat line-left"><a href="">CPF</th>
+    <th class="table-header-repeat line-left"><a href="">Telefone</th>
+    <th class="table-header-repeat line-left"><a href="">Tipo</th>
+    <th class="table-header-options line-left"><a href=""></th>
+  </thead>
+	<tbody id="listagem_usuario">
+  	<%= render :partial => 'usuario', :collection => @usuarios %>	
+	</tbody>
+	<!-- paginaçao vai aki  -->
+  <!-- <%= content_for :paginacao do %>
     <table border="0" cellpadding="0" cellspacing="0" id="paging-table">
       <tr>
         <td>
@@ -43,6 +44,6 @@
         </td>
       </tr>
     </table>
-  <% end %>
+  <% end %> -->
 </table>
 

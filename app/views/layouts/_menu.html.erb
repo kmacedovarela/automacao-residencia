@@ -3,13 +3,13 @@
       <div id="nav-right">
         <div class="nav-divider">&nbsp;</div>
         <div class="showhide-account">
-          <img src="/images/shared/nav/nav_myaccount.gif" width="93" height="14" alt="" />
+					<%= image_tag("shared/nav/nav_myaccount.gif", :size => "93x14") %>
         </div>
 
         <div class="nav-divider">&nbsp;</div>
 
         <a href="" id="logout">
-          <img src="/images/shared/nav/nav_logout.gif" width="64" height="14" alt="" />
+					<%= image_tag("shared/nav/nav_logout.gif", :size => "64") %>
         </a>
         <div class="clear">&nbsp;</div>
 
@@ -37,10 +37,9 @@
         <div class="table">
           <ul id="menu_usuario" class="select">
             <li>
-              <a href="#nogo">
+              <a href= <%= usuarios_path %> >
                 <b>Usuários</b>
-                <!--[if IE 7]><!-->
-              </a><!--<![endif]-->
+              </a>
             </li>
           </ul>
 
