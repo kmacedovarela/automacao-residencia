@@ -16,36 +16,19 @@ module ApplicationHelper
   end
 
   def link_editar path
-     img = image_tag(
-         "/images/caneta.png",
-         :size => '16x16',
-         :title => "Editar",
-         :class => "icone"
-      )
-
-    link_to img, path, :remote => true
+    link_to ' ', path, :remote => true, :class => "icon-1 info-tooltip", :title => "Editar"
   end
 
   def link_excluir path
-     img = image_tag(
-         "/images/menos.png",
-         :size => '16x16',
-         :title => "icone",
-         :class => "icone"
-      )
-
-    link_to img, path, :remote => true, :confirm => 'Você tem certeza?', :method => :delete
+    link_to ' ', path, :remote => true,
+                  :confirm => 'Você tem certeza?',
+                  :method => :delete,
+                  :class => 'icon-2 info-tooltip',
+                  :title => 'Excluir'
   end
 
   def link_visualizar path
-     img = image_tag(
-         "/images/lupa.png",
-         :size => '16x16',
-         :title => "Adicionar",
-         :class => "icone"
-      )
-
-    link_to img, path
+    link_to ' ', path, :class => 'icon-3 info-tooltip', :title => 'Visualizar'
   end
 
 

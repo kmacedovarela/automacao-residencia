@@ -4,21 +4,159 @@
   <%= render :partial => '/layouts/head' %>
 
 	<body>
-	    <!-- Usados pelo devise -->
-			<p class="notice"><%= notice %></p>
-	  	<p class="alert"><%= alert %></p>
 
-	  	<div id="notice" class="hide" ></div>
-	  	<div id="alert" class="hide" ></div>
-		  <div id="error" class="hide" ></div>
+    <div id="page-top-outer">
+      <div id="page-top">
+        <div id="logo">
+          <a href=""><img src="/images/shared/logo.png" width="156" height="40" alt="" /></a>
+        </div>
 
-			<%= yield %>
+        <div id="top-search">
+          <table border="0" cellpadding="0" cellspacing="0">
+		        <tr>
+		          <td>
+		            <input type="text" value="Search" onblur="if (this.value=='') { this.value='Search'; }" onfocus="if (this.value=='Search') { this.value=''; }" class="top-search-inp" />
+		          </td>
+		        <td>
+		        <select  class="styledselect">
+			        <option value=""> All</option>
+			        <option value=""> Products</option>
+			        <option value=""> Categories</option>
+			        <option value="">Clients</option>
+			        <option value="">News</option>
+		        </select>
+		        </td>
+		        <td>
+		          <input type="image" src="/images/shared/top_search_btn.gif"  />
+		        </td>
+		        </tr>
+	        </table>
+	      </div>
+       	<div class="clear"></div>
+      </div> <!-- end page top-->
 
-      <%= javascript_include_tag 'jquery.maskedinput-1.2.2.min' %>
-	  	<%= javascript_include_tag 'text_to_pass' %>
+      <div class="clear">&nbsp;</div>
 
-		  <%= yield :javascripts %>
+      <div class="nav-outer-repeat">
+        <div class="nav-outer">
+
+		        <!-- start nav-right -->
+		        <div id="nav-right">
+
+			        <div class="nav-divider">&nbsp;</div>
+			        <div class="showhide-account">
+			          <img src="/images/shared/nav/nav_myaccount.gif" width="93" height="14" alt="" />
+			        </div>
+
+			        <div class="nav-divider">&nbsp;</div>
+
+			        <a href="" id="logout">
+			          <img src="/images/shared/nav/nav_logout.gif" width="64" height="14" alt="" />
+			        </a>
+			        <div class="clear">&nbsp;</div>
+
+			        <div class="account-content">
+			          <div class="account-drop-inner">
+				          <a href="" id="acc-settings">Settings</a>
+				          <div class="clear">&nbsp;</div>
+				          <div class="acc-line">&nbsp;</div>
+				          <a href="" id="acc-details">Personal details </a>
+				          <div class="clear">&nbsp;</div>
+				          <div class="acc-line">&nbsp;</div>
+				          <a href="" id="acc-project">Project details</a>
+				          <div class="clear">&nbsp;</div>
+				          <div class="acc-line">&nbsp;</div>
+				          <a href="" id="acc-inbox">Inbox</a>
+				          <div class="clear">&nbsp;</div>
+				          <div class="acc-line">&nbsp;</div>
+				          <a href="" id="acc-stats">Statistics</a>
+			          </div>
+			        </div><!--  end account-content -->
+		        </div><!-- end nav-right -->
+
+        		<!--  start nav -->
+		        <div class="nav">
+		          <div class="table">
+		            <ul id="menu_usuario" class="select">
+		              <li>
+		                <a href="#nogo">
+		                  <b>Usuários</b>
+		                  <!--[if IE 7]><!-->
+		                </a><!--<![endif]-->
+		              </li>
+		            </ul>
+
+		            <div class="nav-divider">&nbsp;</div>
+
+                <ul id="menu_residencia" class="select">
+		              <li>
+		                <a href="#nogo">
+		                  <b>Residências</b>
+		                  <!--[if IE 7]><!-->
+		                </a><!--<![endif]-->
+		              </li>
+		            </ul>
+
+		            <div class="clear"></div>
+		          </div> <!-- end div table -->
+		          <div class="clear"></div>
+		        </div> <!-- end div nav -->
+            <div class="clear"></div>
+
+          </div> <!--  end nav-outer -->
+      </div> <!--  end nav-outer-repeat -->
+
+      <div class="clear"></div>
+
+      <div id="content-outer">
+        <div id="content">
+
+        <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
+          <tr>
+	          <th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
+	          <th class="topleft"></th>
+	          <td id="tbl-border-top">&nbsp;</td>
+	          <th class="topright"></th>
+	          <th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
+          </tr>
+          <tr>
+	          <td id="tbl-border-left"></td>
+	          <td>
+	            <div id="content-table-inner">
+		            <div id="table-content">
+
+                  <%= render :partial => "/layouts/mensagens" %>
+
+                  <%= yield %>
+                </div>
+
+                <% yield :paginacao %>
+                <div class="clear"></div>
+
+		          </div>
+            </td>
+		        <td id="tbl-border-right"></td>
+	        </tr>
+	        <tr>
+		        <th class="sized bottomleft"></th>
+		        <td id="tbl-border-bottom">&nbsp;</td>
+		        <th class="sized bottomright"></th>
+	        </tr>
+        </table>
+        <div class="clear">&nbsp;</div>
+      </div>
+      <div class="clear">&nbsp;</div>
+    </div>
+
+    <div class="clear">&nbsp;</div>
+
+    <%= javascript_include_tag 'jquery.maskedinput-1.2.2.min' %>
+  	<%= javascript_include_tag 'jquery/ui.core.js' %>
+  	<%= javascript_include_tag 'text_to_pass' %>
+  	<%= javascript_include_tag 'jquery/jquery.pngFix.pack.js' %>
+
+	  <%= yield :javascripts %>
+
 	</body>
-
 </html>
 

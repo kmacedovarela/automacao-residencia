@@ -9,5 +9,7 @@ var usuario = {
 
 jQuery(function(){
 	usuario.aplicar_mascara();
+
+	app.selecionar_menu("menu_usuario");
 });
 

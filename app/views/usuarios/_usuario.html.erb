@@ -1,20 +1,23 @@
 <tr>
-  <td> 
-    <%= usuario.nome %> 
+  <td>
+    <%= usuario.nome %>
   </td>
-  <td> 
-    <%= usuario.email %> 
+  <td>
+    <%= usuario.email %>
   </td>
-  <td> 
-    <%= usuario.cpf %> 
+  <td>
+    <%= usuario.cpf %>
   </td>
-  <td> 
-    <%= usuario.telefone %> 
+  <td>
+    <%= usuario.telefone %>
   </td>
   <td>
     <%= usuario.tipo %>
   </td>
-  <td><%= link_visualizar usuario %></td>
-  <td><%= link_editar edit_usuario_path(usuario) %></td>
-  <td><%= link_excluir usuario %></td>
+  <td class="options-width">
+    <%= link_visualizar usuario %>
+    <%= link_editar edit_usuario_path(usuario) %>
+    <%= link_excluir usuario %>
+  </td>
 </tr>
+
