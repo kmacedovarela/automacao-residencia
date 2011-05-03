@@ -1,19 +1,18 @@
 <div id="top-search">
   <table border="0" cellpadding="0" cellspacing="0">
     <tr>
-      <td>
-        <input type="text" value="Search" onblur="if (this.value=='') { this.value='Search'; }" onfocus="if (this.value=='Search') { this.value=''; }" class="top-search-inp" />
-      </td>
-    <td>
-    <select  class="styledselect">
-      <option value=""> Todos</option>
-      <option value=""> Usuário</option>
-      <option value=""> Residência</option>
-    </select>
-    </td>
-    <td>
-      <input type="image" src="/images/shared/top_search_btn.gif"  />
-    </td>
+      <td><%= text_field_tag 'buscar', 'Buscar', :class => 'top-search-inp', :id => 'campo_busca_home' %></td>
+    	<td>
+				<%= select(
+							'tipo_usuario', 
+							'',
+							options_for_select(Usuario::ROLE.keys.collect { |key| key.to_s.capitalize }),
+	 						{:include_blank => 'Todos'},
+							:id => 'tipo_usuario',
+							:class => 'styledselect'
+				) %>
+			</td>
+    	<td><%= image_tag "shared/top_search_btn.gif" %></td>
     </tr>
   </table>
 </div>

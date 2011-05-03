@@ -13,3 +13,32 @@
     </ul>
   </div>
 <% end %>
+
+
+<!-- verificar -->
+
+<!-- <% if entity.errors.any? %>
+
+	<div id="message-red">
+	  <table border="0" width="100%" cellpadding="0" cellspacing="0">
+	    <tr>
+		
+				<% if entity.errors.count == 1 %>
+			  	<td class="red-left">
+						<%= t('activerecord.errors.template.header.one', :model => entity.class.human_name)  %>
+				<% else %>
+					<td class="red-left">
+						<%= t('activerecord.errors.template.header.other', 
+									:model => entity.class.human_name, 
+									:count => entity.errors.count
+									) %> 
+				<% end %>
+		
+					  <ul><%= entity.errors.full_messages.each { |msg| "<li> #{msg} </li>" } %></ul>
+					</td>
+		    	<td class="red-right"><a class="close-red"><img src="images/table/icon_close_red.gif"   alt="" /></a></td>
+	    </tr>
+	  </table>
+	</div>
+
+<% end %> -->
