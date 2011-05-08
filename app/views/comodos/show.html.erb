@@ -2,6 +2,8 @@
   <%= javascript_include_tag "views/periferico" %>
 <% end %>
 
+<%= link_voltar usuario_residencia_path(@comodo.residencia.usuario, @comodo.residencia) %>
+
 <div id="periferico">
 
   <table width='50%'>
@@ -17,6 +19,4 @@
 </div>
 
 <%= render :partial => '/perifericos/index', :locals => { :perifericos => @comodo.perifericos } %>
-
-<%= link_voltar usuario_residencia_path(@comodo.residencia.usuario, @comodo.residencia) %>
 

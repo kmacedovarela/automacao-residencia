@@ -2,8 +2,10 @@
   <td>
     <%= comodo.nome %>
   </td>
-	<td><%= link_visualizar usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %></td>
-  <td><%= link_editar edit_usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %></td>
-  <td><%= link_excluir usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %></td>
+	<td class="options-width">
+	  <%= link_visualizar usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %>
+    <%= link_editar edit_usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %>
+    <%= link_excluir usuario_residencia_comodo_path(comodo.residencia.usuario, comodo.residencia, comodo) %>
+  </td>
 </tr>
 

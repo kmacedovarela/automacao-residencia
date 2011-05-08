@@ -2,6 +2,8 @@
   <%= javascript_include_tag "views/residencia" %>
 <% end %>
 
+<%= link_voltar usuarios_path %>
+
 <div id="usuario">
 
   <table width='100%'>
@@ -23,5 +25,4 @@
 <%= render :partial => '/residencias/index', :locals => {
 																								:residencias => @usuario.residencias,
 																								:usuario => @usuario  } %>
-<%= link_voltar usuarios_path %>
 
