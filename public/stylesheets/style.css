@@ -30,7 +30,7 @@ body {
 
 #logo{
 	float: left;
-	margin: 45px 0 0 15px;
+	margin: 38px 0 0 15px;
 }
 
 #logo a{
@@ -178,63 +178,12 @@ h3 {
 }
 
 /* MESSAGES --------------------------------------------------------------- */
-#message-yellow {
-	margin-bottom: 5px;
-}
 
-.yellow-left {
-	background: url(../images/table/message_yellow.gif) top left no-repeat;
-	color: #e79300;
-	font-family: Tahoma;
-	font-weight: bold;
-	padding: 0 0 0 20px;
-}
-
-.yellow-left a {
-	color: #e79300;
-	font-family: Tahoma;
-	font-weight: normal;
-	text-decoration: underline;
-}
-
-.yellow-right a {
-	cursor: pointer;
-}
-
-.yellow-right {
-	width: 55px;
-}
-
-#message-blue {
-	margin-bottom: 5px;
-}
-
-.blue-left {
-	background: url(../images/table/message_blue.gif) top left no-repeat;
-	color: #2e74b2;
-	font-family: Tahoma;
-	font-weight: bold;
-	padding: 0 0 0 20px;
-}
-
-.blue-left a {
-	color: #2e74b2;
-	font-family: Tahoma;
-	font-weight: normal;
-	text-decoration: underline;
-}
-.blue-right a {
-	cursor: pointer;
-}
-.blue-right {
-	width: 55px;
-}
-
-#message-red {
+#message-error {
     margin-bottom: 5px;
 }
 
-.red-left {
+.error-left {
 	background: url(../images/table/message_red.gif) top left no-repeat;
 	color: #ce2700;
 	font-family: Tahoma;
@@ -242,26 +191,26 @@ h3 {
 	padding: 0 0 0 20px;
 }
 
-.red-left a {
+.error-left a {
 	color: #ce2700;
 	font-family: Tahoma;
 	font-weight: normal;
 	text-decoration: underline;
 }
 
-.red-right a {
+.error-right a {
 	cursor: pointer;
 }
 
-.red-right {
+.error-right {
     width: 55px;
 }
 
-#message-green {
+#message-notice {
 	margin-bottom: 5px;
 }
 
-.green-left {
+.notice-left {
 	background: url(../images/table/message_green.gif) top left no-repeat;
 	color: #6da827;
 	font-family: Tahoma;
@@ -270,18 +219,18 @@ h3 {
 	padding: 0 0 0 20px;
 }
 
-.green-left a {
+.notice-left a {
 	color: #6da827;
 	font-family: Tahoma;
 	font-weight: normal;
 	text-decoration: underline;
 }
 
-.green-right a {
+.notice-right a {
 	cursor: pointer;
 }
 
-.green-right {
+.notice-right {
 	width: 55px;
 }
 
@@ -434,19 +383,19 @@ th.line-left {
 	background: #e3eceb;
 }
 
-	#toggle-all {
-		display: block;
-		width: 17px;
-		height:17px;
-		cursor: pointer;
-		background: url(../images/shared/checkbox.gif) 0 -17px;
+#toggle-all {
+	display: block;
+	width: 17px;
+	height:17px;
+	cursor: pointer;
+	background: url(../images/shared/checkbox.gif) 0 -17px;
 }
 
-		#toggle-all.toggle-checked {
-		display: block;
-		width: 17px;
-		height:17px;
-		background: url(../images/shared/checkbox.gif) 0 0;
+#toggle-all.toggle-checked {
+	display: block;
+	width: 17px;
+	height:17px;
+	background: url(../images/shared/checkbox.gif) 0 0;
 }
 
 
@@ -1496,6 +1445,7 @@ label {
 .login-inp {
 	background: url(../images/login/inp_login.gif) no-repeat;
 	border: none;
+	color: #fff;
 	font-size: 16px;
 	height: 28px;
 	padding: 6px 6px 0 10px;
@@ -1503,7 +1453,7 @@ label {
 }
 #logo-login {
 	float: left;
-	height: 35px;
+	height: 43px;
 	margin: 145px 0 0 15px;
 }
 a.forgot-pwd {

@@ -1,3 +1,7 @@
+<%= content_for :javascripts do %>
+  <%= javascript_include_tag "views/usuario" %>
+<% end %>
+
 <h3 class="title">
 	 Usuários
    <%= link_novo new_usuario_path %>
@@ -17,7 +21,7 @@
     <th class="table-header-options line-left"></th>
   </thead>
 	<tbody id="listagem_usuario">
-  	<%= render :partial => 'usuario', :collection => @usuarios %>	
+  	<%= render :partial => 'usuario', :collection => @usuarios %>
 	</tbody>
 	<!-- paginaçao vai aki  -->
   <!-- <%= content_for :paginacao do %>
