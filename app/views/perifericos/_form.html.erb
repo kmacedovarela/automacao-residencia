@@ -8,26 +8,20 @@
  	<%= render :partial => 'layouts/errors', :locals => {:entity => @periferico} %>
 
 	<table id='tabela_novo_periferico'>
-	    <tr>
-	      <td>
-					<%= f.label :nome %>
-	        <%= f.text_field :nome  %>
-	      </td>
-			</tr>
-			<tr>
-	      <td>
-					<%= f.label :pino %>
-	        <%= f.text_field :pino  %>
-	      </td>
-	   	</tr>
-			<tr>
-	      <td>
-	        <%= f.submit %>
-	      </td>
-	      <td>
-			    <button class="cancelar_form" alt="cancelar"> Cancelar </button>
-			  </td>
-	    </tr>
+    <tr>
+      <td>
+				<%= f.label :nome %>
+        <%= f.text_field :nome  %>
+      </td>
+      <td>
+				<%= f.label :pino %>
+        <%= f.number_field :pino, :in => "0..16"  %>
+      </td>
+      <td>
+        <%= f.submit %>
+		    <button class="cancelar_form" alt="cancelar"> Cancelar </button>
+		  </td>
+    </tr>
 	</table>
 
 <% end %>

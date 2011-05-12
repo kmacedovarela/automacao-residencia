@@ -15,11 +15,11 @@ class UsuariosController < ApplicationController
     @residencia = Residencia.new
     @residencia.usuario = @usuario
 
-    if @usuario.residencias.size == 1
-     redirect_to usuario_residencia_path(@usuario, @usuario.residencias.first)
-    end
+#    if @usuario.residencias.size == 1
+#     redirect_to usuario_residencia_path(@usuario, @usuario.residencias.first)
+#    end
   end
-  
+
   def new
     @usuario = Usuario.new
   end

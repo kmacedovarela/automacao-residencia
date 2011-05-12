@@ -1,31 +1,36 @@
 <%= form_for [@residencia.usuario, @residencia], :remote => true do |f| %>
   <%= render :partial => 'layouts/errors', :locals => {:entity => @residencia} %>
 
-  <table id='tabela_nova_residencia'>
+  <table class="tabela_form" id='tabela_nova_residencia'>
     <tr>
-      <td>
+      <td class="label">
         <%= f.label :cidade %>
+      </td>
+      <td>
         <%= f.text_field :cidade %>
       </td>
-      <td>
+      <td class="label">
         <%= f.label :uf %>
+      </td>
+      <td>
         <%= f.text_field :uf, :maxlength => 2 %>
       </td>
-      <td>
+      <td class="label">
         <%= f.label :endereco %>
+      </td>
+      <td>
         <%= f.text_field :endereco %>
       </td>
-      <td>
+      <td class="label">
         <%= f.label :cep %>
-        <%= f.text_field :cep, :class => :cep %>
       </td>
-
       <td>
-        <%= f.submit %>
+        <%= f.text_field :cep, :class => :cep , :size => 9%>
       </td>
-		  <td>
-		    <button class="cancelar_form" alt="cancelar"> Cancelar </button>
-		  </td>
+      <td align="right">
+        <%= f.submit %>
+	      <button class="cancelar_form" alt="cancelar"> Cancelar </button>
+	    </td>
     </tr>
   </table>
 

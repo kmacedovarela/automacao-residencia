@@ -56,15 +56,15 @@ describe UsuariosController do
 
     end
 
-    context 'quando possuir apenas uma residencia' do
-      it 'deveria redirecionar para o show de residencia' do
-        residencia = Factory.create :residencia
+#    context 'quando possuir apenas uma residencia' do
+#      it 'deveria redirecionar para o show de residencia' do
+#        residencia = Factory.create :residencia
 
-        residencia.usuario.residencias.size.should == 1
-        xhr :get, :show, :id => residencia.usuario.id
-        response.should redirect_to(usuario_residencia_path(residencia.usuario, residencia))
-      end
-    end
+#        residencia.usuario.residencias.size.should == 1
+#        xhr :get, :show, :id => residencia.usuario.id
+#        response.should redirect_to(usuario_residencia_path(residencia.usuario, residencia))
+#      end
+#    end
   end
 
   describe "GET edit" do

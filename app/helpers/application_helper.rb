@@ -64,7 +64,8 @@ module ApplicationHelper
     else
       js << %Q{
         $('#error').hide();
-        $('#notice').html('#{escape_javascript(flash[:notice])}');
+        $('#notice').html("#{escape_javascript(image_tag "/images/table/icon_close_green.gif", :title => "fechar mensagens", :class => "close_message" )}");
+        $('#notice').append('#{escape_javascript(flash[:notice])}');
 
         $(':input:not(input[type=submit])').val('');
         $('form').parent().slideUp();

@@ -3,14 +3,8 @@
     <tr>
       <td><%= text_field_tag 'buscar', 'Buscar', :class => 'top-search-inp', :id => 'campo_busca_home' %></td>
     	<td>
-				<%= select(
-							'tipo_usuario', 
-							'',
-							options_for_select(Usuario::ROLE.keys.collect { |key| key.to_s.capitalize }),
-	 						{:include_blank => 'Todos'},
-							:id => 'tipo_usuario',
-							:class => 'styledselect'
-				) %>
+				<select name="">
+				</select>
 			</td>
     	<td><%= image_tag "shared/top_search_btn.gif" %></td>
     </tr>

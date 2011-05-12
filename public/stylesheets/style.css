@@ -1552,3 +1552,7 @@ a:hover.back-login {
     display: none;
 }
 
+.close_message {
+    float: right;
+}
+
