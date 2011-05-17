@@ -523,6 +523,12 @@ a:hover.action-delete {
 
 
 /* FORM ------------------------------------------------------- */
+
+/* caso o browser preencha o campo.. */
+input:-webkit-autofill {
+	color: #2a2a2a !important; 
+}
+
 .form-submit {
 	background: url(../images/forms/form_submit.gif) no-repeat;
 	border: none;
@@ -1328,6 +1334,10 @@ label {
 
 
 /*  LOGIN -------------------------------------------------------------------------------- */
+input:-webkit-autofill {
+	background-color: #FAFFBD;
+	background-image: none;
+}
 
 #login-bg {
 	background: url(../images/login/login_bg.jpg) no-repeat top center;
@@ -1385,8 +1395,9 @@ label {
 #login-inner td {
 	padding: 0 0 6px 0;
 }
+
 .login-inp {
-	background: url(../images/login/inp_login.gif) no-repeat;
+	background: url(../images/login/inp_login.gif) no-repeat !important;
 	border: none;
 	color: #fff;
 	font-size: 16px;
@@ -1394,6 +1405,7 @@ label {
 	padding: 6px 6px 0 10px;
 	width: 204px;
 }
+
 #logo-login {
 	float: left;
 	height: 43px;
@@ -1556,3 +1568,7 @@ a:hover.back-login {
     float: right;
 }
 
+
+input:not([type="image"]), textarea {
+	box-sizing: initial; /* arredondando os inputs no chrome */ 
+}

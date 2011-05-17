@@ -30,6 +30,7 @@ GEM
     activesupport (3.0.3)
     arel (2.0.9)
     bcrypt-ruby (2.1.4)
+    bcrypt-ruby (2.1.4-java)
     builder (2.1.2)
     devise (1.2.0)
       bcrypt-ruby (~> 2.1.2)
@@ -75,6 +76,7 @@ GEM
       thor (~> 0.14.4)
     rake (0.8.7)
     rcov (0.9.9)
+    rcov (0.9.9-java)
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
       rspec-expectations (~> 2.5.0)
@@ -98,6 +100,7 @@ GEM
       rack (>= 1.0.0)
 
 PLATFORMS
+  java
   ruby
 
 DEPENDENCIES
