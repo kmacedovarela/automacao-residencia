@@ -1,6 +1,6 @@
 class ResidenciasController < ApplicationController
 
-  before_filter :authenticate_usuario!
+  before_filter :authenticate_usuario!, :check_permission!
 
   respond_to :js
 
@@ -10,8 +10,8 @@ class ResidenciasController < ApplicationController
     @comodo.residencia = @residencia
   end
 
-  def new    
-    @residencia = Residencia.new  
+  def new
+    @residencia = Residencia.new
     @residencia.usuario = Usuario.find params[:usuario_id]
   end
 

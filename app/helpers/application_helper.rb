@@ -128,5 +128,6 @@ module ApplicationHelper
   def adicionar_erro js, msg
     js << "$('#error').append('<li> #{escape_javascript(msg)} </li>'); "
   end
+
 end
 
