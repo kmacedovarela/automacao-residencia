@@ -5,8 +5,6 @@ class Usuarios::SessionsController < Devise::SessionsController
 
   # GET /login
   def new
-  #   puts 'oi'
-  #   super
     flash[:notice] = 'Você não possui privilégios para acessar está página, efetue login.'
     redirect_to root_path
   end
@@ -14,12 +12,26 @@ class Usuarios::SessionsController < Devise::SessionsController
   # POST /login
   def create
     clean_up_passwords(build_resource)
+
     if usuario_signed_in?
       if current_usuario.role_administrador?
         redirect_to :usuarios
-      elsif current_usuario.role_proprietario?
-        redirect_to :usuarios
-        # redirect_to :residencias_proprietario
+      else
+        puts 'entrei no else'
+        valida_dependencias_usuario
+        puts flash[:error]
+        if flash[:error].nil?
+          puts 'ENTREI NESSA POXA!'
+          @residencias = current_usuario.residencias
+          @residencia = @residencias.first
+
+
+          puts 'vo RENDERIZA O TEMPLATE'
+          render :template => "/residencias/index_proprietario"
+        else
+          puts 'redirect root_path'
+          redirect_to root_path
+        end
       end
     else
       flash[:error] = 'Usuário ou senha inválidos.'
@@ -27,10 +39,17 @@ class Usuarios::SessionsController < Devise::SessionsController
     end
   end
 
-  # # GET /logout
-  # def destroy
-  #   puts 'destroy'
-  #   super
-  # end
+  private
+
+    def valida_dependencias_usuario
+      if current_usuario.residencias.blank?
+        flash[:error] = 'Usuário precisa ter pelo menos uma residência associada. Contacte o suporte'
+ #     elsif current_usuario.residencias.comodos.blank?
+ #       flash[:error] = 'Não existem comodos cadastrados para esta residencia. Contacte o suporte'
+ #     elsif current_usuario.residencias.comodos.perifericos.blank?
+ #       flash[:error] = 'Não existem perifericos cadastrados para esta residencia. Contacte o suporte'
+      end
+    end
+
 end
 
