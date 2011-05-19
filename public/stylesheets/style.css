@@ -1583,3 +1583,30 @@ table .tabela_interativa tr td{
     padding:10px;
 }
 
+.comodo {
+    border: 1px solid;
+    width: 70%;
+    margin: 5px;
+}
+
+.comodo .comodo_title {
+    background: gray;
+    width: 100%;
+}
+
+.perifericos{
+    border: 1px solid;
+    display: block;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.perifericos .ativa {
+    background: yellow;
+}
+
+.perifericos:hover {
+    background: #cecece;
+}
+

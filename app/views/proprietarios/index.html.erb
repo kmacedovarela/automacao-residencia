@@ -3,15 +3,18 @@
 <h3> <%= @residencia.endereco %></h3>
 
 <% if @residencia.comodos %>
-    <table border="1px" cellpadding="10" cellspacing="10" class="tabela_interativa" >
-      <tr>
-        <% @residencia.comodos.each do |comodo| %>
-           <td>
-            <%= comodo.nome %>
-           </td>
-        <% end %>
-      </tr>
-    </table>
+    <div id="controles">
+      <% @residencia.comodos.each do |comodo| %>
+        <div class="comodo">
+            <div class="comodo_title"><h2><%= comodo.nome %></h2></div>
+              <% comodo.perifericos.each do |periferico| %>
+                <div class="perifericos">
+                  <%= periferico.nome %>
+                </div>
+              <% end %>
+        </div>
+      <% end %>
+    </div>
 <% else %>
   Não existem comodos cadastrado para esta residência.
 <% end %>
