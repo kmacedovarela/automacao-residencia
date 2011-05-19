@@ -5,8 +5,6 @@ class Usuarios::SessionsController < Devise::SessionsController
 
   # GET /login
   def new
-  #   puts 'oi'
-  #   super
     flash[:notice] = 'Você não possui privilégios para acessar está página, efetue login.'
     redirect_to root_path
   end
@@ -14,23 +12,14 @@ class Usuarios::SessionsController < Devise::SessionsController
   # POST /login
   def create
     clean_up_passwords(build_resource)
+
     if usuario_signed_in?
-      if current_usuario.role_administrador?
-        redirect_to :usuarios
-      elsif current_usuario.role_proprietario?
-        redirect_to :usuarios
-        # redirect_to :residencias_proprietario
-      end
+      redireciona_usuario_pagina_inicial
     else
       flash[:error] = 'Usuário ou senha inválidos.'
       redirect_to root_path
     end
   end
 
-  # # GET /logout
-  # def destroy
-  #   puts 'destroy'
-  #   super
-  # end
 end
 

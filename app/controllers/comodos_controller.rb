@@ -1,6 +1,6 @@
 class ComodosController < ApplicationController
 
-  before_filter :authenticate_usuario!
+  before_filter :authenticate_usuario!, :check_permission!
 
   respond_to :js
   respond_to :html, :only => :show
@@ -11,7 +11,7 @@ class ComodosController < ApplicationController
     @periferico = Periferico.new
     @periferico.comodo = @comodo
   end
-  
+
   def new
     @comodo = Comodo.new
     @comodo.residencia = Residencia.find params[:residencia_id]

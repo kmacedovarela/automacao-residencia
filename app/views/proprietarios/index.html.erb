@@ -1,0 +1,21 @@
+<%= render :partial => 'outras_atividades' %>
+
+<h3> <%= @residencia.endereco %></h3>
+
+<% if @residencia.comodos %>
+    <div id="controles">
+      <% @residencia.comodos.each do |comodo| %>
+        <div class="comodo">
+            <div class="comodo_title"><h2><%= comodo.nome %></h2></div>
+              <% comodo.perifericos.each do |periferico| %>
+                <div class="perifericos">
+                  <%= periferico.nome %>
+                </div>
+              <% end %>
+        </div>
+      <% end %>
+    </div>
+<% else %>
+  Não existem comodos cadastrado para esta residência.
+<% end %>
+
