@@ -1,3 +1,8 @@
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'views/proprietario' %>
+  <%= javascript_include_tag 'jquery/jquery.tipsy' %>
+<% end %>
+
 <%= render :partial => 'outras_atividades' %>
 
 <h3> <%= @residencia.endereco %></h3>
@@ -8,7 +13,9 @@
         <div class="comodo">
             <div class="comodo_title"><h2><%= comodo.nome %></h2></div>
               <% comodo.perifericos.each do |periferico| %>
-                <div class="perifericos">
+                <div id="periferico_<%=periferico.id%>"
+                     title="Clique para alterar o estado:  <%='ligado' if periferico.estado%>"
+                     class="perifericos <%='ligado' if periferico.estado%>">
                   <%= periferico.nome %>
                 </div>
               <% end %>
