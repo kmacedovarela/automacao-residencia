@@ -1584,13 +1584,15 @@ table .tabela_interativa tr td{
 }
 
 .comodo {
+    float: right;
     border: 1px solid;
-    width: 70%;
+    width: 20%;
     margin: 5px;
 }
 
 .comodo .comodo_title {
     background: gray;
+    color: white !important;
     width: 100%;
 }
 
@@ -1602,8 +1604,8 @@ table .tabela_interativa tr td{
     cursor: pointer;
 }
 
-.perifericos .ativa {
-    background: yellow;
+.ligado {
+    background: #f9fcb0;
 }
 
 .perifericos:hover {

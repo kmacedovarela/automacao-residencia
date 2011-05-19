@@ -39,7 +39,8 @@ describe PerifericosController do
                         :comodo_id => @comodo.id,
                         :periferico => {
                           :nome => "Lampada",
-                          :pino => "1"
+                          :pino => "1",
+                          :estado => 'false'
                         }
                       }
 
@@ -87,7 +88,8 @@ describe PerifericosController do
                         :comodo_id => @comodo.id,
                         :periferico => {
                           :nome => "Lampada",
-                          :pino => "1"
+                          :pino => "1",
+                          :estado => 'false'
                         }
                       }
 
