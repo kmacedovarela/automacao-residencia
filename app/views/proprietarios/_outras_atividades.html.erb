@@ -1,0 +1,52 @@
+<div id="related-activities">
+
+		<!--  start related-act-top -->
+		<div id="related-act-top">
+		<img src="images/forms/header_related_act.png" width="271" height="43" alt="" />
+		</div>
+		<!-- end related-act-top -->
+
+		<!--  start related-act-bottom -->
+		<div id="related-act-bottom">
+
+			<!--  start related-act-inner -->
+			<div id="related-act-inner">
+
+			  <% if @usuario.residencias.size > 1 %>
+				  <div class="left"><a href=""><img src="images/house_icon.jpg" width="21" height="21" alt="" /></a></div>
+				  <div class="right">
+					  <h5>Residências</h5>
+					    <ul class="greyarrow">
+					      <% @usuario.residencias.each do |residencia| %>
+					        <li><a href=""><%= residencia.endereco %></a></li>
+					      <% end %>
+					    </ul>
+				  </div>
+
+				  <div class="clear"></div>
+				  <div class="lines-dotted-short"></div>
+
+			  <% end %>
+
+
+				<div class="left"><a href=""><img src="images/forms/icon_plus.gif" width="21" height="21" alt="" /></a></div>
+				<div class="right">
+					<h5>Presets</h5>
+					<ul class="greyarrow">
+						<li><a href="">Jantar</a></li>
+						<li><a href="">Crianças</a> </li>
+					</ul>
+				</div>
+
+				<div class="clear"></div>
+
+			</div>
+			<!-- end related-act-inner -->
+			<div class="clear"></div>
+
+		</div>
+		<!-- end related-act-bottom -->
+
+	</div>
+	<!-- end related-activities -->
+

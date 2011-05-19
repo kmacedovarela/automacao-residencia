@@ -526,7 +526,7 @@ a:hover.action-delete {
 
 /* caso o browser preencha o campo.. */
 input:-webkit-autofill {
-	color: #2a2a2a !important; 
+	color: #2a2a2a !important;
 }
 
 .form-submit {
@@ -1570,6 +1570,16 @@ a:hover.back-login {
 
 
 input:not([type="image"]), textarea {
-	box-sizing: content-box; /* arredondando os inputs no chrome */ 
+	box-sizing: content-box; /* arredondando os inputs no chrome */
 	-moz-box-sizing: content-box;
 }
+
+table .tabela_interativa {
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+table .tabela_interativa tr td{
+    padding:10px;
+}
+

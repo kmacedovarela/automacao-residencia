@@ -20,8 +20,9 @@ AutomacaoResidenciaNoajax::Application.routes.draw do
   match 'cadastros/create_comodo' => 'cadastros#create_comodo'
   match 'cadastros/create_periferico' => 'cadastros#create_periferico'
 
-  root :to => "home#index"
+  match '/proprietarios' => 'proprietarios#index'
 
+  root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
           @residencias = current_usuario.residencias
           @residencia = @residencias.first
 
-          render :template => "/residencias/index_proprietario"
+          redirect_to "/proprietarios"
         else
           redirect_to "/usuarios/sign_out"
         end
