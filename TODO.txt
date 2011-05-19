@@ -1,0 +1,16 @@
+ø Todo
+- Doing
+x Done
+
+~ UCS
+	ø Rever MGS (Ajustar o texto com os casos de uso)
+
+~ Login
+	ø Exibir mensagem em caso de erro no login
+
+
+~ Usuários
+	ø Deveria ordenar pelo nome 
+	ø Deveria buscar pelo nome do usuário
+	ø Verificar se a MSG03 se aplica em algum caso.
+	

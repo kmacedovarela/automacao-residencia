@@ -1571,5 +1571,7 @@ a:hover.back-login {
 
 input:not([type="image"]), textarea {
 	box-sizing: content-box; /* arredondando os inputs no chrome */ 
-	-moz-box-sizing: content-box;
+	-moz-box-sizing: content-box; /* arredondando os inputs no firefox */ 
+	-ms-box-sizing: content-box; /* arredondando os inputs no IE8 */ 
+	
 }
