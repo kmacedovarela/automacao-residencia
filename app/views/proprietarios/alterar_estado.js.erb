@@ -1,6 +1,5 @@
-$('<%= "periferico_#{@periferico.id}" %>').attr('title', '<%= "Clique para alterar o estado:#{@periferico.estado}"%>');
-$('<%= "periferico_#{@periferico.id}" %>').attr('class','perifericos <%= "ligado" if @periferico.estado %>');
+$('<%= "#periferico_#{@periferico.id}" %>').attr('title', '<%= "Clique para alterar o estado: #{@periferico.estado}"%>');
+$('<%= "#periferico_#{@periferico.id}" %>').attr('class','perifericos <%= "ligado" if @periferico.estado %>');
 
-$('<%= "periferico_#{@periferico.id}" %>').html('<%= @periferico.nome %>');
+$('<%= "#periferico_#{@periferico.id}" %>').html('<%= @periferico.nome %>');
 
-alert('<%= "periferico_#{@periferico.id}" %>');

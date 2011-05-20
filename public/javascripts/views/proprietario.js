@@ -11,7 +11,7 @@ jQuery(function(){
 			type: 'POST',
 			data: 'id='+periferico_id,
 			beforeSend: function() {
-				$('#periferico_'+periferico_id).html("<img src='/images/ajax-loader.gif' alt='espere por favor...'></img>");
+				$('#periferico_'+periferico_id).html("<img src='/images/ajax-loader.gif' alt='espere por favor...' style='align: center;'></img>");
 			},
 
 			error: function(jqXHR, textStatus, errorThrown) {
