@@ -15,7 +15,7 @@ AutomacaoResidenciaNoajax::Application.routes.draw do
   end
 
   match 'cadastros(/:action)' => 'cadastros#index'
-  match 'proprietarios(/:action)' => 'proprietarios#index'
+  match 'proprietarios(/:action)(/:id)' => 'proprietarios#index'
 
   root :to => "home#index"
 

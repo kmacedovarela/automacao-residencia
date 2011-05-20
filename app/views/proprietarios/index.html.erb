@@ -7,7 +7,7 @@
 
 <h3> <%= @residencia.endereco %></h3>
 
-<% if @residencia.comodos %>
+<% unless @residencia.comodos.blank? %>
     <div id="controles">
       <% @residencia.comodos.each do |comodo| %>
         <div class="comodo">
@@ -23,6 +23,6 @@
       <% end %>
     </div>
 <% else %>
-  Não existem comodos cadastrado para esta residência.
+  Não existem comodos cadastrado para esta residência, Contacte o suporte.
 <% end %>
 

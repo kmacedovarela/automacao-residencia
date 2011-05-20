@@ -2,7 +2,7 @@
 
 		<!--  start related-act-top -->
 		<div id="related-act-top">
-		<img src="images/forms/header_related_act.png" width="271" height="43" alt="" />
+		<img src="/images/forms/header_related_act.png" width="271" height="43" alt="" />
 		</div>
 		<!-- end related-act-top -->
 
@@ -13,12 +13,12 @@
 			<div id="related-act-inner">
 
 			  <% if @usuario.residencias.size > 1 %>
-				  <div class="left"><a href=""><img src="images/house_icon.jpg" width="21" height="21" alt="" /></a></div>
+				  <div class="left"><a href=""><img src="/images/house_icon.jpg" width="21" height="21" alt="" /></a></div>
 				  <div class="right">
 					  <h5>Residências</h5>
 					    <ul class="greyarrow">
 					      <% @usuario.residencias.each do |residencia| %>
-					        <li><a href=""><%= residencia.endereco %></a></li>
+					        <li><a href="/proprietarios/index/<%=residencia.id%>"><%= residencia.endereco %></a></li>
 					      <% end %>
 					    </ul>
 				  </div>
