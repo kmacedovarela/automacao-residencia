@@ -2,45 +2,46 @@
   <div class="nav-outer">
       <div id="nav-right">
         <div class="nav-divider">&nbsp;</div>
-        <div class="showhide-account">
-					<%= image_tag("shared/nav/nav_myaccount.gif", :size => "93x14") %>
-        </div>
+          <% if current_usuario.role_administrador? %>
+            <div class="showhide-account">
+			        <%= image_tag("shared/nav/nav_myaccount.gif", :size => "93x14") %>
+            </div>
 
-        <div class="nav-divider">&nbsp;</div>
-
+            <div class="nav-divider">&nbsp;</div>
+          <% end %>
         <a href="/usuarios/sign_out" id="logout">
 					<%= image_tag("shared/nav/nav_logout.gif", :size => "64") %>
         </a>
         <div class="clear">&nbsp;</div>
       </div><!-- end nav-right -->
+      <% if current_usuario.role_administrador? %>
+		    <!--  start nav -->
+        <div class="nav">
+          <div class="table">
+            <ul id="menu_usuario" class="select">
+              <li>
+                <a href= <%= usuarios_path %> >
+                  <b>Usuários</b>
+                </a>
+              </li>
+            </ul>
 
-		  <!--  start nav -->
-      <div class="nav">
-        <div class="table">
-          <ul id="menu_usuario" class="select">
-            <li>
-              <a href= <%= usuarios_path %> >
-                <b>Usuários</b>
-              </a>
-            </li>
-          </ul>
+            <div class="nav-divider">&nbsp;</div>
 
-          <div class="nav-divider">&nbsp;</div>
-
-          <ul id="menu_residencia" class="select">
-            <li>
-              <a href="#nogo">
-                <b>Residências</b>
-                <!--[if IE 7]><!-->
-              </a><!--<![endif]-->
-            </li>
-          </ul>
-
+            <ul id="menu_residencia" class="select">
+              <li>
+                <a href="#nogo">
+                  <b>Residências</b>
+                  <!--[if IE 7]><!-->
+                </a><!--<![endif]-->
+              </li>
+            </ul>
           <div class="clear"></div>
         </div> <!-- end div table -->
         <div class="clear"></div>
       </div> <!-- end div nav -->
       <div class="clear"></div>
+    <% end %>
   </div> <!--  end nav-outer -->
 </div> <!--  end nav-outer-repeat -->
 
