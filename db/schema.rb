@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110519182736) do
+ActiveRecord::Schema.define(:version => 20110520205649) do
 
   create_table "comodos", :force => true do |t|
     t.string   "nome"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(:version => 20110519182736) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "estado"
+  end
+
+  create_table "presets", :force => true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "residencias", :force => true do |t|
