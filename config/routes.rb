@@ -11,6 +11,7 @@ AutomacaoResidenciaNoajax::Application.routes.draw do
       resources :comodos do
         resources :perifericos
       end
+      resources :presets
     end
   end
 

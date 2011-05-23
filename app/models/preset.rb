@@ -1,6 +1,6 @@
 class Preset < ActiveRecord::Base
 
-  has_many :periferico
+  serialize :estado_perifericos
 
   validates :nome, :presence => true
 
