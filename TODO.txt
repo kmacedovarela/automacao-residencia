@@ -27,5 +27,7 @@ x Done
 ø presets padrao
 ø lembrar de no fim alterar o usuario do bd para automacaoresidencia
 
+
 ~  Documentação 
 ø TODO O DOCUMENTO rssss ~ 
+ø escrever o dicionario de dados
