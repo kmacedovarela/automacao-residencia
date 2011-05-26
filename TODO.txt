@@ -14,3 +14,18 @@ x Done
 	ø Deveria buscar pelo nome do usuário
 	ø Verificar se a MSG03 se aplica em algum caso.
 	
+
+ø Crud de Preset
+
+~ Integração com arduino
+ ø Classe que se conecta com arduino
+ ø Integrar sistema web e arduino
+ ø MOntar parte fisica da arduino
+ ø "Maquete" ja era, entao arrumar uma forma de apresentar o sistema.
+
+ø programar tempo para a luz desligar [desligar daki 20min por exemplo]
+ø presets padrao
+ø lembrar de no fim alterar o usuario do bd para automacaoresidencia
+
+~  Documentação 
+ø TODO O DOCUMENTO rssss ~ 
