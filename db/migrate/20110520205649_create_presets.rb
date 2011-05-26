@@ -3,6 +3,7 @@ class CreatePresets < ActiveRecord::Migration
     create_table :presets do |t|
       t.string :nome
       t.string :estado_perifericos
+      t.integer :residencia_id
 
       t.timestamps
     end

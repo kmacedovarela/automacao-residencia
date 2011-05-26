@@ -313,8 +313,8 @@ td.checkbox-width {
 	padding: 0 10px 0 0;
 }
 
-	.table-header-options a:hover,
- .table-header-repeat a:hover {
+.table-header-options a:hover,
+    .table-header-repeat a:hover {
 
 	color:#94b52c
 }
@@ -1570,10 +1570,10 @@ a:hover.back-login {
 
 
 input:not([type="image"]), textarea {
-	box-sizing: content-box; /* arredondando os inputs no chrome */ 
-	-moz-box-sizing: content-box; /* arredondando os inputs no firefox */ 
-	-ms-box-sizing: content-box; /* arredondando os inputs no IE8 */ 
-	
+	box-sizing: content-box; /* arredondando os inputs no chrome */
+	-moz-box-sizing: content-box; /* arredondando os inputs no firefox */
+	-ms-box-sizing: content-box; /* arredondando os inputs no IE8 */
+
 }
 
 table .tabela_interativa {
@@ -1585,6 +1585,11 @@ table .tabela_interativa tr td{
     padding:10px;
 }
 
+
+#controles {
+    float: left;
+    width: 60%;
+}
 .comodo {
     float: right;
     border: 1px solid;
@@ -1613,3 +1618,8 @@ table .tabela_interativa tr td{
 .perifericos:hover {
     background: #cecece;
 }
+
+#preset_botao{
+    text-align: right;
+}
+

@@ -1,5 +1,36 @@
-<h1>New preset</h1>
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'views/preset' %>
+<% end %>
 
-<%= render 'form' %>
+<%= render :partial => '/proprietarios/outras_atividades' %>
 
-<%= link_to 'Back', presets_path %>
+<%= form_for [@residencia.usuario, @residencia, @preset], :remote => true do |f| %>
+  <h3> <%= @residencia.endereco %></h3>
+    Nome: <input type="text" name="nome" />
+
+  <% unless @residencia.comodos.blank? %>
+      <div id="controles">
+        <% @residencia.comodos.each do |comodo| %>
+          <div class="comodo">
+              <div class="comodo_title"><h2><%= comodo.nome %></h2></div>
+                <% comodo.perifericos.each do |periferico| %>
+                  <div id="periferico_<%=periferico.id%>"
+                       title="Clique para alterar o estado:  <%='ligado' if periferico.estado%>"
+                       class="perifericos<%=' ligado' if periferico.estado%>">
+                    <%= periferico.nome %>
+                    <input type="hidden" name="id[]" value="<%= periferico.id%>" %>
+                    <input type="hidden" name="estado[]" class="estado" value="false" %>
+                  </div>
+                <% end %>
+          </div>
+        <% end %>
+        <div id="preset_botao">
+          <%= f.submit %>
+          <button id="submit_preset">Adicionar Preset</button>
+        </div>
+      </div>
+  <% else %>
+    Não existem comodos cadastrado para esta residência, Contacte o suporte.
+  <% end %>
+<% end %>
+
