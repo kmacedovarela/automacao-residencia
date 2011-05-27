@@ -4,6 +4,7 @@ class Preset < ActiveRecord::Base
   serialize :estado_perifericos
 
   validates :nome, :presence => true
+  validates_uniqueness_of :nome
 
 end
 

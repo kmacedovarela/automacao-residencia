@@ -28,5 +28,11 @@ FactoryGirl.define do
     association :comodo, :factory => :comodo
   end
 
+  factory :preset do
+    sequence(:nome) { |n| "Periferico #{n}" }
+    estados_perifericos = { '1' => 'ligado', '2' => 'desligado' }
+    association :residencia, :factory => :residencia
+  end
+
 end
 

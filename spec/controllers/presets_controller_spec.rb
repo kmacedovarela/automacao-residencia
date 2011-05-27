@@ -31,6 +31,9 @@ describe PresetsController do
                           :estado => ["false", "true", "false"]
 
       Preset.count.should == count+1
+      preset = Preset.last
+      preset.nome.should == "Teste"
+      preset.residencia_id.should == 1
       response.should redirect_to('/proprietarios/1')
     end
 

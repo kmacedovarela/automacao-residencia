@@ -22,7 +22,7 @@ class PresetsController < ApplicationController
     ids = params[:id]
     estados = params[:estado]
 
-    preset = Preset.new :nome => params[:nome]
+    preset = Preset.new :nome => params[:nome], :residencia_id => params[:residencia_id]
 
     preset.estado_perifericos = to_hash ids, estados
 
@@ -43,7 +43,7 @@ class PresetsController < ApplicationController
       hash = "{"
       if keys.size == values.size
         keys.each_with_index do |id, i|
-          hash += "':#{id}' => '#{values[i]}'"
+          hash += "'#{id}' => '#{values[i]}'"
           hash += "," if not i == keys.size-1
         end
       end

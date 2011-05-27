@@ -2,10 +2,10 @@ jQuery(function(){
     $(".perifericos").click(function(){
         if ($(this).attr("class") == "perifericos ligado"){
             $(this).attr("class","perifericos");
-            $(this).find(".estado").attr('value', 'false');
+            $(this).find(".estado").attr('value', 'desligado');
         }else{
             $(this).attr("class","perifericos ligado");
-            $(this).find(".estado").attr('value', 'true');
+            $(this).find(".estado").attr('value', 'ligado');
         }
 
     });

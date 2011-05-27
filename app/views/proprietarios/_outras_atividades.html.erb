@@ -33,8 +33,9 @@
 				<div class="right">
 					<h5>Presets</h5>
 					<ul class="greyarrow">
-						<li><a href="">Jantar</a></li>
-						<li><a href="">Crianças</a> </li>
+					  <% @residencia.presets.each do |preset| %>
+			        <li><a href=""><%= preset.nome %></a></li>
+			      <% end %>
 					</ul>
 				</div>
 

@@ -19,14 +19,16 @@
                        class="perifericos<%=' ligado' if periferico.estado%>">
                     <%= periferico.nome %>
                     <input type="hidden" name="id[]" value="<%= periferico.id%>" %>
-                    <input type="hidden" name="estado[]" class="estado" value="false" %>
+                    <input type="hidden" name="estado[]" class="estado" value="desligado" %>
                   </div>
                 <% end %>
           </div>
         <% end %>
+
+        <div class="clear"></div>
+
         <div id="preset_botao">
           <%= f.submit %>
-          <button id="submit_preset">Adicionar Preset</button>
         </div>
       </div>
   <% else %>

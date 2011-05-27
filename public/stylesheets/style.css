@@ -1589,7 +1589,9 @@ table .tabela_interativa tr td{
 #controles {
     float: left;
     width: 60%;
+    margin: 5px;
 }
+
 .comodo {
     float: right;
     border: 1px solid;
