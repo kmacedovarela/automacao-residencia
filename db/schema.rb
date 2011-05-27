@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20110520205649) do
   create_table "presets", :force => true do |t|
     t.string   "nome"
     t.string   "estado_perifericos"
+    t.integer  "residencia_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
