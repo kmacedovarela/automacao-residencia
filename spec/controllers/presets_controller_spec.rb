@@ -28,12 +28,13 @@ describe PresetsController do
                           :usuario_id => "5",
                           :residencia_id => "1",
                           :id => ["1", "2", "3"],
-                          :estado => ["false", "true", "false"]
+                          :estado => ["desligado", "ligado", "desligado"]
 
       Preset.count.should == count+1
       preset = Preset.last
       preset.nome.should == "Teste"
       preset.residencia_id.should == 1
+      preset.estado_perifericos["1"].should == "desligado"
       response.should redirect_to('/proprietarios/1')
     end
 
