@@ -40,5 +40,20 @@ describe PresetsController do
 
   end
 
+  describe "GET show" do
+    it "deveria mandar os presets" do
+      periferico = Factory.create :periferico
+      residencia = periferico.comodo.residencia
+
+      preset = Factory.create :preset, :residencia => residencia
+      get :show, :usuario_id => residencia.usuario.id,
+                 :residencia_id => residencia.id,
+                 :id => preset.id
+
+      residencia = assigns(:residencia)
+      residencia.should_not be_nil
+    end
+  end
+
 end
 

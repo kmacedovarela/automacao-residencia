@@ -4,5 +4,6 @@ class Periferico < ActiveRecord::Base
 
   validates :pino, :numericality => true
   validates :nome, :pino, :presence => true
+
 end
 

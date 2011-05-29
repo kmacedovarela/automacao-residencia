@@ -4,7 +4,7 @@
 
 <%= render :partial => '/proprietarios/outras_atividades' %>
 
-<%= form_for [@residencia.usuario, @residencia, @preset], :remote => true do |f| %>
+<%= form_for [@residencia.usuario, @residencia, @preset] do |f| %>
   <h3> <%= @residencia.endereco %></h3>
     Nome: <input type="text" name="nome" />
 

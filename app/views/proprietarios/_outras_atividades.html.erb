@@ -34,7 +34,11 @@
 					<h5>Presets</h5>
 					<ul class="greyarrow">
 					  <% @residencia.presets.each do |preset| %>
-			        <li><a href=""><%= preset.nome %></a></li>
+			        <li>
+			          <a href="<%=usuario_residencia_preset_url(preset.residencia.usuario, preset.residencia, preset)%>"><%= preset.nome %></a>
+			          <%= link_to image_tag("/images/minus-red-button-icon.png", :title => "Remover preset"), "", :class => "excluir_preset" %>
+			        </li>
+
 			      <% end %>
 					</ul>
 				</div>

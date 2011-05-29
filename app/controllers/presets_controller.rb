@@ -33,8 +33,35 @@ class PresetsController < ApplicationController
       preset.save
       flash[:notice] = "Preset cadastrado com sucesso."
 
-      redirect_to "/proprietarios/#{params[:residencia_id]}"
+      redirect_to "/proprietarios"
     end
+  end
+
+  def show
+    @residencia = Residencia.find params[:residencia_id]
+    preset = Preset.find params[:id]
+
+    @residencia.comodos.each do |comodo|
+      comodo.perifericos.each do |periferico|
+        id = periferico.id.to_s
+        periferico.estado = (preset.estado_perifericos[id] == 'ligado') ? true : false
+        periferico.save
+      end
+    end
+
+    flash[:notice] = "Preset #{preset.nome} carregado com sucesso."
+    redirect_to "/proprietarios/"
+  end
+
+  def destroy
+    @preset = Preset.find(params[:id])
+    @residencia = Residencia.find params[:residencia_id]
+
+    if @preset.destroy
+      flash[:notice] = 'Preset excluído com sucesso.'
+    end
+
+    redirect_to "/proprietarios/"
   end
 
   private
@@ -51,6 +78,7 @@ class PresetsController < ApplicationController
 
       eval(hash)
     end
+
 
 end
 
