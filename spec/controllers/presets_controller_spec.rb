@@ -35,7 +35,7 @@ describe PresetsController do
       preset.nome.should == "Teste"
       preset.residencia_id.should == 1
       preset.estado_perifericos["1"].should == "desligado"
-      response.should redirect_to('/proprietarios/1')
+      response.should redirect_to('/proprietarios')
     end
 
   end
@@ -46,12 +46,13 @@ describe PresetsController do
       residencia = periferico.comodo.residencia
 
       preset = Factory.create :preset, :residencia => residencia
-      get :show, :usuario_id => residencia.usuario.id,
+      get :show, :usuario_id => residencia.usuario_id,
                  :residencia_id => residencia.id,
                  :id => preset.id
 
       residencia = assigns(:residencia)
       residencia.should_not be_nil
+      response.should redirect_to('/proprietarios')
     end
   end
 

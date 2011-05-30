@@ -9,14 +9,16 @@ stop_bits = 1
 parity = SerialPort::NONE
 
 sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
-
-while true do
-  sp.write 1
-  sleep 1
-  sp.write 0
-
-  sleep 1
-end
+#sp.write [1,2,3].chr.to_s
+sp.write 10.chr
 
 sp.close
+
+
+def altera_estado periferico
+  sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
+
+  sp.write periferico.pino.chr
+  sp.close
+end
 
