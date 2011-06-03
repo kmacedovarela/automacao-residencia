@@ -60,6 +60,9 @@ module ApplicationHelper
       js << %Q{
                 $('#error').append('</ul>');
                 $('#error').show();
+                $(".close_message").click(function(){
+                  $(this).parent().slideUp();
+                });
             }
     else
       js << %Q{
@@ -71,6 +74,11 @@ module ApplicationHelper
         $('form').parent().slideUp();
 
         $('#notice').show();
+
+        $(".close_message").click(function(){
+          $(this).parent().slideUp();
+        });
+
         $('#{lista_destino}').html('#{escape_javascript( render :partial => partial, :collection => colecao )}');
         $('#{lista_destino}').parent().show();
       }
@@ -98,6 +106,10 @@ module ApplicationHelper
       $('#error').hide();
       $('#notice').html('#{escape_javascript(flash[:notice])}');
       $('#notice').show();
+      $(".close_message").click(function(){
+        $(this).parent().slideUp();
+      });
+
       $('#{lista_destino}').html('#{ escape_javascript( render :partial => partial, :collection => colecao) }');
     }
 

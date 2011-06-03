@@ -13,12 +13,19 @@ var app = {
 			campo_busca.focus(function(){
 				if (this.value=='Buscar') { this.value=''; }
 			});
-		}
+		},
+
+    close_message: function(){
+      $(".close_message").click(function(){
+        $("#notice").hide();
+      });
+    }
 
 }
 
 $(document).ready(function(){
     $(document).pngFix( );
 		app.setup_botao_busca();
+    app.close_message();
 });
 

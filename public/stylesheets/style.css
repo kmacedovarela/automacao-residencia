@@ -1627,6 +1627,8 @@ table .tabela_interativa tr td{
 
 .excluir_preset {
     text-align: right;
-
 }
 
+.close_message:hover{
+  cursor: pointer;
+}
