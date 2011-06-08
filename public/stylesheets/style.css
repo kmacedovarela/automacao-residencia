@@ -1473,7 +1473,7 @@ a:hover.back-login {
 	color: #fff;
 }
 .submit-login {
-	background: url(../images/login/submit_login.gif) no-repeat;
+	background: url(../images/login/submit_login2.gif) no-repeat;
 	border: none;
 	cursor: pointer;
 	display: block;
@@ -1482,7 +1482,7 @@ a:hover.back-login {
 	width: 73px;
 }
 .submit-login:hover {
-	background: url(../images/login/submit_login.gif) no-repeat 0 -29px;
+	background: url(../images/login/submit_login2.gif) no-repeat 0 -29px;
 }
 
 .hide{
