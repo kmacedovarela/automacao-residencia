@@ -21,7 +21,7 @@ module ApplicationHelper
 
   def link_excluir path
     link_to ' ', path, :remote => true,
-                  :confirm => 'Você tem certeza?',
+                  :confirm => 'Você tem certeza que deseja excluir este registro?',
                   :method => :delete,
                   :class => 'icon-2 info-tooltip',
                   :title => 'Excluir'
