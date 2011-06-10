@@ -48,7 +48,8 @@
 														:title => "Remover preset"),
 														"/usuarios/#{@usuario.id}/residencias/#{@residencia.id}/presets/#{preset.id}", 
 														:class => "excluir_preset" ,
-														:method=>:delete 
+														:method=>:delete,
+														:confirm => "Você tem certeza que deseja excluir este registro?"
 								%>
 			        </li>
 
