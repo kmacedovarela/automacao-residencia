@@ -2,7 +2,7 @@
 
 		<!--  start related-act-top -->
 		<div id="related-act-top">
-		<img src="/images/forms/header_related_act.png" width="271" height="43" alt="" />
+			<img src="/images/forms/header_related_act.png" width="271" height="43" alt="" />
 		</div>
 		<!-- end related-act-top -->
 
@@ -29,14 +29,27 @@
 			  <% end %>
 
 
-				<div class="left"><a href="<%=new_usuario_residencia_preset_url(@usuario,@residencia)%>"><img src="/images/forms/icon_plus.gif" width="21" height="21" alt="Adicionar Novo Preset" id="adicionar_preset" /></a></div>
+				<div class="left">
+					<a href="<%=new_usuario_residencia_preset_url(@usuario,@residencia)%>">
+						<img src="/images/forms/icon_plus.gif" width="21" height="21" alt="Adicionar Novo Preset" id="adicionar_preset" />
+					</a>
+				</div>
+				
 				<div class="right">
 					<h5>Presets</h5>
 					<ul class="greyarrow">
 					  <% @residencia.presets.each do |preset| %>
 			        <li>
-			          <a href="<%=usuario_residencia_preset_url(preset.residencia.usuario, preset.residencia, preset)%>"><%= preset.nome %></a>
-			          <%= link_to image_tag("/images/minus-red-button-icon.png", :title => "Remover preset"), "", :class => "excluir_preset" %>
+			          <a href="<%=usuario_residencia_preset_url(preset.residencia.usuario, preset.residencia, preset)%>">
+									<%= preset.nome %>
+								</a>
+								
+			          <%= link_to image_tag("/images/minus-red-button-icon.png", 
+														:title => "Remover preset"),
+														"/usuarios/#{@usuario.id}/residencias/#{@residencia.id}/presets/#{preset.id}", 
+														:class => "excluir_preset" ,
+														:method=>:delete 
+								%>
 			        </li>
 
 			      <% end %>

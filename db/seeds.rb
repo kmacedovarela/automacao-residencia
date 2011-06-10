@@ -32,4 +32,42 @@ Usuario.create! :nome => 'Usuario Proprietario',
                 :password => '123',
                 :cpf => '732.922.123-34',
                 :telefone => '(61) 8173-2342',
-                :tipo => Usuario::ROLE[:proprietario]                
+                :tipo => Usuario::ROLE[:proprietario]       
+                
+                
+Residencia.create! :cidade => 'Taguatinga',
+                   :uf => "DF",  
+                   :endereco => "QSD 12 casa 12",
+                   :cep => "72000-100",
+                   :usuario => Usuario.last
+
+Comodo.create! :nome => "sala",
+               :residencia => Residencia.first
+               
+Comodo.create! :nome => "quarto",
+               :residencia => Residencia.first
+                                             
+Periferico.create! :nome => "lampada 1",
+                   :pino => 1,
+                   :comodo => Comodo.first
+
+Periferico.create! :nome => "lampada 2",
+                  :pino => 2,
+                  :comodo => Comodo.first                   
+
+Periferico.create! :nome => "lampada 3",
+                  :pino => 3,
+                  :comodo => Comodo.first                  
+
+Periferico.create! :nome => "lampada 4",
+                   :pino => 1,
+                   :comodo => Comodo.last
+
+Periferico.create! :nome => "lampada 5",
+                  :pino => 2,
+                  :comodo => Comodo.last
+
+Periferico.create! :nome => "lampada 6",
+                  :pino => 3,
+                  :comodo => Comodo.last
+                  
