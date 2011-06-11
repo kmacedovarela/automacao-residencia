@@ -10,5 +10,9 @@ class HomeController < ApplicationController
     end
   end
 
+  def suporte
+  	
+  end
+
 end
 

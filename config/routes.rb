@@ -18,6 +18,8 @@ AutomacaoResidenciaNoajax::Application.routes.draw do
   match 'cadastros(/:action)' => 'cadastros#index'
   match 'proprietarios(/:action)(/:id)' => 'proprietarios#index'
 
+  match 'suporte' => 'home#suporte'
+
   root :to => "home#index"
 
   # The priority is based upon order of creation:

@@ -1632,3 +1632,25 @@ table .tabela_interativa tr td{
 .close_message:hover{
   cursor: pointer;
 }
+
+#suporte{
+	font-family: Tahoma;
+	font-size: 17px;
+	line-height: 28px;
+	margin: 0 auto;
+	width: 358px;
+	float: left;
+	padding-left: 41px;
+	color: white
+}
+
+#suporte_icone{
+	background: url("/images/suporte.png") no-repeat right;
+	height: 140px;
+	margin-right: 17px;
+}
+
+#contato{
+	padding-top: 20px;
+	color: white;
+}

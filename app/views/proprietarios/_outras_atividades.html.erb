@@ -46,7 +46,7 @@
 								
 			          <%= link_to image_tag("/images/minus-red-button-icon.png", 
 														:title => "Remover preset"),
-														"/usuarios/#{@usuario.id}/residencias/#{@residencia.id}/presets/#{preset.id}", 
+														usuario_residencia_preset_url(preset.residencia.usuario, preset.residencia, preset), 
 														:class => "excluir_preset" ,
 														:method=>:delete,
 														:confirm => "Você tem certeza que deseja excluir este registro?"
