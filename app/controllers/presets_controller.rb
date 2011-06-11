@@ -41,13 +41,15 @@ class PresetsController < ApplicationController
     @residencia = Residencia.find params[:residencia_id]
     preset = Preset.find params[:id]
 
-    @residencia.comodos.each do |comodo|
-      comodo.perifericos.each do |periferico|
-        id = periferico.id.to_s
-        periferico.estado = (preset.estado_perifericos[id] == 'ligado') ? true : false
-        periferico.save
-      end
-    end
+    # @residencia.comodos.each do |comodo|
+    #   comodo.perifericos.each do |periferico|
+    #     id = periferico.id.to_s
+    #     periferico.estado = (preset.estado_perifericos[id] == 'ligado') ? true : false
+    #     periferico.save
+    #   end
+    # end
+
+    preset.ativar!
 
     flash[:notice] = "Preset #{preset.nome} carregado com sucesso."
     redirect_to "/proprietarios/"
