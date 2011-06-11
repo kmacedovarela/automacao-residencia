@@ -1,4 +1,8 @@
+require 'arduino'
+
 class ProprietariosController < ApplicationController
+
+  include Arduino
 
   before_filter :authenticate_usuario!
 
@@ -26,7 +30,8 @@ class ProprietariosController < ApplicationController
       flash[:error] = 'Você não possui permissão para realizar a operação solicitada.'
     else
       @periferico.estado = !@periferico.estado
-      @periferico.save
+      
+      alterar_estado_periferico @periferico
     end
   end
 
