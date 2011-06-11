@@ -29,7 +29,6 @@ class ProprietariosController < ApplicationController
     if @periferico.comodo.residencia.usuario != current_usuario
       flash[:error] = 'Você não possui permissão para realizar a operação solicitada.'
     else      
-      puts "OPA!"
       alterar_estado_periferico @periferico
     end
   end

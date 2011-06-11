@@ -10,21 +10,16 @@ module Arduino
     data_bits = 8
     stop_bits = 1
     parity = SerialPort::NONE
-
+    
     sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
-
-    if periferico.estado
-      puts "Mandando sinal para ligar: #{periferico.estado_ligado.chr}"
-      sp.write periferico.estado_ligado.chr
-    else
-      puts "Mandando sinal para desligar: #{periferico.estado_desligado.chr}"
-      sp.write periferico.estado_desligado.chr
+    
+    if estado.class == String
+      estado = estado == "ligado" ? true : false
     end
+    estado_na_arduino = periferico.estado ? periferico.estado_ligado.chr : periferico.estado_desligado.chr
 
-    if
-
-    periferico.update_attribute(:estado, )
-    puts "Fiz o update :-)" 
+    sp.write estado_na_arduino
+    periferico.update_attribute(:estado, estado)
 
     sp.close
   end
