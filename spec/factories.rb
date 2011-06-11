@@ -30,7 +30,7 @@ FactoryGirl.define do
 
   factory :preset do
     sequence(:nome) { |n| "Periferico #{n}" }
-    estados_perifericos = { '1' => 'ligado', '2' => 'desligado' }
+    estado_perifericos = { '1' => 'ligado', '2' => 'desligado' }
     association :residencia, :factory => :residencia
   end
 

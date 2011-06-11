@@ -2,7 +2,7 @@ require "serialport"
 
 module Arduino
 
-  def alterar_estado_periferico periferico
+  def alterar_estado_periferico periferico, estado = !periferico.estado
     puts "Entrei no alterar_estado_periferico"
     #params for serial port
     port_str = "/dev/tty.usbserial-A700ewHI"  #may be different for you
@@ -21,7 +21,9 @@ module Arduino
       sp.write periferico.estado_desligado.chr
     end
 
-    periferico.update_attribute(:estado, !periferico.estado)
+    if
+
+    periferico.update_attribute(:estado, )
     puts "Fiz o update :-)" 
 
     sp.close
