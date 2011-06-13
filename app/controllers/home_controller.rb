@@ -10,8 +10,23 @@ class HomeController < ApplicationController
     end
   end
 
-  def suporte
-  	
+  def suporte  	
+  end
+
+  def buscar
+    if params[:tipo] == 'usuario'
+      @usuarios = Usuario.com_nome_semelhante_a(params[:campo])
+      @usuario = Usuario.new
+
+      render :template => '/usuarios/index', :layout => 'application'
+    end
+
+    if params[:tipo] == 'residencia'
+      @residencias = Residencia.com_endereco_semelhante_a(params[:campo])
+      @residencia = Residencia.new
+
+      render :template => '/residencias/index', :layout => 'application'
+    end    
   end
 
 end

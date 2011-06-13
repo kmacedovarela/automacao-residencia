@@ -13,5 +13,9 @@ class Residencia < ActiveRecord::Base
     Residencia.all(:conditions => { :usuario_id => usuario_id })
   end
 
+  def self.com_endereco_semelhante_a endereco = ''
+    Residencia.where('endereco like ?', "%#{endereco}%")
+  end
+
 end
 

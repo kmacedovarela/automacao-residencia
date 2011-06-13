@@ -50,5 +50,13 @@ describe Residencia do
 
   end
 
+  it 'deveria pesquisa por parte do nome' do
+    Residencia.com_endereco_semelhante_a('Q').should_not be_blank
+  end
+ 
+  it 'deveria pesquisar por parte do nome com ignorecase ' do
+    Residencia.com_endereco_semelhante_a('q').should_not be_blank
+  end
+
 end
 

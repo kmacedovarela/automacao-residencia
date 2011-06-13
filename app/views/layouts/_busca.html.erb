@@ -1,14 +1,19 @@
 <div id="top-search">
-  <table border="0" cellpadding="0" cellspacing="0">
-    <tr>
-      <td><%= text_field_tag 'buscar', 'Buscar', :class => 'top-search-inp', :id => 'campo_busca_home' %></td>
-    	<td>
-				<select name="">
-				</select>
-			</td>
-    	<td><%= image_tag "shared/top_search_btn.gif" %></td>
-    </tr>
-  </table>
+  <%= form_tag('/home/buscar', :method => "get") do %>
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><%= text_field_tag 'campo', 'Buscar', :class => 'top-search-inp', :id => 'campo_busca' %></td>
+      	<td>
+  				<select name="tipo">
+            <option value="usuario">Usuários</option>
+            <option value="residencia">Residências</option>
+  				</select>
+  			</td>
+      	<td><%= image_submit_tag('shared/top_search_btn.gif') %></td>
+      </tr>
+    </table>
+    
+  <% end %>
 </div>
 <div class="clear"></div>
 

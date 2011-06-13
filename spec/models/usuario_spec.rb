@@ -73,10 +73,12 @@ describe Usuario do
   end
  
  describe 'tipo' do
+
    it 'deveria verificar se é um administrador' do
      @usuario.role_administrador?.should be_true
      @usuario.role_proprietario?.should be_false
    end
+
    it 'deveria verificar se é um proprietario' do
      @usuario.tipo = Usuario::ROLE[:proprietario]
      @usuario.save.should be_true
@@ -84,5 +86,6 @@ describe Usuario do
      @usuario.role_administrador?.should be_false
      @usuario.role_proprietario?.should be_true
    end
+   
  end
 end

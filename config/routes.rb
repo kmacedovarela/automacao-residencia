@@ -19,6 +19,7 @@ AutomacaoResidenciaNoajax::Application.routes.draw do
   match 'proprietarios(/:action)(/:id)' => 'proprietarios#index'
 
   match 'suporte' => 'home#suporte'
+  match 'home/buscar' => 'home#buscar'
 
   root :to => "home#index"
 
