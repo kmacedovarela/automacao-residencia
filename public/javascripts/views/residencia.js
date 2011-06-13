@@ -7,8 +7,8 @@ var residencia = {
 }
 
 jQuery(function(){
+	
     residencia.aplicar_mascara();
 
-    app.selecionar_menu("menu_residencia");
 });
 
