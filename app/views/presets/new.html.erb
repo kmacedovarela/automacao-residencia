@@ -5,9 +5,11 @@
 <%= render :partial => '/proprietarios/outras_atividades' %>
 
 <%= form_for [@residencia.usuario, @residencia, @preset] do |f| %>
-  <h3> <%= @residencia.endereco %></h3>
-    Nome: <input type="text" name="nome" />
-
+  <h3><span style="color: grey;"> <%= @residencia.endereco %> </span> > Cadastrar Preset</h3>
+  <div id="nome_preset" >
+    <label>Nome</label> 
+    <input type="text" name="nome" class="preset_inp" />
+  </div>
   <% unless @residencia.comodos.blank? %>
       <div id="controles">
         <% @residencia.comodos.each do |comodo| %>

@@ -1321,16 +1321,13 @@ span.ui-radio-state-checked-hover {
 	background-position: 0 -17px;
 }
 label {
-	color: red;
+	color: #585858;
 	line-height: 20px;
 }
 .ui-helper-hidden-accessible {
 	left: -999em;
 	position: absolute;
 }
-
-
-
 
 
 /*  LOGIN -------------------------------------------------------------------------------- */
@@ -1401,7 +1398,7 @@ input:-webkit-autofill {
 	border: none;
 	color: #fff;
 	font-size: 16px;
-	height: 28px;
+	height: 34px;
 	padding: 6px 6px 0 10px;
 	width: 204px;
 }
@@ -1623,6 +1620,7 @@ table .tabela_interativa tr td{
 
 #preset_botao{
     text-align: right;
+    padding: 10px;
 }
 
 .excluir_preset {
@@ -1653,4 +1651,26 @@ table .tabela_interativa tr td{
 #contato{
 	padding-top: 20px;
 	color: white;
+}
+
+.acoes {
+	padding: 5px;
+}
+
+.preset_inp{
+	background: url("/images/preset_inp.gif") no-repeat !important;
+	border: none;
+	color: #000;
+	font-size: 16px;
+	height: 34px;
+	padding: 6px 6px 0 10px;
+	width: 245px;
+}
+
+#new_preset label{
+	font-size: 20px;
+}
+
+#nome_preset{
+	text-align: center;
 }
