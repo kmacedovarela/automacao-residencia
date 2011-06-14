@@ -1352,6 +1352,37 @@ input:-webkit-autofill {
 	position: relative;
 	width: 508px;
 }
+
+#loginbox_error {
+	background: url(../images/login/loginerror_bg.png) no-repeat;
+	font-size: 12px;
+	height: 6px;
+	padding-top: 60px;
+	position: relative;
+	width: 508px;
+	color: red;
+	display: none;
+}
+
+#loginbox_alert {
+	background: url(../images/login/loginalert_bg.png) no-repeat;
+	font-size: 12px;
+	height: 6px;
+	padding-top: 60px;
+	position: relative;
+	width: 508px;
+	color: greenYellow;
+	display: none;
+}
+
+#loginbox_error:hover{
+	cursor: pointer;
+}
+
+#loginbox_alert:hover{
+	cursor: pointer;
+}
+
 #forgotbox {
 	background: url(../images/login/loginbox_bg.png) no-repeat;
 	display: none;

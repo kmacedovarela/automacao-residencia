@@ -1,5 +1,10 @@
 <html>
   <%= render :partial => '/layouts/head' %>
+  <%= javascript_include_tag 'jquery/ui.core' %>
+  <%= javascript_include_tag 'jquery/jquery.pngFix.pack' %>
+  <%= javascript_include_tag 'jquery/ui.checkbox' %>
+  <%= javascript_include_tag 'jquery/jquery.selectbox-0.5' %>
+
   <body id="login-bg">
     <div id="login-holder">
 
@@ -8,20 +13,20 @@
 	    </div>
 
 	    <div class="clear"></div>
-
-      <div id="notice_login">
+ 
+      <div id="loginbox_alert">
         <%= flash[:notice] %>
         <%= flash[:alert] %>
-      </div>
+      </div>    
 
-      <div id="error_login">
-        <%= flash[:error] %>
+      <div id="loginbox_error">
+        <%= flash[:error] %>    
       </div>
-
 
       <%= yield %>
 
     </div>
+
 
   </body>
 </html>
