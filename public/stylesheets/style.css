@@ -1623,7 +1623,6 @@ table .tabela_interativa tr td{
 .comodo {
     float: right;
     border: 1px solid;
-    width: 20%;
     margin: 5px;
 }
 
@@ -1639,6 +1638,11 @@ table .tabela_interativa tr td{
     padding: 5px;
     margin: 5px;
     cursor: pointer;
+    height: 28px;
+		width: 154px;
+		vertical-align: middle;
+		text-align: center;
+		font-size: 18px;
 }
 
 .ligado {
@@ -1693,9 +1697,9 @@ table .tabela_interativa tr td{
 	border: none;
 	color: #000;
 	font-size: 16px;
-	height: 34px;
+	height: 24px;
 	padding: 6px 6px 0 10px;
-	width: 245px;
+	width: 185px;
 }
 
 #new_preset label{
