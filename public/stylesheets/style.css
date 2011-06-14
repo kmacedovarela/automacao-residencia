@@ -1634,14 +1634,20 @@ table .tabela_interativa tr td{
     text-align: center;
 }
 
+.comodo .comodo_title h1{
+    color: white !important;
+		font-size: 20px !important;
+    text-align: center;
+}
+
 .perifericos{
     border: 1px solid;
     display: block;
     padding: 5px;
     margin: 5px;
     cursor: pointer;
-    height: 28px;
-		width: 154px;
+    height: 23px;
+		width: 145px;
 		vertical-align: middle;
 		text-align: center;
 		font-size: 18px;
