@@ -14,7 +14,7 @@
       <div id="controles">
         <% @residencia.comodos.each do |comodo| %>
           <div class="comodo">
-              <div class="comodo_title"><h2><%= comodo.nome %></h2></div>
+              <div class="comodo_title"><h1><%= comodo.nome.capitalize %></h1></div>
                 <% comodo.perifericos.each do |periferico| %>
                   <div id="periferico_<%=periferico.id%>"
                        title="Clique para alterar o estado:  <%='ligado' if periferico.estado%>"
