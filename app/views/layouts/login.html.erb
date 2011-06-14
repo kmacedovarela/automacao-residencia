@@ -15,12 +15,20 @@
 	    <div class="clear"></div>
  
       <div id="loginbox_alert">
-        <%= flash[:notice] %>
-        <%= flash[:alert] %>
+				<% if flash[:notice]  or flash[:alert] %>
+					<span>
+		        <%= flash[:notice] %>
+		        <%= flash[:alert] %>
+					</span>
+				<% end %>
       </div>    
 
       <div id="loginbox_error">
-        <%= flash[:error] %>    
+				<% if flash[:error] %>
+					<span>
+		        <%= flash[:error] %>    
+					</span>
+				<% end %>
       </div>
 
       <%= yield %>

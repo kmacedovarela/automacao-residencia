@@ -1362,6 +1362,7 @@ input:-webkit-autofill {
 	width: 508px;
 	color: red;
 	display: none;
+	left: 5px;
 }
 
 #loginbox_alert {
@@ -1373,6 +1374,23 @@ input:-webkit-autofill {
 	width: 508px;
 	color: greenYellow;
 	display: none;
+	left: 5px;
+}
+
+#loginbox_error span{
+	top: -22px;
+	position: relative;
+	left: 21px;
+	font-family: Helvetica;
+	font-size: 14px;
+}
+
+#loginbox_alert span{
+	top: -22px;
+	position: relative;
+	left: 21px;
+	font-family: Helvetica;
+	font-size: 14px;
 }
 
 #loginbox_error:hover{
