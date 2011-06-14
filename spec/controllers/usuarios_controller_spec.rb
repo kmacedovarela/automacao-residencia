@@ -25,15 +25,17 @@ describe UsuariosController do
 
   before do
     @usuario = Factory :usuario, :nome => 'Rodrigo e Karina'
+    Factory :usuario, :nome => 'karina e rodrigo'
 
     sign_in @usuario
   end
 
   describe "GET index" do
 
-    it "assigns all usuarios as @usuarios" do
+    it "assigns all usuarios as @usuarios order by nome" do
       get :index
       assigns(:usuarios).should_not be_nil
+      assigns(:usuarios).first.nome == 'karina e rodrigo'
       assigns(:usuario).should_not be_nil
     end
 

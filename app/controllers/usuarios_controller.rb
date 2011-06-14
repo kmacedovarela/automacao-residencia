@@ -6,7 +6,7 @@ class UsuariosController < ApplicationController
   respond_to :html, :only => :index
 
   def index
-    @usuarios = Usuario.all
+    @usuarios = Usuario.find :all, "nome ASC"
     @usuario = Usuario.new
   end
 
