@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110520205649) do
+ActiveRecord::Schema.define(:version => 20110614153622) do
 
   create_table "comodos", :force => true do |t|
     t.string   "nome"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(:version => 20110520205649) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "comodos", ["residencia_id"], :name => "comodos_residencia_id_fk"
 
   create_table "perifericos", :force => true do |t|
     t.string   "nome"
@@ -28,6 +30,8 @@ ActiveRecord::Schema.define(:version => 20110520205649) do
     t.boolean  "estado"
   end
 
+  add_index "perifericos", ["comodo_id"], :name => "perifericos_comodo_id_fk"
+
   create_table "presets", :force => true do |t|
     t.string   "nome"
     t.string   "estado_perifericos"
@@ -35,6 +39,8 @@ ActiveRecord::Schema.define(:version => 20110520205649) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "presets", ["residencia_id"], :name => "presets_residencia_id_fk"
 
   create_table "residencias", :force => true do |t|
     t.string   "cidade"
@@ -45,6 +51,8 @@ ActiveRecord::Schema.define(:version => 20110520205649) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "residencias", ["usuario_id"], :name => "residencias_usuario_id_fk"
 
   create_table "usuarios", :force => true do |t|
     t.string   "nome"
@@ -63,5 +71,13 @@ ActiveRecord::Schema.define(:version => 20110520205649) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
   end
+
+  add_foreign_key "comodos", "residencias", :name => "comodos_residencia_id_fk", :dependent => :delete
+
+  add_foreign_key "perifericos", "comodos", :name => "perifericos_comodo_id_fk", :dependent => :delete
+
+  add_foreign_key "presets", "residencias", :name => "presets_residencia_id_fk"
+
+  add_foreign_key "residencias", "usuarios", :name => "residencias_usuario_id_fk", :dependent => :delete
 
 end

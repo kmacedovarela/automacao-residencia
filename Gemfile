@@ -13,6 +13,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 1.1.beta1'
 	gem 'shoulda'
 	gem 'rcov'
+  gem 'foreigner'
 end
 
 
