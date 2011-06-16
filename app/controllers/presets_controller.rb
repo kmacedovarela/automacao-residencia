@@ -41,6 +41,8 @@ class PresetsController < ApplicationController
     @residencia = Residencia.find params[:residencia_id]
     preset = Preset.find params[:id]
 
+    p preset
+
     # @residencia.comodos.each do |comodo|
     #   comodo.perifericos.each do |periferico|
     #     id = periferico.id.to_s

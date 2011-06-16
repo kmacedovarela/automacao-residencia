@@ -6,11 +6,11 @@ class Periferico < ActiveRecord::Base
   validates :nome, :pino, :presence => true
 
   def estado_ligado
-    pino
+  	(pino.to_s + "9").to_i
   end
 
   def estado_desligado
-    (pino.to_s + "9").to_i
+    pino
   end
 
 end
