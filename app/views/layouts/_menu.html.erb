@@ -2,13 +2,6 @@
   <div class="nav-outer">
       <div id="nav-right">
         <div class="nav-divider">&nbsp;</div>
-          <% if current_usuario.role_administrador? %>
-            <div class="showhide-account">
-			        <%= image_tag("shared/nav/nav_myaccount.gif", :size => "93x14") %>
-            </div>
-
-            <div class="nav-divider">&nbsp;</div>
-          <% end %>
         <a href="/usuarios/sign_out" id="logout">
 					<%= image_tag("shared/nav/nav_logout.gif", :size => "64") %>
         </a>
